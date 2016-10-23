@@ -4,31 +4,54 @@
 	<link rel="stylesheet" href="/css/index.css">
 @endpush
 
+@push('script')
+	<script src="/js/index.js"></script>
+@endpush
+
 @section('content')
+<?php
+	$user_id = array();
+	$password = array();
+
+	extract($errors->toArray());
+?>
+
 	<div class="container">
-		<form class="form-horizontal" action="{{ url('login') }}" method="POST">
+		<form class="form-horizontal" action="{{ route('session.store') }}" method="POST">
 			{{ csrf_field() }}
-			<div class="row form-group">
+
+			<div class="row form-group @if (count($user_id)) {{ 'has-error' }} @endif">
+				@if (count($user_id))
+					<label for="user_id" class="notice col-md-offset-2 col-md-7 col-xs-12 control-label">
+						* {{ $user_id[0] }}
+					</label>
+				@endif
 				<label for="user_id" class="col-md-offset-2 col-md-2 control-label">
 					<span class="glyphicon glyphicon-user"></span> 아이디
 				</label>
 				<div class="col-md-5 col-xs-12">
-					<input type="text" class="form-control" id="user_id" name="user_id">
+					<input type="text" class="form-control" name="user_id" value="{{ old('user_id') }}">
 				</div>
 			</div>	
-			<div class="row form-group">
+			<div class="row form-group @if (count($password)) {{ 'has-error' }} @endif">
+				@if (count($password))
+					<label for="password" class="notice col-md-offset-2 col-md-7 col-xs-12 control-label">
+						* {{ $password[0] }}
+					</label>
+				@endif
+
                                 <label for="password" class="col-md-offset-2 col-md-2 control-label">
 					<span class="glyphicon glyphicon-eye-open"></span> 비밀번호
 				</label>
                                 <div class="col-md-5 col-xs-12">
-                                        <input type="password" class="form-control" id="password" name="passowrd">
+                                        <input type="password" class="form-control" name="password">
                                 </div>
                         </div>
 			<div class="form-group">
 				<div class="col-md-offset-4 col-md-8">
 					<div class="checkbox">
 						<label>
-							<input type="checkbox"> 자동 로그인
+							<input type="checkbox" name="remember" @if (old('remember')) checked @endif> 자동 로그인
 						</label>
 					</div>
 				</div>
@@ -54,39 +77,44 @@
 				<div class="modal-body">
 					<form class="form-horizontal">
 						<div class="form-group">
+							<label for="name" class="notice col-sm-offset-1 col-sm-10 col-xs-12 text-right control-label"></label>
 							<label for="name" class="col-sm-offset-1 col-sm-3 control-label">이름</label>
 	    						<div class="col-sm-7">
-		      						<input type="text" class="form-control" id="name" name="name">
+		      						<input type="text" class="form-control" name="name">
     							</div>
 						</div>
 						<div class="form-group">
+							<label for="email" class="notice col-sm-offset-1 col-sm-10 col-xs-12 text-right control-label"></label>
 							<label for="email" class="col-sm-offset-1 col-sm-3 control-label">이메일</label>
                                                 	<div class="col-sm-7">
-                                                        	<input type="email" class="form-control" id="email" name="email">
+                                                        	<input type="email" class="form-control" name="email">
                                                 	</div>
 						</div>
 						<div class="form-group">
+							<label for="phone" class="notice col-sm-offset-1 col-sm-10 col-xs-12 text-right control-label"></label>
                                                         <label for="phone" class="col-sm-offset-1 col-sm-3 control-label">휴대전화 [연락처]</label>
                                                         <div class="col-sm-7">
-                                                        	<input type="text" class="form-control" id="phone" name="phone">
+                                                        	<input type="text" class="form-control" name="phone">
                                                         </div>
                                                 </div>
 						<div class="form-group">
+							<label for="user_id" class="notice col-sm-offset-1 col-sm-10 col-xs-12 text-right control-label"></label>
                                                         <label for="user_id" class="col-sm-offset-1 col-sm-3 control-label">아이디</label>
                                                         <div class="col-sm-7">
-                                                        	<input type="text" class="form-control" id="user_id" name="user_id">
+                                                        	<input type="text" class="form-control" name="user_id">
                                                         </div>
                                                 </div>
 						<div class="form-group">
+							<label for="password" class="notice col-sm-offset-1 col-sm-10 col-xs-12 text-right control-label"></label>
                                                         <label for="password" class="col-sm-offset-1 col-sm-3 control-label">비밀번호</label>
                                                         <div class="col-sm-7">                                                   
-                                                                <input type="password" class="form-control" id="password" name="password">
+                                                                <input type="password" class="form-control" name="password">
                                                         </div>
                                                 </div>
 						<div class="form-group">
-                                                        <label for="pw_check" class="col-sm-offset-1 col-sm-3 control-label">비밀번호 확인</label>
+                                                        <label for="password_confirmation" class="col-sm-offset-1 col-sm-3 control-label">비밀번호 확인</label>
                                                         <div class="col-sm-7">
-                                                        	<input type="password" class="form-control" id="pw_check" name="pw_check">
+                                                        	<input type="password" class="form-control" name="password_confirmation">
                                                         </div>
                                                 </div>
 						
@@ -123,18 +151,18 @@
                                                 <div class="form-group">
                                                         <label for="user_id" class="col-sm-offset-1 col-sm-3 control-label">아이디</label>
                                                         <div class="col-sm-7">
-                                                                <input type="text" class="form-control" id="user_id" name="user_id">
+                                                                <input type="text" class="form-control" name="user_id">
                                                         </div>
                                                 </div>
 						<div class="form-group">
 							<label for="email" class="col-sm-offset-1 col-sm-3 control-label">이메일</label>
 							<div class="col-sm-7">
-								<input type="email" class="form-control" id="email" name="email">
+								<input type="email" class="form-control" name="email">
 							</div>
 						</div>
 						<div class="form-group">
                                                         <div class="col-sm-offset-9 col-sm-2">
-                                                                <button id="register_btn" type="button" class="btn btn-default">Send</button>
+                                                                <button id="find_pw_btn" type="button" class="btn btn-default">Send</button>
                                                         </div>
                                                 </div>
 					</form>

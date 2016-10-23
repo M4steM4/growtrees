@@ -10,7 +10,8 @@
 
 @section('header')
 	<header class="container-fluid">
-		<h1>Test</h1>
+		<h1>안뇽하세요 {{ $name }}님</h1>
+		<input type="button" value="로그아웃" onclick="location.href='logout';">
 	</header>
 @stop
 

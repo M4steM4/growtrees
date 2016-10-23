@@ -11,21 +11,36 @@
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+Route::get('/', [
+	'as' => 'index',
+	'middleware' => ['guest'],
+	'uses' => 'IndexController'
+]);
 
+// related to login
 Route::group(['as' => 'session.'], function () {
 	Route::post('login', [
 		'as' => 'store',
-		'uses' => 'Auth\LoginController@postLogin'
+		'uses' => 'Auth\LoginController@login'
 	]);
         Route::get('logout', [
 		'as' => 'destroy',
-		'uses' => 'Auth\LoginController@getLogout'
+		'uses' => 'Auth\LoginController@logout'
 	]);
 });
 
-Route::group(['middleware' => ['auth']], function () {
+// related to register
+Route::group(['as' => 'user.'], function () {
+	Route::post('register', [
+		'as' => 'store',
+		'uses' => 'Auth\RegisterController@register'
+	]);
+});
 
+// after login
+Route::group(['middleware' => ['auth']], function () {
+	Route::get('home', function() {
+		$name = Auth::user()->name;
+		return view('welcome', compact('name'));
+	});
 });
