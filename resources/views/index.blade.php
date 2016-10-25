@@ -13,10 +13,15 @@
 	<div id="main" class="container-fluid">
 		<img src="{{ asset('images/logo.png') }}" alt="logo_image" id="main_img">
 		
-		<form action="{{ route('session.store') }}" class="form-horizontal" method="POST">
+		<form id="login_form" action="{{ route('session.store') }}" class="form-horizontal" method="POST">
 			{{ csrf_field() }}
 
 			<div class="inputform row form-group">
+				@if (count($errors))
+					<label for="user_id" class="col-md-offset-4 col-md-4 col-xs-offset-2 col-xs-8">
+						* {{ $errors->first() }}
+					</label>
+				@endif
 				<input type="text" class="col-md-offset-4 col-md-4 col-xs-offset-2 col-xs-8 maininput" name="user_id" value="{{ old('user_id') ? : '아이디' }}" >
 				<input type="password" class="col-md-offset-4 col-md-4 col-xs-offset-2 col-xs-8 maininput" name="password" value="비밀번호">
 			</div>
@@ -38,36 +43,44 @@
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal">&times;</button>
-					<h4 class="modal-title">Register</h4>
+					<div class="col-sm-offset-1">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Register</h4>
+					</div>
 				</div>
 				<div class="modal-body">
 					<form class="form-horizontal">
 						<div class="form-group">
+							<label for="name" class="col-sm-offset-1 col-xs-10 control-label notice"></label>
 							<label for="name" class="col-sm-offset-1 col-sm-3 control-label">이름</label>
+
 							<div class="col-sm-7">
 								<input type="text" class="form-control" name="name">
 							</div>
 						</div>
 						<div class="form-group">
+							<label for="email" class="col-sm-offset-1 col-xs-10 control-label notice"></label>
 							<label for="email" class="col-sm-offset-1 col-sm-3 control-label">이메일</label>
 							<div class="col-sm-7">
 								<input type="email" class="form-control" name="email">
 							</div>
 						</div>
 						<div class="form-group">
+							<label for="phone" class="col-sm-offset-1 col-xs-10 control-label notice"></label>
 							<label for="phone" class="col-sm-offset-1 col-sm-3 control-label">휴대전화 [연락처]</label>
 							<div class="col-sm-7">
 								<input type="text" class="form-control" name="phone">
 							</div>
 						</div>
 						<div class="form-group">
+							<label for="user_id" class="col-sm-offset-1 col-xs-10 control-label notice"></label>
 							<label for="user_id" class="col-sm-offset-1 col-sm-3 control-label">아이디</label>
 							<div class="col-sm-7">
 								<input type="text" class="form-control" name="user_id">
 							</div>
 						</div>
 						<div class="form-group">
+							<label for="password" class="col-sm-offset-1 col-xs-10 control-label notice"></label>
 							<label for="password" class="col-sm-offset-1 col-sm-3 control-label">비밀번호</label>
 							<div class="col-sm-7">                                                   
 								<input type="password" class="form-control" name="password">
@@ -105,8 +118,10 @@
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal">&times;</button>
-					<h4 class="modal-title">Find Password</h4>
+					<div class="col-sm-offset-1">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Find Password</h4>
+					</div>
 				</div>
 				<div class="modal-body">
 					<form class="form-horizontal">
