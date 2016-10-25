@@ -13,9 +13,7 @@
 	@stack('style')
 </head>
 <body>
-	@section('header')
-		@include('layouts.header')
-	@show
+	@section('header')@show
 	@section('content')@show
 	@section('footer')@show
 	
