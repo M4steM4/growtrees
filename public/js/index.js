@@ -32,7 +32,7 @@ function requestRegister() {
         values.email = $("#register input[name='email']").val();
         values.phone = $("#register input[name='phone']").val();
         values.user_id = $("#register input[name='user_id']").val();
-        values.password = $("#regiter input[name='password']").val();
+        values.password = $("#register input[name='password']").val();
         values.password_confirmation = $("#register input[name='password_confirmation").val();
 	
 	$.ajaxSetup({

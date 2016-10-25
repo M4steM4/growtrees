@@ -14,9 +14,9 @@ return [
     */
 
     'password' => 'Passwords must be at least six characters and match the confirmation.',
-    'reset' => 'Your password has been reset!',
-    'sent' => 'We have e-mailed your password reset link!',
+    'reset' => '비밀번호가 재설정되었습니다.',
+    'sent' => '비밀번호 재설정을 위한 이메일이 전송되었습니다.',
     'token' => 'This password reset token is invalid.',
-    'user' => "We can't find a user with that e-mail address.",
+    'user' => "id와 이메일이 일치하지 않습니다.",
 
 ];

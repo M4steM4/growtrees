@@ -17,6 +17,10 @@ Route::get('/', [
 	'uses' => 'IndexController'
 ]);
 
+Route::get('reset_pw', function () {
+	return view('temp');
+});
+
 // related to login
 Route::group(['as' => 'session.'], function () {
 	Route::post('login', [
@@ -34,6 +38,10 @@ Route::group(['as' => 'user.'], function () {
 	Route::post('register', [
 		'as' => 'store',
 		'uses' => 'Auth\RegisterController@register'
+	]);
+	Route::post('reset_pw', [
+		'as' => 'update',
+		'uses' => 'Auth\ForgotPasswordController@sendResetLinkEmail'
 	]);
 });
 
