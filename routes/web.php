@@ -48,7 +48,7 @@ Route::group(['as' => 'user.'], function () {
 // after login
 Route::group(['middleware' => ['auth']], function () {
 	Route::get('home', function() {
-		$name = Auth::user()->name;
-		return view('welcome', compact('name'));
+		$user = Auth::user();
+		return view('welcome', compact('user'));
 	});
 });

@@ -10,7 +10,9 @@
 
 @section('header')
 	<header class="container-fluid">
-		<h1>안뇽하세요 {{ $name }}님</h1>
+		<img src="{{ asset('storage/profile_imgs/' . $user->nickname . '.img') }}" alt="프로필 사진">
+
+		<h1>안뇽하세요 {{ $user->name }}님</h1>
 		<input type="button" value="로그아웃" onclick="location.href='logout';">
 	</header>
 @stop
