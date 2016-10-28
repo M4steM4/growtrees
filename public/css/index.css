@@ -1,7 +1,12 @@
+h1, h2, h3, h4, h5, h6 {
+	font-weight: bold;
+}
 a {
 	color: rgba(222, 222, 222, 0.6);
 }
 a:hover {
+	-webkit-transition: 0.5s;
+        transition: 0.7s;
 	color: white;
 	text-decoration: none;
 }
@@ -14,11 +19,30 @@ a:hover {
 	font-size: 0.8em;
 }
 .modal-header {
+	color: white;
 	background-color: #2ecc71;
 	margin-bottom: 1em;
 }
-.panel {
-	padding: 0;
+.modal-body p {
+	padding: 1em 0;
+}
+.modal-body, .modal-body button, .modal-body input {
+	color: #888888;
+}
+.modal-body input {
+	padding-left: 0;
+	height: 3em;
+	border-radius: 0;
+	border: none;
+	box-shadow: none;
+	border-bottom: 1px solid #888888;
+	outline: none;
+}
+.modal-body input:focus {
+	-webkit-transition: 0.5s;
+        transition: 0.7s;
+	border-radius: 0.3em;
+    	-webkit-appearance: none;
 }
 input[name='profile_image'] {
 	width: 150px;
@@ -30,11 +54,22 @@ input[name='profile_image'] {
 }
 
 #profile_wrapper {
+	margin-top: 0.5em;
 	margin-left: 1em;
 	width: 150px;
 	height: 150px;
 	overflow: hidden;
 }
+label[for="profile_image"]:first-child {
+	float: right;
+}
+
+@media screen and (min-width: 768px) {
+	#profile_wrapper {
+		margin-left: 4.6em;
+	}
+}
+
 #profile_wrapper, #selected_image {
 	border: 1px solid #cccccc;
         border-radius: 1em;
@@ -42,9 +77,12 @@ input[name='profile_image'] {
 
 #preview {
 	position: absolute;
-	left: 0em;
+	left: 0;
 	top: 0;
 	z-index: 0;
+}
+.form-group:last-child {
+	margin-bottom: 0;
 }
 .modal-body {
 	padding-bottom: 0;
@@ -53,6 +91,7 @@ input[name='profile_image'] {
 	margin-top: 2em;
 	padding: 1em 0;
 }
+
 .div {
 	border-top: 1px solid #eeeeee;
 	margin-bottom: 3%
@@ -176,9 +215,9 @@ input[name='profile_image'] {
 	border: 3px solid rgba(200, 200, 200, 0.7);
 	background-color: transparent;
 	color: rgba(222, 222, 222, 0.6);
-	-webkit-transition: 0.5s;
-    transition: 0.7s;
-    outline: none;
+    	-webkit-transition: 0.5s;
+	transition: 0.7s;
+	outline: none;
 }
 .inputform > input[type=text]:focus, .inputform > input[type=password]:focus {
     border :3px solid rgba(255, 255, 255, 1);

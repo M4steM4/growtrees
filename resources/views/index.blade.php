@@ -15,7 +15,7 @@
 	<div id="main" class="container-fluid">
 		<img src="{{ asset('images/logo.png') }}" alt="logo_image" id="main_img">
 		
-		<form id="login_form" action="{{ route('session.store') }}" class="form-horizontal" method="POST">
+		<form id="login_form" action="{{ route('session.store') }}" method="POST">
 			{{ csrf_field() }}
 
 			<div class="inputform row form-group">
@@ -51,62 +51,64 @@
 					</div>
 				</div>
 				<div class="modal-body">
+					<div class="col-xs-12 text-center">
+						<img src="{{ asset('images/glyph/glyphicons-lock.png') }}" alt="정보 이용안내">
+						<h4>정보 이용안내</h4>
+					</div>
+					<p class="col-sm-offset-1 col-sm-10">
+					  아이디는 공개되지 않으며 닉네임만 공개됩니다.
+					  이메일은 비밀번호 분실 시 필요합니다.
+					  이메일과 휴대전화 번호는 팀원들 사이에서만 공유되며 다른 목적으로는 이용되지 않습니다.
+					</p>
 					<form class="form-horizontal">
 						<div class="form-group">
 							<label for="name" class="col-sm-offset-1 col-sm-10 col-xs-12 control-label notice"></label>
-							<label for="name" class="col-sm-offset-1 col-sm-3 col-xs-12 control-label">이름</label>
-
-							<div class="col-sm-7">
-								<input type="text" class="form-control" name="name">
+							<div class="col-sm-offset-1 col-sm-10 col-xs-12">
+								<input type="text" class="form-control" name="name" value="이름">
 							</div>
 						</div>
 						<div class="form-group">
                                                         <label for="nickname" class="col-sm-offset-1 col-sm-10 col-xs-12 control-label notice"></label>
-                                                        <label for="nickname" class="col-sm-offset-1 col-sm-3 col-xs-12 control-label">닉네임</label>
-
-                                                        <div class="col-sm-7">
-                                                                <input type="text" class="form-control" name="nickname">
+                                                        <div class="col-sm-offset-1 col-sm-10 col-xs-12">
+                                                                <input type="text" class="form-control" name="nickname" value="닉네임">
                                                         </div>
                                                 </div>
 						<div class="form-group">
 							<label for="email" class="col-sm-offset-1 col-sm-10 col-xs-12 control-label notice"></label>
-							<label for="email" class="col-sm-offset-1 col-sm-3 col-xs-12 control-label">이메일</label>
-							<div class="col-sm-7">
-								<input type="email" class="form-control" name="email">
+							<div class="col-sm-offset-1 col-sm-10 col-xs-12">
+								<input type="email" class="form-control" name="email" value="이메일">
 							</div>
 						</div>
 						<div class="form-group">
 							<label for="phone" class="col-sm-offset-1 col-sm-10 col-xs-12 control-label notice"></label>
-							<label for="phone" class="col-sm-offset-1 col-sm-3 col-xs-12 control-label">휴대전화[연락처]</label>
-							<div class="col-sm-7">
-								<input type="text" class="form-control" name="phone">
+							<div class="col-sm-offset-1 col-sm-10 col-xs-12">
+								<input type="text" class="form-control" name="phone" value="휴대전화[연락처]">
 							</div>
 						</div>
 						<div class="form-group">
 							<label for="user_id" class="col-sm-offset-1 col-sm-10 col-xs-12 control-label notice"></label>
-							<label for="user_id" class="col-sm-offset-1 col-sm-3 col-xs-12 control-label">아이디</label>
-							<div class="col-sm-7">
-								<input type="text" class="form-control" name="user_id">
+							<div class="col-sm-offset-1 col-sm-10 col-xs-12">
+								<input type="text" class="form-control" name="user_id" value="아이디">
 							</div>
 						</div>
 						<div class="form-group">
 							<label for="password" class="col-sm-offset-1 col-sm-10 col-xs-12 control-label notice"></label>
-							<label for="password" class="col-sm-offset-1 col-sm-3 col-xs-12 control-label">비밀번호</label>
-							<div class="col-sm-7">                                                   
-								<input type="password" class="form-control" name="password">
+							<div class="col-sm-offset-1 col-sm-10 col-xs-12">                   
+								<input type="password" class="form-control" name="password" value="비밀번호">
 							</div>
 						</div>
 						<div class="form-group">
 							<label for="password_confirmation" class="col-sm-offset-1 col-sm-10 col-xs-12 control-label notice"></label>
-							<label for="password_confirmation" class="col-sm-offset-1 col-sm-3 col-xs-12 control-label">비밀번호 확인</label>
-							<div class="col-sm-7">
-								<input type="password" class="form-control" name="password_confirmation">
+							<div class="col-sm-offset-1 col-sm-10 col-xs-12">
+								<input type="password" class="form-control" name="password_confirmation" value="비밀번호 확인">
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="profile_image" class="col-sm-offset-1 col-sm-10 col-xs-12 control-label notice"></label>
-							<label for="profile_image" class="col-sm-offset-1 col-sm-3 col-xs-12 control-label">프로필 사진(선택)</label>
-							<div id="profile_wrapper" class="col-sm-7">
+							<div class="col-sm-offset-1 col-sm-10 col-xs-12">
+								<label for="profile_image" class="control-label notice"></label>
+								<label for="profile_image" class="control-label">프로필 사진(선택)</label>
+							</div>
+							<div id="profile_wrapper" class="col-sm-10 col-xs-12">
 								<img id="preview" src="{{ asset('storage/profile_imgs/default') }}" alt="profile_image" width="150" height="150">
 								<input type="file" class="form-contorl" name="profile_image" accept="image/*">
 							</div>
@@ -115,24 +117,13 @@
 						<input type="hidden" name="x1" value="0">
 						<input type="hidden" name="y1" value="0">
 						<input type="hidden" name="size" value="250">
-						
-						<div class="panel panel-info col-sm-offset-1 col-sm-10">
-							<div class="panel-heading">* 정보 이용 안내</div>
-							<div class="panel-body">
-								아이디는 공개되지 않으며 닉네임만 공개됩니다. 이메일은 비밀번호 분실 시 필요합니다. 이메일과 휴대전화 번호는 팀원들 사이에서만 공유되며 다른 목적으로는 이용되지 않습니다.
-							</div>
-						</div>			
-
-						<div class="form-group">
-							<div class="col-sm-offset-9 col-sm-2">
-								<button id="register_btn" type="button" class="btn btn-default">완료</button>
-							</div>
+						<div class="form-group">	
+							<button id="register_btn" type="button" class="btn btn-default col-xs-12">
+								완료
+							</button>
 						</div>
 					</form>
 				</div>
-				<!--<div class="modal-footer">
-	
-				</div>-->
 			</div>
 		</div>
 	</div>
@@ -149,21 +140,19 @@
 				<div class="modal-body">
 					<form class="form-horizontal">
 						<div class="form-group">
-							<label for="user_id" class="col-sm-offset-1 col-sm-3 control-label">아이디</label>
-							<div class="col-sm-7">
-								<input type="text" class="form-control" name="user_id">
+							<div class="col-sm-offset-1 col-sm-10 col-xs-12">
+								<input type="text" name="user_id" class="form-control" value="아이디">
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="email" class="col-sm-offset-1 col-sm-3 control-label">이메일</label>
-							<div class="col-sm-7">
-								<input type="email" class="form-control" name="email">
+							<div class="col-sm-offset-1 col-sm-10 col-xs-12">
+								<input type="email" class="form-control" name="email" value="이메일">
 							</div>
 						</div>	
 						<div class="form-group">
-							<div class="col-sm-offset-9 col-sm-2">
-								<button id="find_pw_btn" type="button" class="btn btn-default">전송</button>
-							</div>
+							<button id="find_pw_btn" type="button" class="btn btn-default col-xs-12">
+								전송
+							</button>
 						</div>
 					</form>
 				</div>
@@ -186,7 +175,7 @@
 						<div class="col-sm-offset-1 col-sm-10 col-xs-12 text-center">
 							<img id="selected_image" src="" alt="profile_image" width="250" height="250">
 						</div>
-					
+				
 						<button class="btn btn-default col-xs-12">
 							완료
 						</button>

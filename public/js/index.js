@@ -7,21 +7,6 @@ function heightResize () {
 	mainPage.style.padding = "0 0 0 10px";
 	//mainPage.style.margin = "0 -5px 0 -5px";
 }
-function onFocusLoginId () {
-	if(this.callCnt > 0) { return; }
-	else if(this.callCnt == undefined) { this.callCnt = 0; }
-
-	$(this).val('');
-	this.callCnt++;
-}
-function onFocusLoginPw () {
-	if(this.callCnt > 0) { return; }
-	else if(this.callCnt == undefined) { this.callCnt = 0; }
-
-	$(this).val('');
-	$(this).attr('type', 'password');
-	this.callCnt++;
-}
 
 function onImageChanged (input) {
 	if (input.files && input.files[0]) {
@@ -67,18 +52,43 @@ function onEditFinished () {
 	}, 500);
 }
 
+var inputPlaceHolders = {
+        'name' : '이름',
+        'nickname' : '닉네임',
+        'email' : '이메일',
+        'phone' : '휴대전화[연락처]',
+        'user_id' : '아이디',
+        'password' : '비밀번호',
+        'password_confirmation' : '비밀번호 확인'
+};
+
+function onFocusInputTag () {
+	if(this.type == 'file' || this.value != inputPlaceHolders[this.name]) { return; }
+
+	this.value = '';
+	if(this.name.indexOf('password') != -1) {
+		this.type = 'password';
+	}
+}
+
+function onFocusOutInputTag () {
+	if(this.type == 'file' || this.value) { return; }
+	
+	if(this.name.indexOf('password') != -1) {
+		this.type = 'text';
+	}
+	this.value = inputPlaceHolders[this.name];
+}
+
 $(document).ready(function () {
 	heightResize();
 	window.addEventListener('resize', heightResize);
 
-	/* login form focus */
-	var $loginIdForm = $('#login_form input[name="user_id"]');
-	var $loginPwForm = $('#login_form input[name="password"]');
-	
-	$loginIdForm.focus(onFocusLoginId);
+	/* input tags focus */
+	$('input').focus(onFocusInputTag);
+	$('input').focusout(onFocusOutInputTag);	
 
-	$loginPwForm.attr('type', 'text');
-	$loginPwForm.focus(onFocusLoginPw);
+	$('input[name^=password]').attr('type', 'text');
 	
 	/* profile image */
 	var $inputFile = $('input[name="profile_image"]');

@@ -132,8 +132,8 @@ return [
 	],
 	'profile_image' => [
 	    'image' => '이미지 파일만 가능',
-	    'dimensions' => '크기가 너무 작습니다',
-	    'max' => '파일 크기가 너무 큽니다',
+	    'dimensions' => '사진 크기가 너무 작음',
+	    'max' => '용량이 너무 큼',
 	],
     ],
 
