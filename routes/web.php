@@ -17,9 +17,11 @@ Route::get('/', [
 	'uses' => 'IndexController'
 ]);
 
+/*
 Route::get('reset_pw', function () {
 	return view('temp');
 });
+*/
 
 // related to login
 Route::group(['as' => 'session.'], function () {
@@ -33,22 +35,25 @@ Route::group(['as' => 'session.'], function () {
 	]);
 });
 
-// related to register
+// related to user info
 Route::group(['as' => 'user.'], function () {
 	Route::post('register', [
 		'as' => 'store',
 		'uses' => 'Auth\RegisterController@register'
 	]);
 	Route::post('reset_pw', [
-		'as' => 'update',
+		'as' => 'reset_pw',
 		'uses' => 'Auth\ForgotPasswordController@sendResetLinkEmail'
+	]);
+	Route::patch('update_profile', [
+		'as' => 'update',
+		'uses' => 'HomeController@updateUserInfo'
 	]);
 });
 
-// after login
 Route::group(['middleware' => ['auth']], function () {
-	Route::get('home', function() {
-		$user = Auth::user();
-		return view('welcome', compact('user'));
-	});
+	Route::get('home', [
+		'as' => 'home',
+		'uses' => 'HomeController@index'
+	]);
 });

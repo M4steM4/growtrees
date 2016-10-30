@@ -1,0 +1,107 @@
+h1, h2, h3, h4, h5, h6 {
+	font-weight: bold;
+}
+header {
+	background-color: rgba(200, 200, 200, 0.1);
+}
+header .glyphicon {
+	padding: 0.1em;
+	font-size: 2em;
+	color: #888888;
+}
+.modal-header {
+	color: white;
+        background-color: #2ecc71;
+        margin-bottom: 1em;
+}
+.profile_info {
+	margin-top: 1em;
+}
+#profile_image, #preview {
+	width: 150px;
+	height: 150px;
+}
+#preview_wrapper {
+	width: 150px;
+	height: 150px;
+	position: relative;
+	padding: 0;
+	margin-left: 1em;
+	margin-bottom: 1em;
+	overflow: hidden;
+}
+#profile_image, #preview_wrapper, #selected_image {
+	border: 1px solid #cccccc;
+        border-radius: 1em;	
+}
+@media screen and (min-width: 768px) {
+	#preview_wrapper {
+		margin-left: 4.5em;
+	}
+}
+#tooltip {
+	position: absolute;
+	color: #ccc;
+	left: 0;
+	top: 150px;
+	width: 150px;
+	height: 40px;
+	background-color: rgba(32, 32, 32, 0.8);
+}
+#tooltip .glyphicon {
+	padding: 5px;
+	font-size: 20px;
+}
+#profile_update label.notice {
+	display: block;
+	width: 100%;
+	text-align: right;
+        margin-bottom: 0;
+        font-size: 0.8em;
+}
+label[for="profile_image"] {
+	text-align: left !important;
+	color: #a94442;
+}
+input[type=file] {
+	position: absolute;
+	width: 150px;
+	min-height: 145px;
+	height: 150px;
+	opacity: 0;
+}
+.modal-body {
+	padding-bottom: 0;
+}
+.modal-body div:last-child {
+	margin: 0;
+	padding-left: 0;
+	padding-right: 0;
+}
+.modal-body button {
+	margin-top: 2em;
+	padding: 1em;
+}
+.modal-body, .modal-body button, .modal-body input {
+        color: #888888;
+}
+.modal-body input {
+        padding-left: 0;
+        height: 3em;
+        border-radius: 0;
+        border: none;
+        box-shadow: none;
+        border-bottom: 1px solid #888888;
+        outline: none;
+	margin-bottom: 0.2em;
+}
+.modal-body input:focus {
+        -webkit-transition: 0.5s;
+        transition: 0.7s;
+        border-radius: 0.3em;
+        -webkit-appearance: none;
+}
+.modal-body input:disabled {
+	background-color: white;
+}
+

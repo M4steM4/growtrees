@@ -52,7 +52,7 @@
 				</div>
 				<div class="modal-body">
 					<div class="col-xs-12 text-center">
-						<img src="{{ asset('images/glyph/glyphicons-lock.png') }}" alt="정보 이용안내">
+						<img class="glyph" src="{{ asset('images/glyph/glyphicons-lock.png') }}" alt="정보 이용안내">
 						<h4>정보 이용안내</h4>
 					</div>
 					<p class="col-sm-offset-1 col-sm-10">
