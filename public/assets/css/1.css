@@ -1,0 +1,376 @@
+html {
+	background: url(../img/345.jpg) no-repeat center center fixed; 
+	/*-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;*/
+	background-size: cover;
+	background-position: center center;
+	text-align: center;
+}
+body {
+	min-width: 600px;
+}
+.alertsection {
+	background: transparent;
+	height: auto;
+	position: fixed;
+	border: 1px solid white;
+	margin-top: 0.5%;
+	padding: 0.5% 1% 0.5% 1%;
+}
+.test {
+	position: relative;
+}
+.alert {
+	z-index: 10;
+	margin-bottom: 5%;
+	opacity: 1;
+}
+.alert > strong {
+	margin-left: 18px;
+}
+.alert > strong > .glyphicon {
+	float: left;
+	margin-right: 5px;
+	font-size: 2rem;
+}
+li > a > div > .alarm1 {
+	display: inline-block;
+	right: 100px;
+	top: 20px;
+	position: relative;
+}
+li > a > div > .alarm2 {
+	right: 10px;
+	top: 30px;
+	position: relative;
+}
+.nav > li > a > div {
+	text-align: center;
+	vertical-align: middle;
+	font-size: 25px;
+	margin: -22px 15px 10px 0;
+}
+:before, :after {
+	content: "";
+	position: absolute;
+}
+#addpot {
+	margin: 0 -15px -15px -15px;
+	min-width: 220px;
+	min-height: 400px;
+	background-color: rgba(255, 255, 255, 0.25);
+	z-index: 2;
+}
+#addpot:hover {
+	background-color: rgba(255, 255, 255, 0.5);
+}
+.bookself {
+	margin-top: 3%;
+	height: auto;
+	border: 1px solid red;
+}
+.main {
+	margin-top: -20px;
+}
+.flowerpotcase {
+	display: border-box;
+	margin: 1.65%;
+	width: 30%;
+	min-width: 220px;
+	min-height: 400px;
+	border: 1px solid blue;
+	display: table;
+	padding-bottom: 10px;
+}
+.pottext {
+	font-size: 24px;
+	font-weight: bold;
+}
+/* add flower pot */
+.block {
+	background-color: rgba(55, 55, 55, 1);
+	display: border-box;
+	border-radius: 5px;
+	z-index: 1;
+}
+.block-col {
+	width: 150px;
+	height: 20px;
+	left: 35px;
+	top: 190px;
+	position: relative;
+}
+.block-row {
+	width: 20px;
+	height: 150px;
+	left: 100px;
+	top: 105px;
+	position: relative;
+}
+/* pot */
+.flowerpot {
+	width: 100px;
+	display: table-cell;
+	vertical-align: bottom;
+}
+.pot {
+	background: #eeeeee;
+	position: relative;
+}
+.pot > div {
+	position: absolute;
+}
+.pot-top {
+	width: 160px;
+	height: 120px;
+	top: -120px;
+	left: 50%;
+	margin-left: -80px;
+}
+.pot-top:before {
+	left: -15px;   
+	top: 0;
+	border-left: 15px solid transparent;
+	border-right: 0px solid transparent;	
+	border-top: 140px solid #eeeeee;
+}
+.pot-top:after {
+	right: -15px;   
+	top: 0;
+	border-right: 15px solid transparent;
+	border-left: 0px solid transparent;	
+	border-top: 140px solid #eeeeee;
+}
+.pot-bot {
+	width: 180px;
+	height: 20px;
+}
+.pot-bot:before {
+	top: 0;
+	left: -15px;
+	border-left: 15px solid transparent;
+	border-right: 0px solid transparent;	
+	border-top: 20px solid #eeeeee;
+}
+.pot-bot:after {
+	top: 0;
+	right: -15px;
+	border-left: 0px solid transparent;
+	border-right: 15px solid transparent;	
+	border-top: 20px solid #eeeeee;
+}
+/* sign panel */
+.sign-top {
+	display: block;
+	width: 40px;
+	height: 26px;
+	border: 2px solid #b7b0b0;
+	left: 134px;
+	top: -170px;
+	z-index: 30;
+	background-color: #111215;
+	color: #dddddd;
+}
+.sign-bottom {
+	display: block;
+	width: 10px;
+	height: 60px;
+	border: 1px solid #ba9377;
+	left: 149px;
+	top: -175px;
+	z-index: -1;
+	background-color: #dab397;
+}
+
+.pot-shadow {
+	z-index: 3;
+	width: 160px;
+	height: 15px;
+	background: rgba(120,120,120,0.2);
+	left: 50%;
+	top: -10px;
+	margin-left: -80px;
+}
+.shadow {
+	background: rgba(100, 100, 100, 0.5);
+	z-index: -1; 
+	bottom: -10px;
+	left: 50%;
+	margin-left: -100px;
+	width: 200px;
+	height: 10px;
+	border-radius: 120px / 10px;
+}
+.plant {
+	height: 320px;
+	background: #00c975;
+	width: 16px;
+	z-index: -1;
+	bottom: 0;
+	left: 50%;
+	margin-left: -8px;
+	border-radius: 16px 16px 0 0;
+}
+.plant > div {
+	position: absolute;
+}
+.plant:before {
+	height: 275px;
+	width: 4px;
+	right: 0;
+	bottom: 0;
+	background: rgba(60,188,131,0.5);
+	border-radius: 0 30px 0 0;
+}
+.leaf {
+	width: 0px;
+	height: 0px;
+	background:#3cbc83;
+}
+.leaf-1, .leaf-3 {
+	left: 10px;
+	top: 130px;
+	border-radius: 100px 0 100px 0;
+	transform: rotate(-20deg);
+}
+.leaf-2, .leaf-4 {
+	left: -30px;
+	top: 110px;
+	border-radius: 0 100px 0 100px;
+	transform: rotate(20deg);
+}
+.leaf-3 {
+	top: 90px;
+}
+.leaf-4 {
+	top: 70px;
+}
+.head {
+	width: 50px;
+	height: 50px;
+	left: 50%;
+	top: -15px;
+	margin-left: -25px;
+	border-radius: 50px;
+	background:  #fda342
+}
+.face {
+	background: #a3430c;
+	width: 20px;
+	height: 20px;
+	border-radius: 25px;
+	position: absolute;
+	margin-top: -10px;
+	margin-left: -10px;
+	top: 50%;
+	left: 50%;
+}
+/* flower leaf*/
+.flowerpot > .pot > .plant > .head > ul > li {
+	list-style: none;
+	width: 50px;
+	height: 30px;
+	position: absolute; 
+	float:left;
+	border-radius: 100px 0px 100px 0px;
+	background: #facb3d;
+}
+.flowerpot > .pot > .plant > .head > ul > li:nth-child(1) {
+	top:10px;
+	left:60px;
+	transform: rotate(30deg);
+}
+.flowerpot > .pot > .plant > .head > ul > li:nth-child(2) {
+	top:15px;
+	right:60px;
+	transform: rotate(20deg);
+}
+.flowerpot > .pot > .plant > .head > ul > li:nth-child(3) {
+	top:55px;
+	right:45px;
+	transform: rotate(-20deg);
+}
+.flowerpot > .pot > .plant > .head > ul > li:nth-child(4) {
+	top:55px;
+	left:45px;
+	transform: rotate(-110deg);
+}
+.flowerpot > .pot > .plant > .head > ul > li:nth-child(5) {
+	top:75px;
+	left:00px;
+	transform: rotate(-60deg);
+}
+.flowerpot > .pot > .plant > .head > ul > li:nth-child(6) {
+	bottom: 55px;
+	left:45px;
+	transform: rotate(-20deg);
+}
+.flowerpot > .pot > .plant > .head > ul > li:nth-child(7) {
+	bottom:55px;
+	right:45px;
+	transform: rotate(-110deg);
+}
+.flowerpot > .pot > .plant > .head > ul > li:nth-child(8) {
+	bottom:75px;
+	left:00px;
+	transform: rotate(-60deg);
+}
+/* animation controls */ 
+.plant, .plant:before {
+	animation: grow 5.5s ease-out forwards;
+}
+.head {
+	transform: scale(0.4); 
+	animation-name: flower, spin;
+	animation-duration: 3s, 45s;
+	animation-timing-function: ease-out, ease-out;
+	animation-fill-mode: forwards;
+	animation-delay: 2s, 5s;
+}
+.leaf-1 {
+	animation: leaf 3.5s ease-out forwards;
+	animation-delay: 1s;
+}
+.leaf-2 {
+	animation: leaf 3.5s ease-out forwards;
+	animation-delay: 2s;
+}
+.leaf-3 {
+	animation: leaf 3.5s ease-out forwards;
+	animation-delay: 3s;
+}
+.leaf-4 {
+	animation: leaf 3.5s ease-out forwards;
+	animation-delay: 4s;
+}
+
+/* animation function */
+@keyframes grow {
+	from { height : 60px; }
+	to { height : 300px ; }
+}
+@keyframes flower {
+	from { transform: scale(0.4); }
+	to { transform: scale(1); }
+}
+@keyframes rota {
+	from { transform : rotate(0); }
+	to { transform : rotate(1080deg); }
+}
+@keyframes leaf {
+	from { width : 0px; height: 0; }
+	to {   width: 40px; height: 20px; }
+}
+@keyframes spin {
+	from { transform: rotate(0); }
+	to { transform: rotate(1800deg); }
+}
+@keyframes alert {
+	from { opacity: 1 }
+	to { opacity: 0 }
+}
+@keyframes minify {
+	from { width: 25%; height: auto; }
+	to { width: 0; height: 0; }
+}
