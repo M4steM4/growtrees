@@ -52,12 +52,15 @@ header .glyphicon {
 	padding: 5px;
 	font-size: 20px;
 }
-#profile_update label.notice {
+label.notice {
 	display: block;
 	width: 100%;
 	text-align: right;
         margin-bottom: 0;
         font-size: 0.8em;
+}
+label[for="description"] {
+	margin-top: 2em;
 }
 label[for="profile_image"] {
 	text-align: left !important;
@@ -82,7 +85,7 @@ input[type=file] {
 	margin-top: 2em;
 	padding: 1em;
 }
-.modal-body, .modal-body button, .modal-body input {
+.modal-body, .modal-body button, .modal-body input, .modal-body textarea {
         color: #888888;
 }
 .modal-body input {
@@ -95,7 +98,15 @@ input[type=file] {
         outline: none;
 	margin-bottom: 0.2em;
 }
-.modal-body input:focus {
+.modal-body textarea {
+	border: 1px solid #888888;
+	border-left: none;
+	border-right: none;
+	border-radius: 0;
+	width: 100%;
+	padding-left: 0;
+}
+.modal-body input:focus, .modal-body textarea:focus {
         -webkit-transition: 0.5s;
         transition: 0.7s;
         border-radius: 0.3em;

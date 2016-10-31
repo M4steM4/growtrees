@@ -20,13 +20,15 @@ function onFocusInputTag () {
         this.value = '';
         if(this.name.indexOf('password') != -1) {
                 this.type = 'password';
-        }
+        } else if(this.name.indexOf('date') != -1) {
+		this.type = 'date';
+	}
 }
 
 function onFocusOutInputTag () {
         if(this.type == 'file' || this.value) { return; }
 
-        if(this.name.indexOf('password') != -1) {
+        if(this.name.indexOf('password') != -1 || this.name.indexOf('date') != -1) {
                 this.type = 'text';
         }
         this.value = inputPlaceHolders[this.name];
@@ -88,8 +90,8 @@ function onEditFinished () {
 
 
 $(document).ready(function () {
-	$('input').focus(onFocusInputTag);
-        $('input').focusout(onFocusOutInputTag);
+	$('input, textarea').focus(onFocusInputTag);
+        $('input, textarea').focusout(onFocusOutInputTag);
 	$('#preview_wrapper').mouseenter(onMouseEnterPreview);
 	$('#preview_wrapper').mouseleave(onMouseLeavePreview);
 	$('#tooltip').click(function () { $('input[name="profile_image"]').click(); });

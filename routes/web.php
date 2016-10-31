@@ -46,6 +46,7 @@ Route::group(['as' => 'user.'], function () {
 		'uses' => 'Auth\ForgotPasswordController@sendResetLinkEmail'
 	]);
 	Route::patch('update_profile', [
+		'middleware' => ['auth'],
 		'as' => 'update',
 		'uses' => 'HomeController@updateUserInfo'
 	]);
@@ -55,5 +56,9 @@ Route::group(['middleware' => ['auth']], function () {
 	Route::get('home', [
 		'as' => 'home',
 		'uses' => 'HomeController@index'
+	]);
+	
+	Route::post('projects', [
+		'uses' => 'ProjectController@store'
 	]);
 });
