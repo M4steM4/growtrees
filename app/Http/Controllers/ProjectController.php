@@ -76,7 +76,7 @@ class ProjectController extends Controller
 	}
 	
 	$this->validate($request, [
-	    'project_name' => 'required|min:4|max:30',
+	    'project_name' => 'required|min:4|max:20',
 	    'due_date' => 'required|date_format:Y-m-d',
 	    'description' => 'required|min:10|max:500',
 	]);

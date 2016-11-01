@@ -8,13 +8,16 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Requests;
 use App\User;
+use App\Project;
 use Validator;
 
 class HomeController extends Controller
 {
     public function index () {
 	$user = Auth::user();
-	return view('home', compact('user'));
+	$projectNames = Project::select('name')->where('members', 'like', '%'.$user->id.'%')->get();
+	
+	return view('home', compact('user', 'projectNames'));
     }
 
     private function rule (string $name) {

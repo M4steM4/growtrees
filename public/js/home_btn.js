@@ -9,7 +9,7 @@ function clearUpdateNotice () {
 	var names = ['nickname', 'phone', 'email', 'password', 'profile_image'];
         for(var i=0; i<names.length; i++) {
                 var $notice = $('#profile_update .notice[for="' + names[i] + '"]');
-                $notice.parent().removeClass('has-error');
+                //$notice.parent().removeClass('has-error');
                 $notice.html('');
         }
 }
@@ -18,6 +18,8 @@ function updateSuccess (response, status, msg) {
 	var nickname = response.nickname;
 	var phone = response.phone;
 	var email = response.email;
+
+	$('#profile_image, #preview').attr('src', 'storage/profile_imgs/' + nickname + '.img');
 
 	$('#profile div[name="nickname"]').html('닉네임 : ' + nickname);	
 	$('#profile div[name="phone"]').html('휴대전화[연락처] : ' + phone);
@@ -48,9 +50,11 @@ function updateFailed (response, status, errorCode) {
 
         for(var i=0; i<names.length; i++) {
                 var $notice = $('#profile_update .notice[for="' + names[i] + '"]');
+		/*
 		if(names[i] != 'profile_image') {
 			$notice.parent().addClass('has-error');
 		}
+		*/
                 $notice.html('* ' + errors[names[i]][0]);
         }
 }
@@ -94,7 +98,7 @@ function clearProjectNotice () {
 
 	for(var i=0; i<list.length; i++) {
 		var $notice = $('#create_project label[for="' + list[i] + '"]');
-		$notice.parent().removeClass('has-error');
+		//$notice.parent().removeClass('has-error');
 		$notice.html('');
 	}
 }
@@ -110,7 +114,7 @@ function createFailed (response, status, errorCode) {
         
         for(var i=0; i<names.length; i++) {
                 var $notice = $('#create_project .notice[for="' + names[i] + '"]');
-                $notice.parent().addClass('has-error');
+                //$notice.parent().addClass('has-error');
                 $notice.html('* ' + errors[names[i]][0]);
         }
 }

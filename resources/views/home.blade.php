@@ -16,24 +16,99 @@
 @endsection
 
 @section('header')
-	<header class="container-fluid">
-		<ul class="nav navbar-nav">
-			<li> <a data-toggle="modal" data-target="#profile"><span class="glyphicon glyphicon-user"></span></a> </li>
-		</ul>
-		<ul class="nav navbar-nav navbar-right">
-			<li> <a href="#"><span class="glyphicon glyphicon-search"></span></a> </li>
-			<li> <a href="#"><span class="glyphicon glyphicon-bell"></span></a> </li>
-		</ul>
-		<div class="clearfix"></div>
-		<div class="text-right">
-                        <a href="logout">로그아웃</a>
-                </div>
-	</header>
+	<!-- Top menubar -->
+	<nav class="navbar navbar-inverse menu">
+                <div class="container-fluid">
+                        <div class="navbar-header">
+                                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                </button>
+                                <a class="navbar-brand logo" href="{{ route('home') }}">자라나라 나무나무</a>
+                        </div>
+                        <div class="collapse navbar-collapse" id="myNavbar">
+                                <ul class="nav navbar-nav navbar-right">
+                                        <li><a href="" data-toggle="modal" data-target="#profile"><div class="glyphicon glyphicon-user"><div class="badge">5</div></div></a></li>
+                                        <li><a href="#"><div class="glyphicon glyphicon-search"></div></a></li>
+                                        <li><a href="#"><div class="glyphicon glyphicon-bell"><div class="badge">5</div></div></a></li>
+                                        <li><a href="#"><div class="glyphicon glyphicon-th-list"></div></a></li>
+                                </ul>
+                        </div>
+		</div>
+	</nav>
 @stop
 
 @section('content')
-	<div>
-		<img src="{{ asset('images/plantpot/default') }}" width="150" height="150" style="border-radius: 1em; border: 1px solid gray;" data-toggle="modal" data-target="#create_project">
+	<!-- Main Section -->
+	<div id="main" class="container-fluid">
+		<div class="row">
+			@forelse ($projectNames as $projectName)
+				<div class="col-md-4 col-sm-4 col-xs-12 flowerpotcase">
+				<a href="">
+					<div class="flowerpot">
+						<!-- Plant pot -->
+						<div class="pot pot-bot">
+							<div class="shadow"></div>
+							<div class="pot pot-shadow"></div>
+							<div class="pot pot-top">
+								<p class="pottext">
+									{{ $projectName['name'] }}
+								</p>
+							</div>
+							<div class="sign-top">1</div>
+							<div class="sign-bottom"></div>
+							<!-- Plant -->
+							<div class="plant">
+								<div class="leaf leaf-1"></div>
+								<div class="leaf leaf-2"></div>
+								<div class="leaf leaf-3"></div>
+								<div class="leaf leaf-4"></div>
+								<div class="head">
+									<!--div class="face"></div-->
+									<ul>
+										<li></li>
+										<li></li>
+										<li></li>
+										<li></li>
+										<li></li>
+										<li></li>
+										<li></li>
+										<li></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+					</a>
+				</div>
+			@empty
+				hello	
+			@endforelse
+
+			<div id="add" class="col-md-4 col-sm-4 col-xs-12 flowerpotcase">
+				<a data-toggle="modal" data-target="#create_project">
+					<div id="addpot" class="flowerpot">
+						<div class="block block-col"></div>
+						<div class="block block-row"></div>
+					</div>
+				</a>
+			</div>
+			
+			@for ($i=0; $i < 2-(count($projectNames)%3); $i++)
+				<div class="col-md-4 col-sm-4 col-xs-12 flowerpotcase">
+				</div>
+			@endfor
+		</div>
+	</div>
+	<!-- Footer -->
+	<div id="footer" class="col-md-12">
+		<div class="bookshelf">
+	        <div class="book book-green">
+	            <h2>@copyright by junyongJJang!</h2>
+	        </div>
+	    </div>
 	</div>
 @stop
 

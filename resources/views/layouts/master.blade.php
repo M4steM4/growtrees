@@ -4,6 +4,7 @@
 	<title>자라나라나무나무</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<meta http-equiv="Cache-control" content="no-cache">
 	@hasSection('meta')
 		@yield('meta')
 	@endif
