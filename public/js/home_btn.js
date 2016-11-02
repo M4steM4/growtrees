@@ -15,34 +15,8 @@ function clearUpdateNotice () {
 }
 
 function updateSuccess (response, status, msg) {
-	var nickname = response.nickname;
-	var phone = response.phone;
-	var email = response.email;
-
-	$('#profile_image, #preview').attr('src', 'storage/profile_imgs/' + nickname + '.img');
-
-	$('#profile div[name="nickname"]').html('닉네임 : ' + nickname);	
-	$('#profile div[name="phone"]').html('휴대전화[연락처] : ' + phone);
-	$('#profile div[name="email"]').html('이메일 : ' + email);
-
-	nickname = '기존 닉네임 : ' + nickname;
-	phone = '기존 연락처 : ' + phone;
-	email = '기존 이메일 : ' + email;
-
-	inputPlaceHolders['nickname'] = nickname;
-	inputPlaceHolders['phone'] = phone;
-	inputPlaceHolders['email'] = email;
-
-	$('#profile_update input[name="nickname"]').val(nickname);
-	$('#profile_update input[name="phone"]').val(phone);
-	$('#profile_update input[name="email"]').val(email);
-	$('#profile_update input[name="password"]').val('비밀번호 입력');
-	$('#profile_update input[name="password"]').attr('type', 'text');
-
-	$('#profile_update').modal('hide');
-        setTimeout(function () {
-                $('#profile').modal('show');
-        }, 500);
+	alert('프로필이 업데이트 되었습니다.');
+	location.href = '/home';
 }
 function updateFailed (response, status, errorCode) {
 	var errors = JSON.parse(response.responseText);

@@ -44,7 +44,7 @@
 	<!-- Main Section -->
 	<div id="main" class="container-fluid">
 		<div class="row">
-			@forelse ($projectNames as $projectName)
+			@foreach ($projects as $project)
 				<div class="col-md-4 col-sm-4 col-xs-12 flowerpotcase">
 				<a href="">
 					<div class="flowerpot">
@@ -54,7 +54,10 @@
 							<div class="pot pot-shadow"></div>
 							<div class="pot pot-top">
 								<p class="pottext">
-									{{ $projectName['name'] }}
+									{{ $project['name'] }}
+									@if (!strcmp($user->id, $project['author']))
+										[admin]	
+									@endif
 								</p>
 							</div>
 							<div class="sign-top">1</div>
@@ -83,9 +86,7 @@
 					</div>
 					</a>
 				</div>
-			@empty
-				hello	
-			@endforelse
+			@endforeach
 
 			<div id="add" class="col-md-4 col-sm-4 col-xs-12 flowerpotcase">
 				<a data-toggle="modal" data-target="#create_project">
@@ -96,7 +97,7 @@
 				</a>
 			</div>
 			
-			@for ($i=0; $i < 2-(count($projectNames)%3); $i++)
+			@for ($i=0; $i < 2-(count($projects)%3); $i++)
 				<div class="col-md-4 col-sm-4 col-xs-12 flowerpotcase">
 				</div>
 			@endfor
@@ -124,7 +125,7 @@
 				</div>
 				<div class="modal-body row">
 					<div class="col-sm-offset-1 col-sm-3 col-xs-12">
-						<img id="profile_image" src="{{ asset('storage/profile_imgs/' . $user->nickname . '.img') }}" alt="프로필 사진">
+						<img id="profile_image" src="{{ asset('storage/profile_imgs/' . $user->id) }}" alt="프로필 사진">
 					</div>
 					<div class="col-sm-offset-1 col-sm-7 col-xs-12 profile_info">
 						이름 : {{ $user->name }}
@@ -161,7 +162,7 @@
 						<label for="profile_image" class="col-sm-offset-1 col-xs-12 notice control-label"></label>
 						<div id="preview_wrapper" class="col-sm-offset-1 col-sm-10 col-xs-12">
 							<input type="file" name="profile_image" accept="image/*">
-							<img id="preview" src="{{ asset('storage/profile_imgs/'.$user->nickname.'.img') }}" alt="프로필 사진">
+							<img id="preview" src="{{ asset('storage/profile_imgs/'.$user->id) }}" alt="프로필 사진">
 							<div id="tooltip">
 								<span class="glyphicon glyphicon-camera"></span>
 								&nbsp;클릭

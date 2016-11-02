@@ -57,7 +57,16 @@ Route::group(['middleware' => ['auth']], function () {
 		'as' => 'home',
 		'uses' => 'HomeController@index'
 	]);
-	
+
+	Route::get('project_list/{str}', [
+		'uses' => 'ProjectController@getList'
+	]);
+	Route::get('project_info/{projectName}', [
+		'uses' => 'ProjectController@getInfo'
+	]);
+	Route::get('projects/{project}', [
+		'uses' => 'ProjectController@show'
+	]);
 	Route::post('projects', [
 		'uses' => 'ProjectController@store'
 	]);

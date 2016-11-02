@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Project;
+use App\User;
 use App\Http\Requests;
 
 class ProjectController extends Controller
@@ -57,42 +58,93 @@ class ProjectController extends Controller
         return $randstring;
     }
 
-    public function store(Request $request)
+    private function filterBlankStore(Request $request)
     {
 	if(! strcmp($request->input('project_name'), '프로젝트 이름')) {
-	    return response()->json([
+            return response()->json([
                 'project_name' => array('프로젝트 이름 입력')
             ], 422);
-	} 
-	else if(! strcmp($request->input('due_date'), '마감 날짜')) {
-	    return response()->json([
+        }
+        else if(! strcmp($request->input('due_date'), '마감 날짜')) {
+            return response()->json([
                 'due_date' => array('마감 날짜 선택')
             ], 422);
-	}
-	else if(! strcmp($request->input('description'), '프로젝트 내용')) {
-	    return response()->json([
+        }
+        else if(! strcmp($request->input('description'), '프로젝트 내용')) {
+            return response()->json([
                 'description' => array('프로젝트 내용 입력')
             ], 422);
+        }
+	else {
+	    return null;
 	}
-	
+    }
+
+    private function validateStore(Request $request, User $user)
+    {
 	$this->validate($request, [
-	    'project_name' => 'required|min:4|max:20',
-	    'due_date' => 'required|date_format:Y-m-d',
-	    'description' => 'required|min:10|max:500',
-	]);
+            'project_name' => 'required|min:4|max:20',
+            'due_date' => 'required|date_format:Y-m-d',
+            'description' => 'required|min:10|max:500',
+        ]);
+
+	// project project name duplication per one user
+	$flag = Project::where('name', '=', $request->input('project_name'))->first();
+	if($flag != null) {
+	    return response()->json([
+                'project_name' => array('중복된 이름')
+            ], 422);	
+	}
+    }
+
+    private function createProject(Request $request, User $user)
+    {
+	$project = new Project;
+
+        $project->name = $request->input('project_name');
+        $project->author = $user->id;
+        $project->members = $user->id . 'n';
+        $project->description = $request->input('description');
+        $project->token = $this->randomString();
+        $project->due_date = date('Y-m-d H:i:s', strToTime($request->input('due_date')) + 60 * 60 * 24 - 1);
+
+        $project->save();
+    }
+
+    public function store(Request $request)
+    {
+	$response = $this->filterBlankStore($request);
+	if($response != null) { 
+		return $response; 
+	}
 
 	$user = Auth::user();
 
-        $project = new Project;
-	$project->name = $request->input('project_name');
-	$project->author = $user->user_id;
-	$project->members = $user->user_id . '?:';
-	$project->description = $request->input('description');
-	$project->token = $this->randomString();
-	$project->due_date = date('Y-m-d H:i:s', strToTime($request->input('due_date')) + 60 * 60 * 24 - 1);
-	$project->save();
+	$response = $this->validateStore($request, $user);
+	if($response != null) {
+		return $response;
+	}
+
+	$this->createProject($request, $user);
 
 	return 'success';
+    }
+
+    // project_list/{str}
+    public function getList($str) {
+	$items = Project::select(['name', 'author'])->where('name', 'like', $str . '%')->get();
+	return $items;
+    }
+    // project_info/{projectName}
+    public function getInfo($projectName) {
+	$info = Project::select(['name', 'description', 'author', 'members'])
+			->where('name', '=', $projectName)
+			->first();
+	
+	//$members = $info['members'];
+	//$info['members'] = count(explode('n', $members))-1;
+
+	return $info;
     }
 
     /**
@@ -101,9 +153,10 @@ class ProjectController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Project $project)
     {
-        //
+	$this->authorize('access', $project);
+    	return $project->name;
     }
 
     /**

@@ -15,9 +15,9 @@ class HomeController extends Controller
 {
     public function index () {
 	$user = Auth::user();
-	$projectNames = Project::select('name')->where('members', 'like', '%'.$user->id.'%')->get();
+	$projects = Project::select(['name', 'author', 'members'])->where('members', 'like', '%'.$user->id.'n%')->get();
 	
-	return view('home', compact('user', 'projectNames'));
+	return view('home', compact('user', 'projects'));
     }
 
     private function rule (string $name) {
@@ -61,17 +61,17 @@ class HomeController extends Controller
 	    return;
 	}
 
-	$nick = $user->nickname;
+	$id = $user->id;
 	
 	$request->file('profile_image')->storeAs(
-            'public/profile_imgs/', $nick.'.tmp'
+            'public/profile_imgs/', $id.'.tmp'
         );
 
 	$mimetype = $request->file('profile_image')->getMimeType();
 	$PATH = public_path('storage/profile_imgs/');
 
 	// origin to 250x250	
-	list($orgWidth, $orgHeight) = getImageSize($PATH.$nick.'.tmp');
+	list($orgWidth, $orgHeight) = getImageSize($PATH.$id.'.tmp');
 
 	$newWidth = $newHeight = 250;
 	$imageResized = imageCreateTrueColor($newWidth, $newHeight);
@@ -79,22 +79,22 @@ class HomeController extends Controller
 
 	switch($mimetype) {
     	    case 'image/bmp': 
-		$imageOrigin = imageCreateFromwBmp($PATH.$nick.'.tmp');
+		$imageOrigin = imageCreateFromwBmp($PATH.$id.'.tmp');
 		break;
 	    case 'image/gif': 
-		$imageOrigin = imageCreateFromGif($PATH.$nick.'.tmp'); 
+		$imageOrigin = imageCreateFromGif($PATH.$id.'.tmp'); 
 		break;
  	    case 'image/jpeg': 
-		$imageOrigin = imageCreateFromJpeg($PATH.$nick.'.tmp'); 
+		$imageOrigin = imageCreateFromJpeg($PATH.$id.'.tmp'); 
 		break;
     	    case 'image/png': 
-		$imageOrigin = imageCreateFromPng($PATH.$nick.'.tmp'); 
+		$imageOrigin = imageCreateFromPng($PATH.$id.'.tmp'); 
 		break;
   	}
 
 	imageCopyResampled($imageResized, $imageOrigin, 0, 0, 0, 0,
                         $newWidth, $newHeight, $orgWidth, $orgHeight);
-	Storage::delete('public/profile_imgs/'.$nick.'.tmp');
+	Storage::delete('public/profile_imgs/'.$id.'.tmp');
 
 	// crop the image with coordinates
 	$x1 = $request->input('x1');
@@ -108,16 +108,16 @@ class HomeController extends Controller
 			$newWidth, $newHeight, $orgWidth, $orgHeight);
 	switch($mimetype) {
             case 'image/bmp':
-                $imageOrigin = imagewBmp($imageCropped, $PATH.$nick.'.img');
+                $imageOrigin = imagewBmp($imageCropped, $PATH.$id);
                 break;
             case 'image/gif':
-                $imageOrigin = imageGif($imageCropped, $PATH.$nick.'.img');
+                $imageOrigin = imageGif($imageCropped, $PATH.$id);
                 break;
             case 'image/jpeg':
-                $imageOrigin = imageJpeg($imageCropped, $PATH.$nick.'.img');
+                $imageOrigin = imageJpeg($imageCropped, $PATH.$id);
                 break;
             case 'image/png':
-                $imageOrigin = imagePng($imageCropped, $PATH.$nick.'.img'); 
+                $imageOrigin = imagePng($imageCropped, $PATH.$id); 
                 break;
         }
     }
@@ -161,6 +161,7 @@ class HomeController extends Controller
 	$user->save();
 	
 	return response()->json([
+		'id' => $user->id,
 		'nickname' => $user->nickname,
 		'phone' => $user->phone,
 		'email' => $user->email
