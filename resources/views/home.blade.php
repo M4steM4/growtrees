@@ -46,7 +46,7 @@
 		<div class="row">
 			@foreach ($projects as $project)
 				<div class="col-md-4 col-sm-4 col-xs-12 flowerpotcase">
-				<a href="">
+				<a href="{{ route('projects.show', $project['token']) }}">
 					<div class="flowerpot">
 						<!-- Plant pot -->
 						<div class="pot pot-bot">

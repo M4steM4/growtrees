@@ -15,7 +15,7 @@ class HomeController extends Controller
 {
     public function index () {
 	$user = Auth::user();
-	$projects = Project::select(['name', 'author', 'members'])->where('members', 'like', '%'.$user->id.'n%')->get();
+	$projects = Project::select(['name', 'author', 'members', 'token'])->where('members', 'like', '%'.$user->id.'n%')->get();
 	
 	return view('home', compact('user', 'projects'));
     }

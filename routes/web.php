@@ -65,6 +65,7 @@ Route::group(['middleware' => ['auth']], function () {
 		'uses' => 'ProjectController@getInfo'
 	]);
 	Route::get('projects/{project}', [
+		'as' => 'projects.show',
 		'uses' => 'ProjectController@show'
 	]);
 	Route::post('projects', [

@@ -1,0 +1,156 @@
+html, body {
+	color: #737473;
+	height: 100%;
+	overflow-x: hidden;
+}
+a {
+	color: #737473;
+}
+.green {
+	color: #74b844;
+}
+
+header {
+	position: relative;
+	background-color: #74b844;
+	height: 50px;
+	padding: 0;
+	z-index: 10000;
+}
+
+#logo {
+	width: 150px;
+	height: 100%;
+	display: flex;
+	align-items: center;
+}
+
+#content_wrapper {
+	background-image: url('../images/projectBackground.png');
+	background-size: 100% 100%;
+	height: calc(100% - 50px);
+	overflow-y: scroll;
+}
+
+/* side navbar */
+#content_wrapper > div:first-child
+, #content_wrapper > div:first-child > nav {
+	width: 200px;
+	padding-left: 1em;
+	margin-top: 0;
+	margin-bottom: 0;
+	overflow-x: hidden;
+}
+
+#content_wrapper > div:first-child > nav {
+	height: calc(100% - 50px);
+	background-color: rgba(236, 238, 239, 0.9); 
+	position: absolute;
+	z-index: 10000;
+}
+
+#profile {
+	margin-top: 40%;
+	margin-left: 1em;	
+}
+#profile + .clearfix {
+	margin-bottom: 40%;
+}
+#profile img {
+	float: left;
+	border-radius: 30px;
+}
+#profile div {	
+	float: left;
+	margin-left: 5px;
+	margin-top: 1.7em;
+}
+#profile div .green {
+	font-size: 1.3em;
+}
+
+@media screen and (max-width: 767px) {
+	#profile {
+		margin-left: 0;
+	}
+	#profile div {
+		margin-left: 0;
+	}
+}
+
+#user_menubar ul {
+	margin-top: 3em;
+}
+
+#content_wrapper nav ul > li {
+	width: 100%;
+	display: block;
+}
+#user_menubar ul > li > a {
+	padding-bottom: 0;
+}
+
+#tree {	
+	position: absolute;
+	width: 100%;
+	text-align: center;
+	bottom: 0;
+	z-index: 0;
+}
+
+#sun {
+	position: absolute;
+	top: 80px;
+	right: 50px;
+}
+
+#waterspread {
+	position: absolute;
+	bottom: 380px;
+	right: 230px;
+}
+
+#chat {
+	position: absolute;
+	bottom: 0;
+	right: 20px;
+
+	width: 300px;
+	height: 380px;
+	background-color: white;
+}
+
+#chat #message_wrapper {
+	overflow-y: scroll;
+	height: 345px;
+}
+#chat .name {
+	display: inline-block;
+	width: 87px;
+	text-align: center;
+}
+#chat .message {
+	display: inline-block;
+	width: 180px;
+	margin: 10px 5px;
+}
+
+#chat form {
+	position: absolute;
+	bottom: 0;
+}
+#chat input {
+	padding-left: 3px;
+	border-radius: 0;
+	float: left;
+	display: inline;
+	width: 260px;
+	height: 35px;
+	background-color: #efefef;
+}
+#chat button {
+	margin: 0;
+	padding: 0;
+	width: 40px;
+	height: 35px;
+}

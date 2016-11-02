@@ -156,7 +156,8 @@ class ProjectController extends Controller
     public function show(Project $project)
     {
 	$this->authorize('access', $project);
-    	return $project->name;
+	$user = Auth::user();
+    	return view('project', compact('user'));
     }
 
     /**
