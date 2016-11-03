@@ -9,249 +9,82 @@
 	<link rel="stylesheet" href="assets/css/main.css">
 </head>
 <body>
-	<!-- Top menubar -->
-	<nav class="navbar navbar-inverse menu">
-		<div class="container-fluid">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-				</button>
-				<a class="navbar-brand logo" href="#">자라나라 나무나무</a>
-			</div>
-			<div class="collapse navbar-collapse" id="myNavbar">
-				<ul class="nav navbar-nav navbar-right">
-					<li><a href="" data-toggle="modal" data-target="#register"><div class="glyphicon glyphicon-user"><div class="badge">5</div></div></a></li>
-					<li><a href="#"><div class="glyphicon glyphicon-search"></div></a></li>
-					<li><a href="#"><div class="glyphicon glyphicon-bell"><div class="badge">5</div></div></a></li>
-					<li><a href="#"><div class="glyphicon glyphicon-th-list"></div></a></li>
+	<!-- Header -->
+	<div id="header" class="container-fluid">
+		<div id="logo">자라나라 나무나무</div>
+		<ul id="menuList">
+			<div id="search" class="dropdown">
+				<li  class="menu dropdown-toggle" data-toggle="dropdown">
+					<a href="javascript:void(0)"><img src="assets/img/search.png" alt="" /></a>
+				</li>
+				<ul class="dropdown-menu dropdown-menu-right">
+					<li><a href="#">HTML</a></li>
+					<li><a href="#">CSS</a></li>
+					<li><a href="#">JavaScript</a></li>
 				</ul>
 			</div>
-		</div>
-	</nav>
-	<!-- Main Section -->
+			<div id="profile" class="dropdown">
+				<li class="menu dropdown-toggle" data-toggle="dropdown">
+					<a href=""><img src="assets/img/profile.png" alt="" /></a>
+				</li>
+				<ul class="dropdown-menu dropdown-menu-right">
+					<li><a href="#">HTML</a></li>
+					<li><a href="#">CSS</a></li>
+					<li><a href="#">JavaScript</a></li>
+				</ul>
+			</div>
+			<div id="menu" class="dropdown">
+				<li class="menu dropdown-toggle" data-toggle="dropdown">
+					<a href=""><img src="assets/img/menu.png" alt="" /></a>
+				</li>
+				<ul class="dropdown-menu dropdown-menu-right">
+					<li><a href="#">HTML</a></li>
+					<li><a href="#">CSS</a></li>
+					<li><a href="#">JavaScript</a></li>
+				</ul>
+			</div>
+		</ul>
+	</div>
+	<!-- Main -->
 	<div id="main" class="container-fluid">
+		<div class="row margin">
+			<div class="col-md-8 section">
+				<div class="col-md-4 flowerpot">
+					<img src="assets/img/pot.png" class="pot" alt="">
+					<div class="potname">team name</div>
+				</div>
+				<div class="col-md-4 flowerpot">
+					<img src="assets/img/pot.png" class="pot" alt="">
+					<div class="potname">team name</div>
+				</div>
+				<div class="col-md-4 flowerpot">
+					<img src="assets/img/pot.png" class="pot" alt="">
+					<div class="potname">team name</div>
+				</div>
+			</div>
+		</div>
 		<div class="row">
-			<div class="col-md-4 col-sm-4 col-xs-12 flowerpotcase">
-				<a href="">
-					<div class="flowerpot">
-						<!-- Plant pot -->
-						<div class="pot pot-bot">
-							<div class="shadow"></div>
-							<div class="pot pot-shadow"></div>
-							<div class="pot pot-top">
-								<p class="pottext">
-									<br />
-									team name
-								</p>
-							</div>
-							<div class="sign-top">1</div>
-							<div class="sign-bottom"></div>
-							<!-- Plant -->
-							<div class="plant">
-								<div class="leaf leaf-1"></div>
-								<div class="leaf leaf-2"></div>
-								<div class="leaf leaf-3"></div>
-								<div class="leaf leaf-4"></div>
-								<div class="head">
-									<!--div class="face"></div-->
-									<ul>
-										<li></li>
-										<li></li>
-										<li></li>
-										<li></li>
-										<li></li>
-										<li></li>
-										<li></li>
-										<li></li>
-									</ul>
-								</div>
-							</div>
-						</div>
-					</div>
-				</a>
-			</div>
-			<div class="col-md-4 col-sm-4 col-xs-12 flowerpotcase">
-				<a href="">
-				<div class="flowerpot">
-					<!-- Plant pot -->
-					<div class="pot pot-bot">
-						<div class="shadow"></div>
-						<div class="pot pot-shadow"></div>
-						<div class="pot pot-top">
-							<p class="pottext">
-								<br />
-								team name
-							</p>
-						</div>
-						<div class="sign-top">1</div>
-						<div class="sign-bottom"></div>
-						<!-- Plant -->
-						<div class="plant">
-							<div class="leaf leaf-1"></div>
-							<div class="leaf leaf-2"></div>
-							<div class="leaf leaf-3"></div>
-							<div class="leaf leaf-4"></div>
-							<div class="head">
-								<!--div class="face"></div-->
-								<ul>
-									<li></li>
-									<li></li>
-									<li></li>
-									<li></li>
-									<li></li>
-									<li></li>
-									<li></li>
-									<li></li>
-								</ul>
-							</div>
-						</div>
-					</div>
+			<div class="col-md-8 section">
+				<div class="col-md-4 flowerpot">
+					<img src="assets/img/pot.png" class="pot" alt="">
+					<div class="potname">team name</div>
 				</div>
-				</a>
-			</div>
-			<div class="col-md-4 col-sm-4 col-xs-12 flowerpotcase">
-				<a href="">
-				<div class="flowerpot">
-					<!-- Plant pot -->
-					<div class="pot pot-bot">
-						<div class="shadow"></div>
-						<div class="pot pot-shadow"></div>
-						<div class="pot pot-top">
-							<p class="pottext">
-								<br />
-								team name3
-							</p>
-						</div>
-						<div class="sign-top">1</div>
-						<div class="sign-bottom"></div>
-						<!-- Plant -->
-						<div class="plant">
-							<div class="leaf leaf-1"></div>
-							<div class="leaf leaf-2"></div>
-							<div class="leaf leaf-3"></div>
-							<div class="leaf leaf-4"></div>
-							<div class="head">
-								<!--div class="face"></div-->
-								<ul>
-									<li></li>
-									<li></li>
-									<li></li>
-									<li></li>
-									<li></li>
-									<li></li>
-									<li></li>
-									<li></li>
-								</ul>
-							</div>
-						</div>
-					</div>
+				<div class="col-md-4 flowerpot">
+					<img src="assets/img/pot.png" class="pot" alt="">
+					<div class="potname">team name</div>
 				</div>
-				</a>
-			</div>
-			<div class="col-md-4 col-sm-4 col-xs-12 flowerpotcase">
-			<a href="">
-				<div class="flowerpot">
-					<!-- Plant pot -->
-					<div class="pot pot-bot">
-						<div class="shadow"></div>
-						<div class="pot pot-shadow"></div>
-						<div class="pot pot-top">
-							<p class="pottext">
-							<br/>
-								team name
-							</p>
-						</div>
-						<div class="sign-top">1</div>
-						<div class="sign-bottom"></div>
-						<!-- Plant -->
-						<div class="plant">
-							<div class="leaf leaf-1"></div>
-							<div class="leaf leaf-2"></div>
-							<div class="leaf leaf-3"></div>
-							<div class="leaf leaf-4"></div>
-							<div class="head">
-								<!--div class="face"></div-->
-								<ul>
-									<li></li>
-									<li></li>
-									<li></li>
-									<li></li>
-									<li></li>
-									<li></li>
-									<li></li>
-									<li></li>
-								</ul>
-							</div>
-						</div>
-					</div>
+				<div class="col-md-4 flowerpot">
+					<img src="assets/img/addpot.png" class="pot" alt="">
+					<div class="potname">team name</div>
 				</div>
-				</a>
-			</div>
-			<div class="col-md-4 col-sm-4 col-xs-12 flowerpotcase">
-			<a href="">
-				<div class="flowerpot">
-					<!-- Plant pot -->
-					<div class="pot pot-bot">
-						<div class="shadow"></div>
-						<div class="pot pot-shadow"></div>
-						<div class="pot pot-top">
-							<p class="pottext">
-								<br />
-								team name
-							</p>
-						</div>
-						<div class="sign-top">1</div>
-						<div class="sign-bottom"></div>
-						<!-- Plant -->
-						<div class="plant">
-							<div class="leaf leaf-1"></div>
-							<div class="leaf leaf-2"></div>
-							<div class="leaf leaf-3"></div>
-							<div class="leaf leaf-4"></div>
-							<div class="head">
-								<!--div class="face"></div-->
-								<ul>
-									<li></li>
-									<li></li>
-									<li></li>
-									<li></li>
-									<li></li>
-									<li></li>
-									<li></li>
-									<li></li>
-								</ul>
-							</div>
-						</div>
-					</div>
-				</div>
-				</a>
-			</div>
-			<div id="add" class="col-md-4 col-sm-4 col-xs-12 flowerpotcase">
-				<a href="">
-					<div id="addpot" class="flowerpot">
-						<div class="block block-col"></div>
-						<div class="block block-row"></div>
-					</div>
-				</a>
 			</div>
 		</div>
 	</div>
-	<!-- Footer -->
-	<div id="footer" class="col-md-12">
-		<div class="bookshelf">
-	        <div class="book book-green">
-	            <h2>@copyright by junyongJJang!</h2>
-	        </div>
-	    </div>
-	</div>
-</div>
 
-<!-- Script -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-<script src="assets/js/main.js"></script>
+
+	<!-- Script -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	<script src="assets/js/main.js"></script>
 </body>
 </html>
