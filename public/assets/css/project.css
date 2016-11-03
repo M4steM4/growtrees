@@ -19,14 +19,92 @@ header {
 .navbar {
 	position: fixed;
 }
+#x {
+	margin-left: 68%;
+	font-size: 20px;
+	color: white;
+	text-decoration: none;
+}
+/*calender*/
+#calender {
+	width: 600px;
+	height: 400px;
+	margin-left: calc(50% - 300px);
+	border-radius: 2px;
+	border: 1px solid red;
+	display: flex;
+}
+#scadule {
+	width: 200px;
+	height: 100%;
+	text-align: center;
+	color: white;
+	background-color: #74b844;
+	border: 1px solid blue;
+}
+.calendermonth {
+	width: 400px;
+	height: 100%;
+	border: 1px solid green;
+}
+.daytitle {
+	font-size: 55px;
+	font-weight: 600;
+	margin-top: 8%;
+}
+.daysub {
+	font-size: 15px;
+	font-weight: 100;
+	margin-top: -4%;
+}
+.deadlinetime {
+	margin-top: 25%;
+	word-spacing: 5px;
+	font-weight: 500;
+}
+.daycheck {
+	margin-top: 2%;
+}
+#minichattingform {
+	width: 180px;
+	left: 0;
+	border: 1px solid black;
+	margin-top: 30%;
+	margin-left: 10px;
+}
+.minichat {
+	display: flex;
+}
+.minichat > img {
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+}
+.minichat > div {
+	width: 160px;
+}
+.miniform {
+	width: 180px;
+	margin-top: 5%;
+	display: flex;
+}
+.miniform > input {
+	padding: 0 10px 0 10px;
+	width: 140px;
+}
+.miniform > button {
+	width: 40px;
+}
 /*office*/
 #office {
+	display: none;
 	margin-left: calc(50% - 150px);
 	margin-top: 30px;
 	width: 300px;
 	max-height: 500px;
-	background-color: #ddd;
+	background-color: #efefef;
 	overflow: scroll;
+	border-radius: 2px;
 	z-index: 100;
 }
 #officeheader {
@@ -34,8 +112,8 @@ header {
 	height: 50px;
 	background-color: #74b844;
 	color: white;
-	padding: 7px 0 0 15px;
-	font-size: 25px;
+	padding: 15px 0 0 15px;
+	font-size: 20px;
 	box-sizing: border-box;
 }
 .officelist {
@@ -49,7 +127,7 @@ header {
 	height: 70px;
 	padding-top: 15px;
 	font-weight: 200;
-	color: #999;
+	color: #b57d4e;
 }
 .profile > p > strong {
 	font-size: 20px;
@@ -82,7 +160,7 @@ header {
 #divider {
 	height: 1px;
 	padding: 0;
-	margin: 10px 0 10px 0 ;
+	margin: 20px 0 20px 0 ;
 	background-color: #bbbbbb;
 }
 
@@ -174,10 +252,18 @@ header {
 #chat {
 	position: absolute;
 	bottom: 0;
-	right: 20px;
+	right: 0;
 	width: 300px;
 	height: 380px;
 	background-color: white;
+}
+#chattitle {
+	height: 30px;
+	font-size: 15px;
+	padding: 5px;
+	padding-left: 10px;
+	color: white;
+	background-color: #74b844;
 }
 #chat .name {
 	display: inline-block;

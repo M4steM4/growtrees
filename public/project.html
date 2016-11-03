@@ -28,7 +28,7 @@
 						<li><a href="#">캘린더</a></li>
 						<li><a href="#">역할분담표</a></li>
 						<li><a href="#">To do list</a></li>
-						<li><a href="#">연락처</a></li>
+						<li><a href="javascript:void(0);" onclick="showTel();">연락처</a></li>
 					</ul>
 				</div>
 
@@ -41,9 +41,41 @@
 				</div>
 			</nav>
 		</div>
+		<!-- calender -->
+		<div id="calender">
+			<div id="scadule">
+				<div class="daytitle">03</div>
+				<div class="daysub">목요일</div>
+				<div class="deadlinetime">마감 24시간 전</div>
+				<div class="daycheck">쳌 쳌</div>
+				<div id="minichattingform">
+					<div class="minichat">
+						<img src="assets/img/sun.png" alt="">
+						<div><strong>user01</strong>text text text text</div>
+					</div>
+					<div class="minichat">
+						<img src="assets/img/sun.png" alt="">
+						<div><strong>user01</strong>text text text text</div>
+					</div>
+					<div class="miniform">
+						<input type="text" class="miniinput" />
+						<button>submit</button>
+					</div>
+					
+				</div>
+			</div>
+			<div class="calendermonth">
+				<div class="month">
+					
+				</div>
+				<div class="day">
+					
+				</div>
+			</div>
+		</div>
 		<!-- office -->
 		<div id="office">
-			<div id="officeheader">title</div>
+			<div id="officeheader">연락처<a href="javascript:void(0);" id="x" onclick="closeTel();">x</a></div>
 			<div class="officelist">내 연락처</div>
 			<div class="profile">
 				<img src="assets/img/sun.png" alt="" class="profileimg">
@@ -97,6 +129,9 @@
 		</div>
 
 		<div id="chat">
+			<div id="chattitle">
+				채팅
+			</div>
 			<div class="message_wrapper">
 				<div class="name green">
 					기모준영띠함
