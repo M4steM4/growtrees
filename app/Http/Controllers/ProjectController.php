@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use App\Project;
 use App\User;
+use App\Chatting;
 use App\Http\Requests;
 
 class ProjectController extends Controller
@@ -157,7 +159,17 @@ class ProjectController extends Controller
     {
 	$this->authorize('access', $project);
 	$user = Auth::user();
-    	return view('project', compact('user'));
+	/*
+	$chatting = Chatting::select(['user_id', 'message'])->where('project_id', '=', $project->id)->get();
+	for($i=0; $i<count($chatting); $i++) {
+	    $user_id = $chatting[$i]['user_id'];
+	    $result = User::select(['name'])->where('id', $user_id)->first();
+	
+	    $chatting[$i]['name'] = $result['name'];
+	}
+	*/
+
+    	return view('project', compact('user', 'project'));
     }
 
     /**

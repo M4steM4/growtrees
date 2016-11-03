@@ -5,7 +5,15 @@
 @endpush
 
 @push('script')
+	<script src="/js/project.js"></script>
+	<script src="/js/project_btn.js"></script>
 @endpush
+
+@section('meta')
+	<meta name="_token" content="{{ csrf_token() }}">
+	<meta name="key_u" content="{{ encrypt($user->id) }}">
+	<meta name="key_p" content="{{ encrypt($project->id) }}">
+@stop
 
 @section('header')
 	<header class="container-fluid">
@@ -61,25 +69,10 @@
 
 		<div id="chat">
 			<div id="message_wrapper">
-				<div>
-					<div class="name green">
-						기모준영띠함
-					</div>
-					<div class="message">
-						메시지
-					</div>
-				</div>
-				<div>
-					<div class="name green">
-						이름
-					</div>
-					<div class="message">
-						메시지 뭐라고 입력할지 모르겠다 하하하
-					</div>
-				</div>	
+			
 			</div>
 			<form>
-				<input type="text" class="form-control">
+				<input type="text" name="message" class="form-control" autocomplete="off">
 				<button type="button">
 					 <span class="glyphicon glyphicon-send"></span>
 				</button> 

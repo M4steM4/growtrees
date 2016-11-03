@@ -71,4 +71,11 @@ Route::group(['middleware' => ['auth']], function () {
 	Route::post('projects', [
 		'uses' => 'ProjectController@store'
 	]);
+
+	Route::post('chattings', [
+		'uses' => 'ChattingController@store'
+	]);
+	Route::post('chat_list', [
+		'uses' => 'ChattingController@getNewList'
+	]);
 });
