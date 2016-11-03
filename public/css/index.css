@@ -75,12 +75,18 @@ label[for="profile_image"]:first-child {
 
 #profile_wrapper, #selected_image {
 	border: 1px solid #cccccc;
-        border-radius: 1em;
+}
+
+#profile_wrapper {
+	border-radius: 75px;
+}
+#selected_image {
+	border-radius: 125px;
 }
 
 #preview {
 	position: absolute;
-	background-color: #888;
+	background-color: #cccccc;
 	left: 0;
 	top: 0;
 	z-index: 0;

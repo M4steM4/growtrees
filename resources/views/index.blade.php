@@ -109,7 +109,7 @@
 								<label for="profile_image" class="control-label">프로필 사진(선택)</label>
 							</div>
 							<div id="profile_wrapper" class="col-sm-10 col-xs-12">
-								<img id="preview" src="{{ asset('storage/profile_imgs/default') }}" alt="profile_image" width="150" height="150">
+								<img id="preview" src="{{ asset('storage/profile_imgs/addProfile') }}" alt="profile_image" width="150" height="150">
 								<input type="file" class="form-contorl" name="profile_image" accept="image/*">
 							</div>
 						</div>

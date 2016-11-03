@@ -25,6 +25,7 @@ function registerFailed(request, status, errorCode) {
 
 function requestRegister() {
 	var formData = new FormData();
+	var profileImage = undefined;
 
 	clearRegisterNotice();
 
@@ -35,10 +36,14 @@ function requestRegister() {
 	formData.append('user_id', $("#register input[name='user_id']").val());
 	formData.append('password', $("#register input[name='password']").val());
 	formData.append('password_confirmation', $("#register input[name='password_confirmation']").val());
-	formData.append("profile_image", $("#register input[name='profile_image']").prop('files')[0]);
-	formData.append("x1", $("#register input[name='x1']").val());
-	formData.append("y1", $("#register input[name='y1']").val());
-	formData.append("size", $("#register input[name='size']").val());
+	
+	profileImage = $("#register input[name='profile_image']").prop('files')[0]
+	if(profileImage) {
+		formData.append("profile_image", profileImage);
+		formData.append("x1", $("#register input[name='x1']").val());
+		formData.append("y1", $("#register input[name='y1']").val());
+		formData.append("size", $("#register input[name='size']").val());
+	}
 	
 	$.ajaxSetup({
                 headers: {

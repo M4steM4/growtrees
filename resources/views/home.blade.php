@@ -125,7 +125,7 @@
 				</div>
 				<div class="modal-body row">
 					<div class="col-sm-offset-1 col-sm-3 col-xs-12">
-						<img id="profile_image" src="{{ asset('storage/profile_imgs/' . $user->id) }}" alt="프로필 사진">
+						<img id="profile_image" src="{{ file_exists(public_path('storage/profile_imgs/'.$user->id)) ? asset('storage/profile_imgs/'.$user->id) : asset('storage/profile_imgs/default') }}" alt="프로필 사진">
 					</div>
 					<div class="col-sm-offset-1 col-sm-7 col-xs-12 profile_info">
 						이름 : {{ $user->name }}
@@ -162,7 +162,7 @@
 						<label for="profile_image" class="col-sm-offset-1 col-xs-12 notice control-label"></label>
 						<div id="preview_wrapper" class="col-sm-offset-1 col-sm-10 col-xs-12">
 							<input type="file" name="profile_image" accept="image/*">
-							<img id="preview" src="{{ asset('storage/profile_imgs/'.$user->id) }}" alt="프로필 사진">
+							<img id="preview" src="{{ file_exists(public_path('storage/profile_imgs/'.$user->id)) ? asset('storage/profile_imgs/'.$user->id) : asset('storage/profile_imgs/default') }}" alt="프로필 사진">
 							<div id="tooltip">
 								<span class="glyphicon glyphicon-camera"></span>
 								&nbsp;클릭

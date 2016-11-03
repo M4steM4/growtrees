@@ -20,7 +20,7 @@
 		<div>
 			<nav class="navbar">
 				<div id="profile">
-					<img src="{{ asset('storage/profile_imgs/'.$user->id) }}" alt="profile_image" width="60" height="60">
+					<img src="{{ file_exists(public_path('storage/profile_imgs/'.$user->id)) ? asset('storage/profile_imgs/'.$user->id) : asset('storage/profile_imgs/default') }}" alt="profile_image" width="60" height="60">
 					<div>
 						<span class="green">{{ $user->name }}</span> <br>
 						{{ $user->nickname }}

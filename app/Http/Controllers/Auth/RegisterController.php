@@ -50,15 +50,20 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
-        return Validator::make($data, [
-            'name' => 'required|regex:[^[가-힣]+$]|min:2|max:6',
-	    'nickname' => 'required|unique:users|min:4|max:30',
+	$rules = [
+	    'name' => 'required|regex:[^[가-힣]+$]|min:2|max:6',
+            'nickname' => 'required|unique:users|min:4|max:30',
             'email' => 'required|email|max:200',
-	    'phone' => 'required|regex:[[0-9]{2,3}-[0-9]{3,4}-[0-9]{4}]',
-	    'user_id' => 'required|unique:users|min:4|max:30',
-            'password' => 'required|min:6|max:30|confirmed',
-	    'profile_image' => 'bail|image|dimensions:min_width=100,min_height=100|max:20480'
-        ]);
+            'phone' => 'required|regex:[[0-9]{2,3}-[0-9]{3,4}-[0-9]{4}]',
+            'user_id' => 'required|unique:users|min:4|max:30',
+            'password' => 'required|min:6|max:30|confirmed'
+	];
+
+	if(isset($data['profile_image'])) {
+	    $rules['profile_image'] = 'bail|image|dimensions:min_width=100,min_height=100|max:20480';
+	}
+
+        return Validator::make($data, $rules);
     }
 
     /**
