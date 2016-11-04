@@ -543,6 +543,7 @@ header {
 	height: 380px;
 	background-color: white;
 	z-index: 50;
+	display: block;
 }
 #chattitle {
 	height: 30px;
