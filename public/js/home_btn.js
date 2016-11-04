@@ -1,5 +1,5 @@
 function onProfileEditBtnClicked () {
-	$('#profile').modal('hide');
+	$('#profile_info').modal('hide');
 	setTimeout(function () {
 		$('#profile_update').modal('show');
 	}, 500);
@@ -123,13 +123,15 @@ function onCreateProjectBtnClicked () {
 }
 
 $(document).ready(function () {
-	$('#profile .modal-body button').click(onProfileEditBtnClicked);
+	//$('#profile_info .modal-body button').click(onProfileEditBtnClicked);
+	/*
 	$('#profile_update .modal-header button').click(function () {
 		$('#profile_update').modal('hide');
 		setTimeout(function () {
-			$('#profile').modal('show');
+			$('#profile_info').modal('show');
 		}, 500);
 	});
+	*/
 	$('#profile_update .modal-body button').click(onProfileEditFinished);
 
 	$('#create_project .modal-body button').click(onCreateProjectBtnClicked);

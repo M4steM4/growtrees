@@ -1,3 +1,173 @@
+function allowSuccess () {
+	alert('멤버가 추가되었습니다.');
+	location.href = "/home";
+}
+function allowFailed () {
+	alert('멤버 추가에 실패했습니다.');
+	location.href = "/home";
+}
+
+function denySuccess () {
+	alert('요청을 거절했습니다.');
+	location.href = "/home";
+}
+function denyFailed () {
+	alert('오류가 발생했습니다.');
+	location.href = "/home";
+}
+
+function allowResponse(projectName, userId) {
+	var formData = new FormData();
+        formData.append('projectName', projectName);
+        formData.append('userId', userId);
+
+        $.ajaxSetup({
+                headers: {
+                        'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
+                }
+        });
+
+        $.ajax({
+                type: 'POST',
+                url: 'allow_request',
+                contentType: false,
+                processData: false,
+                data: formData,
+                success: allowSuccess,
+                error: allowFailed
+        });	
+}
+function denyResponse(projectName, userId) {
+	var formData = new FormData();
+        formData.append('projectName', projectName);
+	formData.append('userId', userId);
+
+        $.ajaxSetup({
+                headers: {
+                        'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
+                }
+        });
+
+        $.ajax({
+                type: 'POST',
+                url: 'deny_request',
+                contentType: false,
+                processData: false,
+                data: formData,
+                success: denySuccess,
+                error: denyFailed
+        });
+}
+
+function joinSuccess (response, status, t) {
+	alert('프로젝트 가입 요청을 보냈습니다.');
+	location.href="/home";
+}
+function joinFailed (response, status, errorCode) {
+	alert('요청에 실패했습니다.');
+	location.href="/home";
+}
+
+/* JunYoung code */
+function sendJoinRequest(projectId) {
+	var formData = new FormData();
+	formData.append('id', projectId);
+
+	$.ajaxSetup({
+                headers: {
+                        'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
+                }
+        });
+
+        $.ajax({
+                type: 'POST',
+                url: 'join_request',
+                contentType: false,
+                processData: false,
+                data: formData,
+                success: joinSuccess,
+                error: joinFailed
+        });
+}
+
+function onDataClicked(projectId, profileImagePath, userName, nickname, projectName) {
+	$.get('project_info/' + projectId, function(data, status) {
+		var $div = '';
+		$div += '<img src="' + profileImagePath + '"><br>';
+		$div += userName + '(';
+		$div += nickname + ') ';
+		$div += '프로젝트 이름 : ' + projectName;
+		$div += ' 프로젝트 내용 : ' + data['description'];
+		$div += '참가인원 : 3';
+		$div += '참자가 프로필 사진들';
+		if(data['joined'] === true) {
+			$div += '이미 프로젝트의 멤버입니다.';
+		}
+		else if(!data['joined']) {
+			$div += '<button type="button" onclick="sendJoinRequest(' + projectId + ');">가입 요청</button>';
+		}
+		else {
+			$div += '승인 대기중입니다.';
+		}
+	
+		$('#project_info .modal-body').html($div);
+		$('#project_info').modal('show');
+	});
+}
+
+function getProjectList() {
+	$.get("project_list/" + $('#dataSearch').val(), function(data, status){
+        	var items = data;
+		var $div = '';
+		for(var i=0; i<items.length; i++) {
+			items[i].author;
+			items[i].nickname;
+			items[i].name;
+
+			var params = '';
+			params += items[i].id + ', ';
+			params += '"' + items[i].profileImagePath + '"' + ', ';
+			params += '"' + items[i].author + '"' + ', ';
+			params += '"' + items[i].nickname + '"' + ', ';
+			params += '"' + items[i].name + '"';
+			
+			$div += '<a href="#" onclick=\'onDataClicked(' + params +');\'><div class="datalist"><img class="dataimg" src="' 
+					+  items[i].profileImagePath + '" alt="">'
+					+ '<strong>' + items[i].nickname + ' </strong>'
+					+ ' &nbsp;&nbsp;&nbsp;&nbsp;' + items[i].name + '<br /></div></a>';
+		}
+
+		$('#searchlist').html($div);
+ 	});	
+}
+
+/* youben code */
+function search() {
+	var search = document.getElementById('search');
+	search.innerHTML = "<input type='text' id='dataSearch' placeholder='검색하고 싶은 팀명을 입력하세요.'/><li id='inputform' class='menu' onclick='desearch();''><a href='javascript:void(0)'><img src='images/search.png' alt='' /></a></li>";
+	$('#dataSearch').focus(function() {
+		focus();
+	});
+	$('#dataSearch').focusout(function() {
+		//outfocus();
+	});
+
+	$('#dataSearch').on('change keyup paste', getProjectList);
+}
+function desearch() {
+	var search = document.getElementById('search');
+	search.innerHTML = "<li id='inputform' class='menu' onclick='search();''><a href='javascript:void(0)'><img src='images/search.png' alt='' /></a></li>";
+	outfocus();
+}
+function focus() {
+	$('#searchlist').css("display", "block");
+}
+function outfocus() {
+	$('#searchlist').css("display", "none");
+}
+
+
+/* Junyoung code */
 var ias = null;
 var inputPlaceHolders = {
         'name' : '이름',

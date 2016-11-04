@@ -91,7 +91,10 @@ class ProjectController extends Controller
         ]);
 
 	// project project name duplication per one user
-	$flag = Project::where('name', '=', $request->input('project_name'))->first();
+	$flag = Project::where([
+		['name', '=', $request->input('project_name')],
+		['author', '=', $user->id],
+	])->first();
 	if($flag != null) {
 	    return response()->json([
                 'project_name' => array('중복된 이름')
@@ -134,19 +137,97 @@ class ProjectController extends Controller
 
     // project_list/{str}
     public function getList($str) {
-	$items = Project::select(['name', 'author'])->where('name', 'like', $str . '%')->get();
-	return $items;
+	$items = Project::select(['id', 'name', 'author'])->where('name', 'like', $str . '%')->get();
+	for($i=0; $i<count($items); $i++) {
+		$user_id = $items[$i]['author'];
+		$result = User::select(['name', 'nickname'])->where('id', $user_id)->first();	
+
+		$profileImagePath = public_path('storage/profile_imgs/'.$user_id);
+		if(!file_exists($profileImagePath)) {
+			$profileImagePath = 'storage/profile_imgs/default';
+		}
+		else {
+			$profileImagePath = 'storage/profile_imgs/'.$user_id;
+		}
+
+		$items[$i]['author'] = $result['name'];
+		$items[$i]['nickname'] = $result['nickname'];
+		$items[$i]['profileImagePath'] = $profileImagePath;
+	}
+	return response()->json($items, 200);
     }
-    // project_info/{projectName}
-    public function getInfo($projectName) {
-	$info = Project::select(['name', 'description', 'author', 'members'])
-			->where('name', '=', $projectName)
+    // project_info/{projectId}
+    public function getInfo($projectId) {
+	$info = Project::select(['name', 'description', 'author', 'members', 'requests'])
+			->where('id', '=', $projectId)
 			->first();
 	
-	//$members = $info['members'];
-	//$info['members'] = count(explode('n', $members))-1;
+	if(strpos($info['members'], Auth::user()->id.'n') !== false) {
+		$info['joined'] = true;
+	}
+	else {
+		if(strpos($info['requests'], Auth::user()->id.'n') !== false) {
+			$info['joined'] = 'wating';
+		}
+		else {
+			$info['joined'] = false;
+		}
+	}
 
 	return $info;
+    }
+
+    // join_request
+    public function joinRequest(Request $request) {
+	$user_id = Auth::user()->id;
+	$project = Project::where('id', $request->input('id'))->first();
+	$project->requests .= $user_id.'n';
+	$project->save();
+
+	return response()->json('success', 200);
+    }
+
+    // allow_request
+    public function allowRequest(Request $request) {
+	$user = Auth::user();
+	$projectName = $request->input('projectName');
+        $requestUid = $request->input('userId');
+
+	$project = Project::where([
+		['name', '=', $projectName],
+		['author', '=', $user->id]
+	])->first();
+
+	$requests = $project['requests'];
+	$idx = strpos($requests, $requestUid.'n');
+	$requests = substr($requests, 0, $idx) . substr($requests, $idx+strlen($requestUid.'n'));
+
+	$project['requests'] = $requests;
+	$project['members'] .= $requestUid . 'n';
+	$project->save();
+	
+	return 'success';
+    }
+
+    // deny_request
+    public function denyRequest(Request $request) {
+	$user = Auth::user();
+        $projectName = $request->input('projectName');
+        $requestUid = $request->input('userId');
+
+	$project = Project::where([
+                ['name', '=', $projectName],
+                ['author', '=', $user->id]
+        ])->first();
+
+        $requests = $project['requests'];
+        $idx = strpos($requests, $requestUid.'n');
+        $requests = substr($requests, 0, $idx) . substr($requests, $idx+strlen($requestUid.'n'));
+
+        $project['requests'] = $requests;
+	$project->save();
+	
+	return 'success';
     }
 
     /**

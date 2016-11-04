@@ -17,6 +17,28 @@ class HomeController extends Controller
 	$user = Auth::user();
 	$projects = Project::select(['name', 'author', 'members', 'token'])->where('members', 'like', '%'.$user->id.'n%')->get();
 	
+	for ($i=0; $i<count($projects); $i++) {
+		if($user->id == $projects[$i]['author']) {
+			$result = Project::where([
+				['name', '=', $projects[$i]['name']],
+				['author', '=', $projects[$i]['author']],
+			])->first();
+
+			$request_id = $result['requests'];
+			if(!$request_id) {
+				continue;
+			}
+
+			$request_id = explode('n', $request_id);
+			$requests = array();
+			for($j=0; $j<count($request_id)-1; $j++) {
+				$requests[$j] = User::select(['id', 'name', 'nickname'])->where('id', $request_id[$j])->first();
+			}
+
+			$projects[$i]['requests'] = $requests;
+		}
+	}
+	
 	return view('home', compact('user', 'projects'));
     }
 

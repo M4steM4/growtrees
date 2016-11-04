@@ -16,105 +16,91 @@
 @endsection
 
 @section('header')
-	<!-- Top menubar -->
-	<nav class="navbar navbar-inverse menu">
-                <div class="container-fluid">
-                        <div class="navbar-header">
-                                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                                        <span class="icon-bar"></span>
-                                        <span class="icon-bar"></span>
-                                        <span class="icon-bar"></span>
-                                        <span class="icon-bar"></span>
-                                </button>
-                                <a class="navbar-brand logo" href="{{ route('home') }}">자라나라 나무나무</a>
-                        </div>
-                        <div class="collapse navbar-collapse" id="myNavbar">
-                                <ul class="nav navbar-nav navbar-right">
-                                        <li><a href="" data-toggle="modal" data-target="#profile"><div class="glyphicon glyphicon-user"><div class="badge">5</div></div></a></li>
-                                        <li><a href="#"><div class="glyphicon glyphicon-search"></div></a></li>
-                                        <li><a href="#"><div class="glyphicon glyphicon-bell"><div class="badge">5</div></div></a></li>
-                                        <li><a href="#"><div class="glyphicon glyphicon-th-list"></div></a></li>
-                                </ul>
-                        </div>
-		</div>
-	</nav>
+	<div id="header" class="container-fluid">
+		<div id="logo">자라나라 나무나무</div>
+		<ul id="menuList">
+			<div id="search" class="dropdown">
+				<li class="menu" onclick="search();">
+					<a href="javascript:void(0)"><img src="{{ asset('images/search.png') }}" alt="프로젝트 검색" /></a>
+				</li>
+			</div>
+			<div id="searchlist">
+				
+			</div>
+			<div id="profile" class="dropdown">
+				<li class="menu dropdown-toggle" data-toggle="dropdown">
+					<a href=""><img src="{{ asset('images/profile.png') }}" alt="" /></a>
+				</li>
+				<ul class="dropdown-menu dropdown-menu-right">
+					<li><a href="#" data-toggle="modal" data-target="#profile_info">프로필 정보</a></li>
+					<li><a href="#" data-toggle="modal" data-target="#profile_update">프로필 수정</a></li>
+				</ul>
+			</div>
+			<div id="menu" class="dropdown">
+				<li class="menu dropdown-toggle" data-toggle="dropdown">
+					<a href=""><img src="{{ asset('images/menu.png') }}" alt="" /></a>
+				</li>
+				<ul class="dropdown-menu dropdown-menu-right">
+					<li><a href="#" data-toggle="modal" data-target="#show_requests">요청 확인</a></li>
+					<li><a href="{{ route('session.destroy') }}">로그아웃</a></li>
+				<!--
+					<li><a href="#">ㅁㄴㅁㄴㅇㅁㄴ</a></li>
+					<li><a href="#">ㅁㄴㅇㅁㄴㅇㅁㄴㅇ</a></li>
+				-->
+				</ul>
+			</div>
+		</ul>
+	</div>
 @stop
 
 @section('content')
-	<!-- Main Section -->
 	<div id="main" class="container-fluid">
-		<div class="row">
-			@foreach ($projects as $project)
-				<div class="col-md-4 col-sm-4 col-xs-12 flowerpotcase">
-				<a href="{{ route('projects.show', $project['token']) }}">
-					<div class="flowerpot">
-						<!-- Plant pot -->
-						<div class="pot pot-bot">
-							<div class="shadow"></div>
-							<div class="pot pot-shadow"></div>
-							<div class="pot pot-top">
-								<p class="pottext">
-									{{ $project['name'] }}
-									@if (!strcmp($user->id, $project['author']))
-										[admin]	
-									@endif
-								</p>
+		<?php
+			$cnt = count($projects);
+		?>
+		@for ($i=0; $i<=$cnt; $i+=3)
+			@if($cnt-$i <= 3)
+				<div class="row @if ($i == 0) {{ 'margin' }} @endif">
+					<div class="col-md-10 section">
+						@for ($j=0; $j<$cnt-$i; $j++)
+							<div class="col-md-4 flowerpot">
+								<a href="{{ route('projects.show', $projects[$i+$j]['token']) }}">
+									<img src="{{ asset('images/pot.png') }}" class="pot" alt="">
+									<div class="potname">{{ $projects[$i+$j]['name'] }}</div>
+								</a>
 							</div>
-							<div class="sign-top">1</div>
-							<div class="sign-bottom"></div>
-							<!-- Plant -->
-							<div class="plant">
-								<div class="leaf leaf-1"></div>
-								<div class="leaf leaf-2"></div>
-								<div class="leaf leaf-3"></div>
-								<div class="leaf leaf-4"></div>
-								<div class="head">
-									<!--div class="face"></div-->
-									<ul>
-										<li></li>
-										<li></li>
-										<li></li>
-										<li></li>
-										<li></li>
-										<li></li>
-										<li></li>
-										<li></li>
-									</ul>
-								</div>
-							</div>
-						</div>
-					</div>
-					</a>
-				</div>
-			@endforeach
+						@endfor
 
-			<div id="add" class="col-md-4 col-sm-4 col-xs-12 flowerpotcase">
-				<a data-toggle="modal" data-target="#create_project">
-					<div id="addpot" class="flowerpot">
-						<div class="block block-col"></div>
-						<div class="block block-row"></div>
+						@if($cnt-$i < 3)
+							<div class="col-md-4 flowerpot">
+								<a href="#" data-toggle="modal" data-target="#create_project">
+									<img src="{{ asset('images/addpot.png') }}" class="pot" alt="">
+									<div class="potname">Add Pot!</div>
+								</a>
+							</div>
+						@endif
 					</div>
-				</a>
-			</div>
-			
-			@for ($i=0; $i < 2-(count($projects)%3); $i++)
-				<div class="col-md-4 col-sm-4 col-xs-12 flowerpotcase">
 				</div>
-			@endfor
-		</div>
-	</div>
-	<!-- Footer -->
-	<div id="footer" class="col-md-12">
-		<div class="bookshelf">
-	        <div class="book book-green">
-	            <h2>@copyright by junyongJJang!</h2>
-	        </div>
-	    </div>
+			@else
+				<div class="row @if ($i == 0) {{ 'margin' }} @endif">
+					<div class="col-md-10 section">
+						@for ($j=0; $j<3; $j++)
+							<div class="col-md-4 flowerpot">
+								<a href="{{ route('projects.show', $projects[$i+$j]['token']) }}">
+									<img src="{{ asset('images/pot.png') }}" class="pot" alt="">
+									<div class="potname">{{ $projects[$i+$j]['name'] }}</div>
+								</a>
+							</div>
+						@endfor
+					</div>
+				</div>
+			@endif
+		@endfor
 	</div>
 @stop
 
 @section('footer')
-	<div id="profile" class="modal fade" role="dialog">
+	<div id="profile_info" class="modal fade" role="dialog">
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
@@ -127,22 +113,21 @@
 					<div class="col-sm-offset-1 col-sm-3 col-xs-12">
 						<img id="profile_image" src="{{ file_exists(public_path('storage/profile_imgs/'.$user->id)) ? asset('storage/profile_imgs/'.$user->id) : asset('storage/profile_imgs/default') }}" alt="프로필 사진">
 					</div>
-					<div class="col-sm-offset-1 col-sm-7 col-xs-12 profile_info">
-						이름 : {{ $user->name }}
+					<div>
+						<span class="green col-sm-offset-1 col-sm-2">이름</span> 
+						<span class="col-sm-5">{{ $user->name }}</span>
 					</div>
-					<div name="nickname" class="col-sm-offset-1 col-sm-7 col-xs-12 profile_info">
-						닉네임 : {{ $user->nickname }}
+					<div>
+						<span class="green col-sm-offset-1 col-sm-2">닉네임</span>
+                                                <span class="col-sm-5">{{ $user->nickname }}</span>
 					</div>
-					<div name="email" class="col-sm-offset-1 col-sm-7 col-xs-12 profile_info">
-						이메일 : {{ $user->email }}	
+					<div>
+						<span class="green col-sm-offset-1 col-sm-2">이메일</span> 
+						<span class="col-sm-5">{{ $user->email }}</span>
 					</div>
-					<div name="phone" class="col-sm-offset-1 col-sm-7 col-xs-12 profile_info">
-						휴대전화[연락처] : {{ $user->phone }}
-					</div>
-					<div class="col-xs-12">
-						<button class="btn btn-default col-xs-12">
-        	        	                       	수정              
-	        	        	        </button>
+					<div>
+						<span class="green col-sm-offset-1 col-sm-2">휴대전화</span> 
+						<span class="col-sm-5">{{ $user->phone }}</span>
 					</div>
 				</div>
 			</div>
@@ -216,11 +201,9 @@
                                 		<img id="selected_image" src="" alt="profile_image" width="250" height="250">
                                 	</div>
                                 
-                                	<div class="col-xs-12">
-						<button class="btn btn-default col-xs-12">
-                                                        완료
-	                                        </button>
-					</div>
+					<button class="btn btn-default col-xs-12">
+                                        	완료
+                                        </button>
                                 </div>
                         </div>
                 </div>
@@ -254,6 +237,57 @@
                                                         생성
                                                 </button>
 					</form>
+                                </div>
+                        </div>
+                </div>
+        </div>
+	
+	<div id="project_info" class="modal fade" role="dialog">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<div class="col-sm-offset-1">
+                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                <h4 class="modal-title">프로젝트 정보</h4>
+                                        </div>
+				</div>
+				<div class="modal-body">
+					
+				</div>
+			</div>	
+		</div>
+	</div>
+
+	<div id="show_requests" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+                        <div class="modal-content">
+                                <div class="modal-header">
+                                        <div class="col-sm-offset-1">
+                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                <h4 class="modal-title">요청 확인</h4>
+                                        </div>
+                                </div>
+                                <div class="modal-body">
+					@foreach ($projects as $project)
+						@if (isset($project['requests']))
+							프로젝트명 {{ $project['name'] }} <br>
+							=== 요청 ========== <br>
+							@for ($i=0; $i<count($project['requests']); $i++)
+								<img src="{{ file_exists(public_path('storage/profile_imgs/'.$project['requests'][$i]['id'])) ? asset('storage/profile_imgs/'.$project['requests'][$i]['id']) : asset('storage/profile_imgs/default') }}"> <br>
+								{{ $project['requests'][$i]['name'] }} 
+								{{ $project['requests'][$i]['nickname'] }}
+								<br>
+								<button type="button" onclick="allowResponse('{{ $project['name'] }}', {{ $project['requests'][$i]['id'] }});">
+									승인
+								</button>
+								<button type="button" onclick="denyResponse('{{ $project['name'] }}', {{ $project['requests'][$i]['id'] }});">
+									거절
+								</button>
+								<br>
+							@endfor
+							=================== <br>
+						@endif
+					@endforeach
                                 </div>
                         </div>
                 </div>

@@ -61,9 +61,20 @@ Route::group(['middleware' => ['auth']], function () {
 	Route::get('project_list/{str}', [
 		'uses' => 'ProjectController@getList'
 	]);
-	Route::get('project_info/{projectName}', [
+	Route::get('project_info/{projectId}', [
 		'uses' => 'ProjectController@getInfo'
 	]);
+	
+	Route::post('join_request/', [
+		'uses' => 'ProjectController@joinRequest'
+	]);
+	Route::post('allow_request/', [
+		'uses' => 'ProjectController@allowRequest'
+	]);
+	Route::post('deny_request/', [
+		'uses' => 'ProjectController@denyRequest'
+	]);
+
 	Route::get('projects/{project}', [
 		'as' => 'projects.show',
 		'uses' => 'ProjectController@show'
