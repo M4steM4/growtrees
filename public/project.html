@@ -25,10 +25,10 @@
 				<div class="clearfix"></div>
 				<div id="menubar">
 					<ul class="nav navbar-nav">
-						<li><a href="#">캘린더</a></li>
-						<li><a href="#">역할분담표</a></li>
+						<li><a href="javascript:void(0);" onclick="showflex('calender');">캘린더</a></li>
+						<li><a href="javascript:void(0)" onclick="rollon();">역할분담표</a></li>
 						<li><a href="#">To do list</a></li>
-						<li><a href="javascript:void(0);" onclick="showTel();">연락처</a></li>
+						<li><a href="javascript:void(0);" onclick="show('office');">연락처</a></li>
 					</ul>
 				</div>
 
@@ -57,25 +57,97 @@
 						<img src="assets/img/sun.png" alt="">
 						<div><strong>user01</strong>text text text text</div>
 					</div>
-					<div class="miniform">
-						<input type="text" class="miniinput" />
-						<button>submit</button>
+					<div class="minichat">
+						<img src="assets/img/sun.png" alt="">
+						<div><strong>user01</strong>text text text text</div>
 					</div>
-					
+					<div class="minichat">
+						<img src="assets/img/sun.png" alt="">
+						<div><strong>user01</strong>text text text text</div>
+					</div>
+				</div>
+				<div class="miniform">
+					<input type="text" class="miniinput" placeholder="댓글 입력" />
+					<button>작성</button>
 				</div>
 			</div>
 			<div class="calendermonth">
-				<div class="month">
-					
+				<div class="monthlist">
+					<div class="month">10월</div>
+					<div class="month month-active">11월</div>
+					<div class="month">12월</div>
+					<a href="javascript:void(0);" id="y" onclick="closeflex();">x</a>
 				</div>
 				<div class="day">
 					
 				</div>
 			</div>
 		</div>
+		<!--roll divide -->
+		<div id="roll">
+			<div id="divisiontable">
+				<div class="divisiontitle">역할 분담표</div>
+				<div class="divisionuser">
+					<img src="assets/img/sun.png" alt="" class="userimg">
+					<p><strong>USER</strong><br />text text text</p>
+				</div>
+				<div id="rolldivider"></div>
+				<ul>
+					<li class="rolldata">text 1 </li>
+					<li class="rolldata">text 2 </li>
+					<li class="rolldata">text 3 </li>
+				</ul>
+				<div class="divisioninputform">
+					<input type="text" class="divisioninput" placeholder="추가할 사항을 입력하세요.">
+					<button class="divisionbutton">추가</button>
+				</div>
+			</div>
+			<div id="userroll">
+				<a href="javascript:void(0);" id="z" onclick="rollout();">x</a>
+				<div class="usersection">
+					<div class="rollname">
+						<img src="assets/img/sun.png" alt="">
+						<p><strong>test</strong><br />text text text</p>
+					</div>
+					<div class="rollprofile">
+						<ul class="padding">
+							<li class="rollprofilelist">text 1 </li>
+							<li class="rollprofilelist">text 2 </li>
+							<li class="rollprofilelist">text 3 </li>
+						</ul>
+					</div>
+				</div>
+				<div class="usersection">
+					<div class="rollname">
+						<img src="assets/img/sun.png" alt="">
+						<p><strong>test</strong><br />text text text</p>
+					</div>
+					<div class="rollprofile">
+						<ul class="padding">
+							<li class="rollprofilelist">text 1 </li>
+							<li class="rollprofilelist">text 2 </li>
+							<li class="rollprofilelist">text 3 </li>
+						</ul>
+					</div>
+				</div>
+				<div class="usersection">
+					<div class="rollname">
+						<img src="assets/img/sun.png" alt="">
+						<p><strong>test</strong><br />text text text</p>
+					</div>
+					<div class="rollprofile">
+						<ul class="padding">
+							<li class="rollprofilelist">text 1 </li>
+							<li class="rollprofilelist">text 2 </li>
+							<li class="rollprofilelist">text 3 </li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
 		<!-- office -->
 		<div id="office">
-			<div id="officeheader">연락처<a href="javascript:void(0);" id="x" onclick="closeTel();">x</a></div>
+			<div id="officeheader">연락처<a href="javascript:void(0);" id="x" onclick="closetel();">x</a></div>
 			<div class="officelist">내 연락처</div>
 			<div class="profile">
 				<img src="assets/img/sun.png" alt="" class="profileimg">
