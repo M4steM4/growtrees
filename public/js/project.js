@@ -1,10 +1,25 @@
 var msgCnt = 0;
 
+var entityMap = {
+  "&": "&amp;",
+  "<": "&lt;",
+  ">": "&gt;",
+  '"': '&quot;',
+  "'": '&#39;',
+  "/": '&#x2F;'
+};
+
+function escapeHtml(string) {
+  return String(string).replace(/[&<>"'\/]/g, function (s) {
+    return entityMap[s];
+  });
+}
+
 function getNew (response) {
 	for(var i=msgCnt; i<response.length; i++) {
 		$('#message_wrapper').append('<div><div class="name green">' 
-			+ response[i].name + '</div> <div class="message">' 
-			+ response[i].message + '</div></div>');
+			+ escapeHtml(response[i].name) + '</div> <div class="message">' 
+			+ escapeHtml(response[i].message) + '</div></div>');
 	}
 
 	if(msgCnt < response.length) {
