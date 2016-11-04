@@ -9,7 +9,6 @@ a {
 .green {
 	color: #74b844;
 }
-
 header {
 	position: relative;
 	background-color: #74b844;
@@ -17,6 +16,440 @@ header {
 	padding: 0;
 	z-index: 10000;
 }
+.navbar {
+	position: fixed;
+}
+#x {
+	margin-left: 68%;
+	font-size: 20px;
+	color: white;
+	text-decoration: none;
+}
+#y {
+	color: black;
+	font-size: 20px;
+	text-decoration: none;
+}
+#z {
+	color: black;
+	font-size: 20px;
+	text-decoration: none;
+}
+#i {
+	width: 10px;
+	height: 10px;
+	margin-left: 95%;
+	box-sizing: border-box;
+}
+/*calender*/
+#calender {
+	position: absolute;
+	width: 600px;
+	height: 400px;
+	margin-left: calc(50% - 300px);
+	border-radius: 2px;
+	display: none;
+	margin-top: 30px;
+	z-index: 100;
+}
+#scadule {
+	width: 200px;
+	height: 100%;
+	text-align: center;
+	color: white;
+	background-color: #74b844;
+}
+.calendermonth {
+	width: 400px;
+	height: 100%;
+}
+.daytitle {
+	font-size: 55px;
+	font-weight: 600;
+	margin-top: 8%;
+}
+.daysub {
+	font-size: 15px;
+	font-weight: 100;
+	margin-top: -4%;
+}
+.deadlinetime {
+	margin-top: 25%;
+	word-spacing: 5px;
+	font-weight: 500;
+}
+.daycheck {
+	margin-top: 2%;
+}
+#minichattingform {
+	width: 180px;
+	max-height: 100px;
+	left: 0;
+	border: 2px solid white;
+	margin-top: 22%;
+	margin-bottom: 5%;
+	margin-left: 10px;
+	border-radius: 5px;
+	overflow: scroll;
+}
+.minichat {
+	display: flex;
+}
+.minichat > img {
+	width: 20px;
+	height: 20px;
+	margin-left: 5px;
+	margin-right: 5px;
+	border-radius: 50%;
+}
+.minichat > div {
+	width: 150px;
+}
+.minichat > div > strong {
+}
+.miniform {
+	width: 180px;
+	margin-left: 10px;
+	display: flex;
+}
+.miniform > input {
+	width: 130px;
+	background-color: #74b844;
+	border: none;
+	border-bottom: 1px solid white;
+}
+.miniform > input[type="text"]::-webkit-input-placeholder {
+	color: rgba(255, 255, 255, 0.7);
+}
+.miniform > button {
+	width: 50px;
+	background-color: #74b844;
+	color: white;
+	border: 1px solid white;
+	border-radius: 4px;
+	padding: -4px;
+}
+.calendermonth {
+	background-color: white;
+}
+.monthlist {
+	color: #bbbbbb;
+	width: 100%;
+	height: 20%;
+	display: flex;
+	text-align: center;
+}
+.month {
+	font-size: 14px;
+	width: 33.33%;
+	height: 100%;
+	padding-top: 40px;
+}
+.month-active {
+	font-size: 20px;
+	padding-top: 25px;
+	color: #74b844;
+	font-weight: 500;
+}
+/* roll */
+#roll {
+		position: absolute;
+
+	width: 700px;
+	height: 450px;
+	margin-left: calc(50% - 350px);
+	margin-top: 30px;
+	border-radius: 2px;
+	z-index: 100;
+	display: none;
+}
+#divisiontable {
+	width: 40%;
+	color: white;
+	background-color: #74b844;
+}
+.divisiontitle {
+	width: 100%;
+	height: 10%;
+	font-size: 17px;
+	padding: 15px;
+}
+.divisionuser {
+	width: 80%;
+	height: 20%;
+	margin-top: 7%;
+	margin-left: 10%;
+	display: flex;
+}
+.divisionuser > img {
+	width: 30%;
+	margin: 5%;
+}
+.divisionuser > p {
+	width: 60%;
+	margin-top: 18%;
+	padding-left: 4%;
+	font-weight: 200;
+	color: rgba(255, 255, 255, 0.8);
+}
+.divisionuser > p > strong {
+	font-size: 20px;
+	font-weight: 200;
+	color: white;
+}
+#rolldivider {
+	width: 80%;
+	height: 1px;
+	margin: 10% 0 10% 10%;
+	background-color: rgba(255, 255, 255, 0.2);
+}
+#userroll {
+	width: 60%;
+}
+.rolldata {
+	margin: 5% 0 5% 0;
+	color: rgba(255, 255, 255, 0.9);
+	list-style: none;
+}
+.rolldata:before {
+	content: '- ';
+}
+.divisioninputform {
+	width: 90%;
+	margin-left: 5%;
+	margin-top: 40%;
+	display: flex;
+}
+.divisioninputform > input {
+	width: 74%;
+	margin: 0% 3% 0 3%;
+	background-color: #74b844;
+	border: none;
+	border-bottom: 1px solid white;
+}
+.divisioninputform > input[type="text"]::-webkit-input-placeholder {
+	color: rgba(255, 255, 255, 0.7);
+}
+.divisioninputform > button {
+	width: 20%;
+	background-color: #74b844;
+	color: white;
+	border: 1px solid white;
+	border-radius: 4px;
+	padding: -4px;
+}
+#userroll {
+	background-color: #fff;
+	padding: 4%;
+}
+#userroll > a {
+	margin: -2% 0 0 95%;
+}
+.usersection {
+	width: 100%
+	height: 20%;
+	margin-bottom: 2%;
+	display: flex;
+}
+.rollname {
+	width: 40%;
+	margin-top: 4%;
+	color: #74b844;
+	display: flex;
+}
+.rollname > img {
+	width: 35px;
+	height: 35px;
+	margin-right: 10px;
+	border-radius: 50%;
+}
+.rollname > p {
+	width: 75%;
+	font-size: 12px;
+	font-weight: 200;
+	color: #bbb;
+}
+.rollname > p > strong {
+	font-weight: 400;
+	font-size: 15px;
+	color: #74b844;
+}
+.rollprofile {
+	width: 60%;
+}
+.rollprofilelist {
+	list-style: none;
+}
+.padding {
+	padding: 0;
+}
+.rollprofilelist:before {
+	content: '- ';
+}
+/* to-do-list */
+
+#todolist {
+		position: absolute;
+
+	width: 700px;
+	height: 450px;
+	margin-left: calc(50% - 350px);
+	margin-top: 30px;
+	border-radius: 2px;
+	z-index: 100;
+	display: none;
+}
+#green {
+	background-color: #74b844;
+	color: white;
+}
+#white {
+	background-color: #efefef;
+	color: #74b844;
+}
+.todolistsection {
+	width: 350px;
+	height: 100%;
+}
+.todolisttitle {
+	text-align: center;
+	font-size: 22px;
+	margin: 7% 0 0 0;
+	margin-top: calc(7% - 16px);
+	font-weight: 200;
+}
+.todolistmargin {
+	margin-top: 7%;
+}
+.greentitle {
+	font-size: 13px;
+	color: rgba(255, 255, 255, 0.7);
+	margin: -2% 0 -2% 0;
+}
+.whitetitle {
+	font-size: 13px;
+	color: rgba(116, 184, 68, 0.7);
+	margin: -2% 0 -2% 0;
+}
+.todolistcheck {
+	padding: 10%;
+}
+.todolistdata {
+	margin-bottom: 5%;
+	display: flex;
+	width: 100%;
+}
+.todolistdata > img {
+	width: 35px;
+	height: 35px;
+	margin-right: 10px;
+	margin-left: -10px;
+}
+.todolistdata > p {
+	width: 85%;
+	font-weight: 100;
+	font-size: 12px; 
+}
+.todolistdata > p > strong {
+	font-size: 15px;
+	font-weight: 400;
+}
+.todolistinput {
+	display: flex;
+}
+.todolistinput > input {
+	width: 70%;
+	margin: 0% 5% 0 5%;
+	border: none;
+	background-color: #efefef;
+	border-bottom: 1px solid #74b844;
+
+}
+.todolistinput > input[type="text"]::-webkit-input-placeholder {
+	color: rgba(116, 184, 68, 0.7);
+}
+.todolistinput > button {
+	width: 20%;
+	border-radius: 4px;
+	padding: -4px;
+	background-color: #efefef;
+	border: 1px solid #74b844;
+	border-radius: 4px;
+	padding: -4px;
+	color: #74b844;
+}
+
+
+/*office*/
+#office {
+	position: absolute;
+	display: none;
+	margin-left: calc(50% - 150px);
+	margin-top: 30px;
+	width: 300px;
+	max-height: 500px;
+	background-color: #efefef;
+	overflow: scroll;
+	border-radius: 2px;
+	z-index: 100;
+}
+#officeheader {
+	width: 100%;
+	height: 50px;
+	background-color: #74b844;
+	color: white;
+	padding: 15px 0 0 15px;
+	font-size: 20px;
+	box-sizing: border-box;
+}
+.officelist {
+	padding: 15px 0 0 20px;
+}
+.profile {
+	display: flex;
+}
+.profile > p {
+	width: 210px;
+	height: 70px;
+	padding-top: 15px;
+	font-weight: 200;
+	color: #b57d4e;
+}
+.profile > p > strong {
+	font-size: 20px;
+	color: #74b844;
+	font-weight: 400;
+	margin-left: -5px;
+	margin-right: 10px
+}
+.profiletext {
+	display: block;
+	width: 300px;
+	height: 50px;
+	font-size: 14px;
+	box-sizing: border-box;
+}
+.profiletext > strong {
+	margin-left: 10px;
+	color: #74b844;
+	font-weight: 200;
+}
+.profiletext > p {
+	margin-right: -10px
+}
+.profileimg {
+	width: 50px;
+	height: 50px;
+	margin: 10px 20px 10px 20px;
+	box-sizing: border-box;
+}
+#divider {
+	height: 1px;
+	padding: 0;
+	margin: 20px 0 20px 0 ;
+	background-color: #bbbbbb;
+}
+
 
 #logo {
 	width: 150px;
@@ -24,14 +457,12 @@ header {
 	display: flex;
 	align-items: center;
 }
-
 #content_wrapper {
 	background-image: url('../images/projectBackground.png');
 	background-size: 100% 100%;
 	height: calc(100% - 50px);
 	overflow-y: scroll;
 }
-
 /* side navbar */
 #content_wrapper > div:first-child
 , #content_wrapper > div:first-child > nav {
@@ -41,14 +472,12 @@ header {
 	margin-bottom: 0;
 	overflow-x: hidden;
 }
-
 #content_wrapper > div:first-child > nav {
 	height: calc(100% - 50px);
 	background-color: rgba(236, 238, 239, 0.9); 
 	position: absolute;
 	z-index: 10000;
 }
-
 #profile {
 	margin-top: 40%;
 	margin-left: 1em;	
@@ -89,7 +518,6 @@ header {
 #user_menubar ul > li > a {
 	padding-bottom: 0;
 }
-
 #tree {	
 	position: absolute;
 	width: 100%;
@@ -97,44 +525,48 @@ header {
 	bottom: 0;
 	z-index: 0;
 }
-
 #sun {
 	position: absolute;
 	top: 80px;
 	right: 50px;
 }
-
 #waterspread {
 	position: absolute;
 	bottom: 380px;
 	right: 230px;
 }
-
 #chat {
 	position: absolute;
 	bottom: 0;
-	right: 20px;
-
+	right: 0;
 	width: 300px;
 	height: 380px;
 	background-color: white;
+	z-index: 50;
 }
-
-#chat #message_wrapper {
-	overflow-y: scroll;
-	height: 345px;
+#chattitle {
+	height: 30px;
+	font-size: 15px;
+	padding: 5px;
+	padding-left: 10px;
+	color: white;
+	background-color: #74b844;
 }
 #chat .name {
 	display: inline-block;
-	width: 87px;
+	width: 85px;
 	text-align: center;
+}
+#chat #message_wrapper {
+	overflow-y: scroll;
+	width: 300px;
+	height: 315px;
 }
 #chat .message {
 	display: inline-block;
 	width: 180px;
 	margin: 10px 5px;
 }
-
 #chat form {
 	position: absolute;
 	bottom: 0;

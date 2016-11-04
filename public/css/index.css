@@ -23,13 +23,17 @@ a:hover {
 }
 .modal-header {
 	color: white;
-	background-color: #2ecc71;
-	margin-bottom: 1em;
+	background-color: #74b844;
+	margin-bottom: 2em;
 }
 .modal-body p {
 	padding: 1em 0;
 }
+.modal-content {
+	background-color: #eceeef;
+}
 .modal-body, .modal-body button, .modal-body input {
+	background-color: #eceeef;
 	color: #888888;
 }
 .modal-body input {

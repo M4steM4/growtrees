@@ -155,9 +155,34 @@ input[type="text"]::-webkit-input-placeholder {
 .modal .row {
 	text-align: left !important;
 }
-.modal-content {
-	background-color: #ededed;
+.modal-content, .modal-body input, .modal-body textarea {
+	background-color: #eceeef;
 }
+.modal-body input {
+        padding-left: 0;
+        height: 3em;
+        border-radius: 0;
+        border: none;
+        box-shadow: none;
+        border-bottom: 1px solid #888888;
+        outline: none;
+}
+.modal-body textarea {
+	border-radius: 0;
+        border: none;
+        box-shadow: none;
+	border-top: 1px solid #888888;
+        border-bottom: 1px solid #888888;
+        outline: none;
+	padding-left: 0;
+}
+.modal-body input:focus, .modal-body textarea {
+        -webkit-transition: 0.5s;
+        transition: 0.7s;
+        border-radius: 0.3em;
+        -webkit-appearance: none;
+}
+
 .modal-header {
 	background-color: #74b844;
 	color: white;
@@ -168,6 +193,7 @@ input[type="text"]::-webkit-input-placeholder {
 	padding-bottom: 0;
 	color: #737473;
 }
+
 .modal-body .green {
 	color: #74b844;
 }
@@ -194,7 +220,7 @@ input[type="text"]::-webkit-input-placeholder {
 	float: r1ight;
 }
 
-/*
+
 input[type="file"] {
 	position: absolute;
 	opacity: 0;
@@ -242,4 +268,4 @@ input[type="file"] {
 	padding: 5px;
 	font-size: 20px;
 }
-*/
+
