@@ -16,3 +16,9 @@ function rollon() {
 function rollout() {
 	$('#roll').css("display", "none");
 }
+function todoliston() {
+	$('#todolist').css("display", "flex");
+}
+function todolistout() {
+	$('#todolist').css("display", "none");
+}

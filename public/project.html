@@ -27,7 +27,7 @@
 					<ul class="nav navbar-nav">
 						<li><a href="javascript:void(0);" onclick="showflex('calender');">캘린더</a></li>
 						<li><a href="javascript:void(0)" onclick="rollon();">역할분담표</a></li>
-						<li><a href="#">To do list</a></li>
+						<li><a href="javascript:void(0)" onclick="todoliston();">To do list</a></li>
 						<li><a href="javascript:void(0);" onclick="show('office');">연락처</a></li>
 					</ul>
 				</div>
@@ -142,6 +142,58 @@
 							<li class="rollprofilelist">text 3 </li>
 						</ul>
 					</div>
+				</div>
+			</div>
+		</div>
+		<!-- to do list -->
+		<div id="todolist">
+			<div id="green" class="todolistsection">
+				<div class="todolisttitle todolistmargin">To do list</div>
+				<div class="todolisttitle greentitle">완료 목록</div>
+				<div class="todolistcheck">
+					<div class="todolistdata">
+						<img src="assets/img/check.png" alt="">
+						<p><strong>메인페이지 구현 및 기능</strong><br />2016 11 03</p>
+					</div>
+					<div class="todolistdata">
+						<img src="assets/img/check.png" alt="">
+						<p><strong>test</strong><br />text text text</p>
+					</div>
+					<div class="todolistdata">
+						<img src="assets/img/check.png" alt="">
+						<p><strong>test</strong><br />text text text</p>
+					</div>
+					<div class="todolistdata">
+						<img src="assets/img/check.png" alt="">
+						<p><strong>test</strong><br />text text text</p>
+					</div>
+				</div>
+			</div>
+			<div id="white" class="todolistsection">
+				<a href="javascript:void(0);" id="i" onclick="todolistout();">x</a>
+				<div class="todolisttitle">To do list</div>
+				<div class="todolisttitle whitetitle">완료 목록</div>
+				<div class="todolistcheck">
+					<div class="todolistdata">
+						<img src="" alt="">
+						<p><strong>test</strong><br />text text text text text text text</p>
+					</div>
+					<div class="todolistdata">
+						<img src="" alt="">
+						<p><strong>test</strong><br />text text text text text text text</p>
+					</div>
+					<div class="todolistdata">
+						<img src="" alt="">
+						<p><strong>test</strong><br />text text text text text text text</p>
+					</div>
+					<div class="todolistdata">
+						<img src="" alt="">
+						<p><strong>test</strong><br />text text text</p>
+					</div>
+				</div>
+				<div class="todolistinput">
+					<input type="text" class="" placeholder="댓글 입력" />
+					<button>작성</button>
 				</div>
 			</div>
 		</div>

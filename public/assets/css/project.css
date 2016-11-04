@@ -35,8 +35,15 @@ header {
 	font-size: 20px;
 	text-decoration: none;
 }
+#i {
+	width: 10px;
+	height: 10px;
+	margin-left: 95%;
+	box-sizing: border-box;
+}
 /*calender*/
 #calender {
+	position: absolute;
 	width: 600px;
 	height: 400px;
 	margin-left: calc(50% - 300px);
@@ -146,6 +153,8 @@ header {
 }
 /* roll */
 #roll {
+		position: absolute;
+
 	width: 700px;
 	height: 450px;
 	margin-left: calc(50% - 350px);
@@ -277,9 +286,103 @@ header {
 .rollprofilelist:before {
 	content: '- ';
 }
+/* to-do-list */
+
+#todolist {
+		position: absolute;
+
+	width: 700px;
+	height: 450px;
+	margin-left: calc(50% - 350px);
+	margin-top: 30px;
+	border-radius: 2px;
+	z-index: 100;
+	display: none;
+}
+#green {
+	background-color: #74b844;
+	color: white;
+}
+#white {
+	background-color: #efefef;
+	color: #74b844;
+}
+.todolistsection {
+	width: 350px;
+	height: 100%;
+}
+.todolisttitle {
+	text-align: center;
+	font-size: 22px;
+	margin: 7% 0 0 0;
+	margin-top: calc(7% - 16px);
+	font-weight: 200;
+}
+.todolistmargin {
+	margin-top: 7%;
+}
+.greentitle {
+	font-size: 13px;
+	color: rgba(255, 255, 255, 0.7);
+	margin: -2% 0 -2% 0;
+}
+.whitetitle {
+	font-size: 13px;
+	color: rgba(116, 184, 68, 0.7);
+	margin: -2% 0 -2% 0;
+}
+.todolistcheck {
+	padding: 10%;
+}
+.todolistdata {
+	margin-bottom: 5%;
+	display: flex;
+	width: 100%;
+}
+.todolistdata > img {
+	width: 35px;
+	height: 35px;
+	margin-right: 10px;
+	margin-left: -10px;
+}
+.todolistdata > p {
+	width: 85%;
+	font-weight: 100;
+	font-size: 12px; 
+}
+.todolistdata > p > strong {
+	font-size: 15px;
+	font-weight: 400;
+}
+.todolistinput {
+	display: flex;
+}
+.todolistinput > input {
+	width: 70%;
+	margin: 0% 5% 0 5%;
+	border: none;
+	background-color: #efefef;
+	border-bottom: 1px solid #74b844;
+
+}
+.todolistinput > input[type="text"]::-webkit-input-placeholder {
+	color: rgba(116, 184, 68, 0.7);
+}
+.todolistinput > button {
+	width: 20%;
+	border-radius: 4px;
+	padding: -4px;
+	background-color: #efefef;
+	border: 1px solid #74b844;
+	border-radius: 4px;
+	padding: -4px;
+	color: #74b844;
+}
+
 
 /*office*/
 #office {
+	position: absolute;
 	display: none;
 	margin-left: calc(50% - 150px);
 	margin-top: 30px;
@@ -439,7 +542,7 @@ header {
 	width: 300px;
 	height: 380px;
 	background-color: white;
-	z-index:50;
+	z-index: 50;
 }
 #chattitle {
 	height: 30px;
