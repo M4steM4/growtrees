@@ -261,9 +261,11 @@
 			<img src="{{ asset('images/sun.png') }}" alt="D-Day" width="100" height="100">
 		</div>
 
-		<div id="waterspread">
-			<img src="{{ asset('images/waterspread.png') }}" width="100" height="60">
-		</div>
+		<a href="javascript:void(0);">
+			<div id="waterspread">
+				<img src="{{ asset('images/waterspread.png') }}" width="100" height="60" onclick="chattingdown();">
+			</div>
+		</a>
 
 		<div id="chat">
 			<div id="chattitle">

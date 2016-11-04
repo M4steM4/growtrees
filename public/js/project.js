@@ -23,7 +23,16 @@ function todoliston() {
 function todolistout() {
 	$('#todolist').css("display", "none");
 }
-
+function chattingdown() {
+	$('#chat').css("display", "none");
+	$('#waterspread').css("bottom", "0");
+	document.getElementById('waterspread').innerHTML = '<img src="/images/waterspread.png" width="100" height="60"  onclick="chattingup();">';
+}
+function chattingup() {
+	$('#chat').css("display", "block");
+	$('#waterspread').css("bottom", "380px");
+	document.getElementById('waterspread').innerHTML = '<img src="/images/waterspread.png" width="100" height="60"  onclick="chattingdown();">';
+}
 
 /* JunYoung */
 
