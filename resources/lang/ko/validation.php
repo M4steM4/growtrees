@@ -98,57 +98,57 @@ return [
     'custom' => [
         'user_id' => [
             'required' => '아이디 입력',
-	    'unique' => '중복되는 아이디',
-	    'min' => '4자 이상 30자 이내 입력',
-	    'max' => '4자 이상 30자 이내 입력',
+    	    'unique' => '중복되는 아이디',
+    	    'min' => '4자 이상 30자 이내 입력',
+    	    'max' => '4자 이상 30자 이내 입력',
         ],
-	'password' => [
-	    'required' => '비밀번호 입력',
-	    'min' => '6자 이상 30자 이내 입력',
+	   'password' => [
+    	    'required' => '비밀번호 입력',
+    	    'min' => '6자 이상 30자 이내 입력',
             'max' => '6자 이상 30자 이내 입력',
-	    'confirmed' => '비밀번호가 일치하지 않음',
-	],
-	'email' => [
-	    'required' => '이메일 입력',
-	    'email' => '올바른 이메일 주소 입력',
-	    'max' => '너무 길어요',
-	],
-	'phone' => [
-	    'required' => '휴대폰 번호 입력',
-	    'regex' => 'xxx-xxxx-xxxx와 같이 입력'
-	],
-	'name' => [
-	    'required' => '이름 입력',
-	    'regex' => '한글 2~6자',
-	    'min' => '한글 2~6자',
-	    'max' => '한글 2~6자',
-	],
-	'nickname' => [
-	    'required' => '닉네임 입력',
-	    'unique' => '중복되는 닉네임',
-	    'min' => '4~30자 입력',
-	    'max' => '4~30자 입력',
-	 //   'regex' => '.이나 /는 사용불가',
-	],
-	'profile_image' => [
-	    'image' => '이미지 파일만 가능',
-	    'dimensions' => '사진 크기가 너무 작음',
-	    'max' => '용량이 너무 큼',
-	],
-	'project_name' => [
-	    'required' => '프로젝트 이름 입력',
-	    'min' => '4~20자 입력',
-	    'max' => '4~20자 입력',
-	],
-	'due_date' => [
-	    'required' => '마감 날짜 선택',
-	    'date_format' => 'format : YYYY-mm-dd',
-	],
-	'description' => [
-	    'required' => '프로젝트 내용 입력',
-	    'min' => '10자 이상 입력',
-	    'max' => '500자 이하 입력',
-	],
+    	    'confirmed' => '비밀번호가 일치하지 않음',
+    	],
+    	'email' => [
+    	    'required' => '이메일 입력',
+    	    'email' => '올바른 이메일 주소 입력',
+    	    'max' => '너무 길어요',
+    	],
+    	'phone' => [
+    	    'required' => '휴대폰 번호 입력',
+    	    'regex' => 'xxx-xxxx-xxxx와 같이 입력'
+    	],
+    	'name' => [
+    	    'required' => '이름 입력',
+    	    'regex' => '한글 2~6자',
+    	    'min' => '한글 2~6자',
+    	    'max' => '한글 2~6자',
+    	],
+    	'nickname' => [
+    	    'required' => '닉네임 입력',
+    	    'unique' => '중복되는 닉네임',
+    	    'min' => '4~30자 입력',
+    	    'max' => '4~30자 입력',
+    	 //   'regex' => '.이나 /는 사용불가',
+    	],
+    	'profile_image' => [
+    	    'image' => '이미지 파일만 가능',
+    	    'dimensions' => '사진 크기가 너무 작음',
+    	    'max' => '용량이 너무 큼',
+    	],
+    	'project_name' => [
+    	    'required' => '프로젝트 이름 입력',
+    	    'min' => '4~20자 입력',
+    	    'max' => '4~20자 입력',
+    	],
+    	'due_date' => [
+    	    'required' => '마감 날짜 선택',
+    	    'date_format' => 'format : YYYY-mm-dd',
+    	],
+    	'description' => [
+    	    'required' => '프로젝트 내용 입력',
+    	    'min' => '10자 이상 입력',
+    	    'max' => '500자 이하 입력',
+    	],
     ],
 
     /*

@@ -18,45 +18,45 @@ function denyFailed () {
 
 function allowResponse(projectName, userId) {
 	var formData = new FormData();
-        formData.append('projectName', projectName);
-        formData.append('userId', userId);
+    formData.append('projectName', projectName);
+    formData.append('userId', userId);
 
-        $.ajaxSetup({
-                headers: {
-                        'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
-                }
-        });
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
+        }
+    });
 
-        $.ajax({
-                type: 'POST',
-                url: 'allow_request',
-                contentType: false,
-                processData: false,
-                data: formData,
-                success: allowSuccess,
-                error: allowFailed
-        });	
+    $.ajax({
+        type: 'POST',
+        url: 'allow_request',
+        contentType: false,
+        processData: false,
+        data: formData,
+        success: allowSuccess,
+        error: allowFailed
+    });	
 }
 function denyResponse(projectName, userId) {
 	var formData = new FormData();
-        formData.append('projectName', projectName);
+    formData.append('projectName', projectName);
 	formData.append('userId', userId);
 
-        $.ajaxSetup({
-                headers: {
-                        'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
-                }
-        });
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
+        }
+    });
 
-        $.ajax({
-                type: 'POST',
-                url: 'deny_request',
-                contentType: false,
-                processData: false,
-                data: formData,
-                success: denySuccess,
-                error: denyFailed
-        });
+    $.ajax({
+        type: 'POST',
+        url: 'deny_request',
+        contentType: false,
+        processData: false,
+        data: formData,
+        success: denySuccess,
+        error: denyFailed
+    });
 }
 
 function joinSuccess (response, status, t) {
@@ -74,20 +74,20 @@ function sendJoinRequest(projectId) {
 	formData.append('id', projectId);
 
 	$.ajaxSetup({
-                headers: {
-                        'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
-                }
-        });
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
+        }
+    });
 
-        $.ajax({
-                type: 'POST',
-                url: 'join_request',
-                contentType: false,
-                processData: false,
-                data: formData,
-                success: joinSuccess,
-                error: joinFailed
-        });
+    $.ajax({
+        type: 'POST',
+        url: 'join_request',
+        contentType: false,
+        processData: false,
+        data: formData,
+        success: joinSuccess,
+        error: joinFailed
+    });
 }
 
 function onDataClicked(projectId, profileImagePath, userName, nickname, projectName) {
@@ -117,7 +117,7 @@ function onDataClicked(projectId, profileImagePath, userName, nickname, projectN
 
 function getProjectList() {
 	$.get("project_list/" + $('#dataSearch').val(), function(data, status){
-        	var items = data;
+    	var items = data;
 		var $div = '';
 		for(var i=0; i<items.length; i++) {
 			items[i].author;
@@ -170,12 +170,12 @@ function outfocus() {
 /* Junyoung code */
 var ias = null;
 var inputPlaceHolders = {
-        'name' : '이름',
-        'nickname' : '닉네임',
-        'email' : '이메일',
-        'phone' : '연락처',
-        'user_id' : '아이디',
-        'password' : '비밀번호',
+    'name' : '이름',
+    'nickname' : '닉네임',
+    'email' : '이메일',
+    'phone' : '연락처',
+    'user_id' : '아이디',
+    'password' : '비밀번호',
 };
 
 function onFocusInputTag () {
@@ -183,25 +183,26 @@ function onFocusInputTag () {
 		inputPlaceHolders[this.name] = this.value;
 		this.callCnt = 0; 
 	}
-        if(this.type == 'file' || this.value.indexOf(inputPlaceHolders[this.name]) == -1) { 
+    if(this.type == 'file' || this.value.indexOf(inputPlaceHolders[this.name]) == -1) { 
 		return; 
 	}
 
-        this.value = '';
-        if(this.name.indexOf('password') != -1) {
-                this.type = 'password';
-        } else if(this.name.indexOf('date') != -1) {
+	this.value = '';
+
+	if(this.name.indexOf('password') != -1) {
+       	this.type = 'password';
+	} else if(this.name.indexOf('date') != -1) {
 		this.type = 'date';
 	}
 }
 
 function onFocusOutInputTag () {
-        if(this.type == 'file' || this.value) { return; }
+    if(this.type == 'file' || this.value) { return; }
 
-        if(this.name.indexOf('password') != -1 || this.name.indexOf('date') != -1) {
-                this.type = 'text';
-        }
-        this.value = inputPlaceHolders[this.name];
+    if(this.name.indexOf('password') != -1 || this.name.indexOf('date') != -1) {
+        this.type = 'text';
+    }
+    this.value = inputPlaceHolders[this.name];
 }
 
 function onMouseEnterPreview () {
@@ -216,19 +217,19 @@ function onMouseLeavePreview () {
 }
 
 function onImageChanged (input) {
-        if (input.files && input.files[0]) {
-                var reader = new FileReader();
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
 
-                reader.onload = function (e) {
-                        $('#preview').attr('src', e.target.result);
-                        $('#selected_image').attr('src', e.target.result);
-                }
-
-                reader.readAsDataURL(input.files[0]);
+        reader.onload = function (e) {
+                $('#preview').attr('src', e.target.result);
+                $('#selected_image').attr('src', e.target.result);
         }
 
-        $('#profile_update').modal('hide');
-        $('#image_edit').modal('show');
+        reader.readAsDataURL(input.files[0]);
+    }
+
+    $('#profile_update').modal('hide');
+    $('#image_edit').modal('show');
 }
 
 function preview(img, selection) {
@@ -250,18 +251,18 @@ function preview(img, selection) {
     $('#profile_update input[name="size"]').val(selection.width);
 }
 function onEditFinished () {
-        $('#image_edit').modal('hide');
-        ias.cancelSelection();
+    $('#image_edit').modal('hide');
+    ias.cancelSelection();
 
-        setTimeout(function () {
-                $('#profile_update').modal('show');
-        }, 500);
+    setTimeout(function () {
+       $('#profile_update').modal('show');
+    }, 500);
 }
 
 
 $(document).ready(function () {
 	$('input, textarea').focus(onFocusInputTag);
-        $('input, textarea').focusout(onFocusOutInputTag);
+    $('input, textarea').focusout(onFocusOutInputTag);
 	$('#preview_wrapper').mouseenter(onMouseEnterPreview);
 	$('#preview_wrapper').mouseleave(onMouseLeavePreview);
 	$('#tooltip').click(function () { $('input[name="profile_image"]').click(); });
@@ -270,11 +271,12 @@ $(document).ready(function () {
 	});
 
 	ias = $('#selected_image').imgAreaSelect({
-                aspectRatio: '1:1',
-                handles: true,
-                fadeSpeed: 200,
-                onSelectChange: preview,
-                instance: true,
-        });
+        aspectRatio: '1:1',
+        handles: true,
+        fadeSpeed: 200,
+        onSelectChange: preview,
+        instance: true,
+    });
+	
 	$('#image_edit .modal-body button').click(onEditFinished);
 });	

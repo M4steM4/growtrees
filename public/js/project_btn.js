@@ -13,20 +13,20 @@ function onSendBtnClicked() {
 	formData.append('message', $('#chat input[name="message"]').val());
 
 	$.ajaxSetup({
-                headers: {
-                        'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
-                }
-        });
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
+        }
+    });
 
-        $.ajax({
-                type: 'POST',
-                url: '/chattings',
-                contentType: false,
-                processData: false,
-                data: formData,
-                success: sendSuccess,
-                error: sendFailed
-        });
+    $.ajax({
+        type: 'POST',
+        url: '/chattings',
+        contentType: false,
+        processData: false,
+        data: formData,
+        success: sendSuccess,
+        error: sendFailed
+    });
 }
 
 $(document).ready(function () {

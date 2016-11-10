@@ -46,10 +46,10 @@ function requestRegister() {
 	}
 	
 	$.ajaxSetup({
-                headers: {
-                        'X-CSRF-TOKEN': $('input[name="_token"]').val()
-                }
-        });
+        headers: {
+            'X-CSRF-TOKEN': $('input[name="_token"]').val()
+        }
+    });
 
 	$.ajax({
 		type: 'POST',

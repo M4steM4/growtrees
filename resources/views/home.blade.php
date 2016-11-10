@@ -105,9 +105,9 @@
 			<div class="modal-content">
 				<div class="modal-header">
 					<div class="col-sm-offset-1">
-	                                	<button type="button" class="close" data-dismiss="modal">&times;</button>
-        	                        	<h4 class="modal-title">내 프로필</h4>
-                	                </div>
+	                	<button type="button" class="close" data-dismiss="modal">&times;</button>
+                    	<h4 class="modal-title">내 프로필</h4>
+	                </div>
 				</div>
 				<div class="modal-body row">
 					<div class="col-sm-offset-1 col-sm-3 col-xs-12">
@@ -119,7 +119,7 @@
 					</div>
 					<div>
 						<span class="green col-sm-offset-1 col-sm-2">닉네임</span>
-                                                <span class="col-sm-5">{{ $user->nickname }}</span>
+                        <span class="col-sm-5">{{ $user->nickname }}</span>
 					</div>
 					<div>
 						<span class="green col-sm-offset-1 col-sm-2">이메일</span> 
@@ -140,7 +140,7 @@
 					<div class="col-sm-offset-1">
 						<button type="button" class="close" data-dismiss="modal">&times;</button>
 						<h4 class="modal-title">내 프로필(수정)</h4>
- 	                                </div>
+                    </div>
 				</div>
 				<div class="modal-body">
 					<form class="row">
@@ -177,9 +177,9 @@
 						<input type="hidden" name="y1" value="0">
 						<input type="hidden" name="size" value="250">
 
-                                              	<button type="button" class="btn btn-default col-xs-12">
-                                                       	완료
-                                               	</button>
+                      	<button type="button" class="btn btn-default col-xs-12">
+                           	완료
+                       	</button>
 					</form>
 				</div>
 			</div>
@@ -187,69 +187,69 @@
 	</div>
 
 	<div id="image_edit" class="modal fade" role="dialog">
-                <div class="modal-dialog">
-                        <div class="modal-content">
-                                <div class="modal-header">
-                                        <div class="col-sm-offset-1">
-                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                                <h4 class="modal-title">이미지 편집</h4>
-                                                * 모바일 환경에서는 편집이 불가능합니다.
-                                        </div>
-                                </div>
-                                <div class="modal-body row">
-                                	<div class="col-sm-offset-1 col-sm-10 col-xs-12 text-center">
-                                		<img id="selected_image" src="" alt="profile_image" width="250" height="250">
-                                	</div>
-                                
-					<button class="btn btn-default col-xs-12">
-                                        	완료
-                                        </button>
-                                </div>
-                        </div>
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="col-sm-offset-1">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">이미지 편집</h4>
+                        * 모바일 환경에서는 편집이 불가능합니다.
+                    </div>
                 </div>
+                <div class="modal-body row">
+                	<div class="col-sm-offset-1 col-sm-10 col-xs-12 text-center">
+                		<img id="selected_image" src="" alt="profile_image" width="250" height="250">
+                	</div>
+                        
+					<button class="btn btn-default col-xs-12">
+                    	완료
+                    </button>
+	            </div>
+            </div>
+	    </div>
 	</div>
 
 	<div id="create_project" class="modal fade" role="dialog">
-                <div class="modal-dialog">
-                        <div class="modal-content">
-                                <div class="modal-header">
-                                        <div class="col-sm-offset-1">
-                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                                <h4 class="modal-title">프로젝트 생성</h4>
-                                        </div>
-                                </div>
-                                <div class="modal-body">
-                                	<form class="row">
+    	<div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="col-sm-offset-1">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">프로젝트 생성</h4>
+                    </div>
+                </div>
+                <div class="modal-body">
+                	<form class="row">
 						<div class="form-group col-sm-offset-1 col-sm-10 col-xs-12">
-                                                        <label for="project_name" class="notice control-label"></label>
-                                                        <input type="text" class="form-control" value="프로젝트 이름" name="project_name">
-                                                </div>
+                            <label for="project_name" class="notice control-label"></label>
+                            <input type="text" class="form-control" value="프로젝트 이름" name="project_name">
+                        </div>
 						<div class="form-group col-sm-offset-1 col-sm-10 col-xs-12">
-                                                        <label for="due_date" class="notice control-label"></label>
-                                                        <input type="text" class="form-control" value="마감 날짜" name="due_date" min="{{ date('Y-m-d') }}">
-                                                </div>
+                            <label for="due_date" class="notice control-label"></label>
+                            <input type="text" class="form-control" value="마감 날짜" name="due_date" min="{{ date('Y-m-d') }}">
+                        </div>
 						<div class="form-group col-sm-offset-1 col-sm-10 col-xs-12">
 							<label for="description" class="notice control-label"></label>
 							<textarea class="form-control" name="description" rows="5" value="프로젝트 내용">프로젝트 내용</textarea>
 						</div>
 
 						<button type="button" class="btn btn-default col-xs-12">
-                                                        생성
-                                                </button>
+                            생성
+                        </button>
 					</form>
-                                </div>
-                        </div>
                 </div>
-        </div>
+            </div>
+	    </div>
+    </div>
 	
 	<div id="project_info" class="modal fade" role="dialog">
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
 					<div class="col-sm-offset-1">
-                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                                <h4 class="modal-title">프로젝트 정보</h4>
-                                        </div>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">프로젝트 정보</h4>
+                    </div>
 				</div>
 				<div class="modal-body">
 					
@@ -259,15 +259,15 @@
 	</div>
 
 	<div id="show_requests" class="modal fade" role="dialog">
-                <div class="modal-dialog">
-                        <div class="modal-content">
-                                <div class="modal-header">
-                                        <div class="col-sm-offset-1">
-                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                                <h4 class="modal-title">요청 확인</h4>
-                                        </div>
-                                </div>
-                                <div class="modal-body">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="col-sm-offset-1">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">요청 확인</h4>
+                    </div>
+                </div>
+		        <div class="modal-body">
 					@foreach ($projects as $project)
 						@if (isset($project['requests']))
 							프로젝트명 {{ $project['name'] }} <br>
@@ -288,8 +288,8 @@
 							=================== <br>
 						@endif
 					@endforeach
-                                </div>
-                        </div>
                 </div>
+            </div>
         </div>
+	</div>
 @stop

@@ -53,13 +53,13 @@ function onEditFinished () {
 }
 
 var inputPlaceHolders = {
-        'name' : '이름',
-        'nickname' : '닉네임',
-        'email' : '이메일',
-        'phone' : '휴대전화[연락처]',
-        'user_id' : '아이디',
-        'password' : '비밀번호',
-        'password_confirmation' : '비밀번호 확인'
+    'name' : '이름',
+    'nickname' : '닉네임',
+    'email' : '이메일',
+    'phone' : '휴대전화[연락처]',
+    'user_id' : '아이디',
+    'password' : '비밀번호',
+    'password_confirmation' : '비밀번호 확인'
 };
 
 function onFocusInputTag () {

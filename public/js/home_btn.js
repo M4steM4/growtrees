@@ -8,9 +8,9 @@ function onProfileEditBtnClicked () {
 function clearUpdateNotice () {
 	var names = ['nickname', 'phone', 'email', 'password', 'profile_image'];
         for(var i=0; i<names.length; i++) {
-                var $notice = $('#profile_update .notice[for="' + names[i] + '"]');
-                //$notice.parent().removeClass('has-error');
-                $notice.html('');
+            var $notice = $('#profile_update .notice[for="' + names[i] + '"]');
+            //$notice.parent().removeClass('has-error');
+            $notice.html('');
         }
 }
 
@@ -20,17 +20,17 @@ function updateSuccess (response, status, msg) {
 }
 function updateFailed (response, status, errorCode) {
 	var errors = JSON.parse(response.responseText);
-        var names = Object.keys(errors);
+    var names = Object.keys(errors);
 
-        for(var i=0; i<names.length; i++) {
-                var $notice = $('#profile_update .notice[for="' + names[i] + '"]');
+    for(var i=0; i<names.length; i++) {
+        var $notice = $('#profile_update .notice[for="' + names[i] + '"]');
 		/*
 		if(names[i] != 'profile_image') {
 			$notice.parent().addClass('has-error');
 		}
 		*/
-                $notice.html('* ' + errors[names[i]][0]);
-        }
+        $notice.html('* ' + errors[names[i]][0]);
+    }
 }
 
 function updateProfile () {
@@ -42,25 +42,25 @@ function updateProfile () {
 	formData.append('password', $('#profile_update input[name="password"]').val());
 	formData.append('profile_image', $("#profile_update input[name='profile_image']").prop('files')[0]);
 	formData.append("x1", $("#profile_update input[name='x1']").val());
-        formData.append("y1", $("#profile_update input[name='y1']").val());
-        formData.append("size", $("#profile_update input[name='size']").val());
+    formData.append("y1", $("#profile_update input[name='y1']").val());
+    formData.append("size", $("#profile_update input[name='size']").val());
 	formData.append('_method', 'PATCH');
 
 	$.ajaxSetup({
-                headers: {
-                        'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
-                }
-        });
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
+        }
+    });
 
-        $.ajax({
-                type: 'POST',
-                url: 'update_profile',
-                contentType: false,
-                processData: false,
-                data: formData,
-                success: updateSuccess,
-                error: updateFailed
-        });
+    $.ajax({
+        type: 'POST',
+        url: 'update_profile',
+        contentType: false,
+        processData: false,
+        data: formData,
+        success: updateSuccess,
+        error: updateFailed
+    });
 }
 function onProfileEditFinished () {
 	clearUpdateNotice();
@@ -87,9 +87,9 @@ function createFailed (response, status, errorCode) {
         var names = Object.keys(errors);
         
         for(var i=0; i<names.length; i++) {
-                var $notice = $('#create_project .notice[for="' + names[i] + '"]');
-                //$notice.parent().addClass('has-error');
-                $notice.html('* ' + errors[names[i]][0]);
+            var $notice = $('#create_project .notice[for="' + names[i] + '"]');
+            //$notice.parent().addClass('has-error');
+            $notice.html('* ' + errors[names[i]][0]);
         }
 }
 
@@ -101,20 +101,20 @@ function createProject () {
 	formData.append('due_date', $('#create_project input[name="due_date"]').val());
 	
 	$.ajaxSetup({
-                headers: {
-                        'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
-                }
-        });
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
+        }
+    });
 
-        $.ajax({
-                type: 'POST',
-                url: 'projects',
-                contentType: false,
-                processData: false,
-                data: formData,
-                success: createSuccess,
-                error: createFailed
-        });
+	$.ajax({
+        type: 'POST',
+        url: 'projects',
+        contentType: false,
+        processData: false,
+        data: formData,
+        success: createSuccess,
+        error: createFailed
+    });
 }
 
 function onCreateProjectBtnClicked () {

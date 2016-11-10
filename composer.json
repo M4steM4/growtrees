@@ -17,6 +17,9 @@
         "symfony/dom-crawler": "3.1.*"
     },
     "autoload": {
+        "files": [
+            "app/lib/ImageCropUtils.php"
+        ],
         "classmap": [
             "database"
         ],

@@ -68,11 +68,11 @@
 							</div>
 						</div>
 						<div class="form-group">
-                                                        <label for="nickname" class="col-sm-offset-1 col-sm-10 col-xs-12 control-label notice"></label>
-                                                        <div class="col-sm-offset-1 col-sm-10 col-xs-12">
-                                                                <input type="text" class="form-control" name="nickname" value="닉네임">
-                                                        </div>
-                                                </div>
+                            <label for="nickname" class="col-sm-offset-1 col-sm-10 col-xs-12 control-label notice"></label>
+                            <div class="col-sm-offset-1 col-sm-10 col-xs-12">
+	                            <input type="text" class="form-control" name="nickname" value="닉네임">
+                            </div>
+                        </div>
 						<div class="form-group">
 							<label for="email" class="col-sm-offset-1 col-sm-10 col-xs-12 control-label notice"></label>
 							<div class="col-sm-offset-1 col-sm-10 col-xs-12">
@@ -163,14 +163,14 @@
 	<div id="image_edit" class="modal fade" role="dialog">
 		<div class="modal-dialog">
 			<div class="modal-content">
-        	        	<div class="modal-header">
-                	        	<div class="col-sm-offset-1">
-                        	        	<button type="button" class="close" data-dismiss="modal">&times;</button>
-                                	        <h4 class="modal-title">이미지 편집</h4>
+	        	<div class="modal-header">
+    	        	<div class="col-sm-offset-1">
+        	        	<button type="button" class="close" data-dismiss="modal">&times;</button>
+                	        <h4 class="modal-title">이미지 편집</h4>
 						* 모바일 환경에서는 편집이 불가능합니다.
-	                                </div>
-        	                </div>
-		                <div class="modal-body">
+                    </div>
+                </div>
+                <div class="modal-body">
 					<div class="row">
 						<div class="col-sm-offset-1 col-sm-10 col-xs-12 text-center">
 							<img id="selected_image" src="" alt="profile_image" width="250" height="250">

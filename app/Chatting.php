@@ -8,6 +8,6 @@ class Chatting extends Model
 {
     //
     protected $fillable = [
-	'project_id', 'user_id', 'message'
+		'project_id', 'user_id', 'message'
     ];
 }

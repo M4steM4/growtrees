@@ -6,7 +6,7 @@ a {
 }
 a:hover {
 	-webkit-transition: 0.5s;
-        transition: 0.7s;
+	transition: 0.7s;
 	color: white;
 	text-decoration: none;
 }
@@ -47,9 +47,9 @@ a:hover {
 }
 .modal-body input:focus {
 	-webkit-transition: 0.5s;
-        transition: 0.7s;
+    transition: 0.7s;
 	border-radius: 0.3em;
-    	-webkit-appearance: none;
+	-webkit-appearance: none;
 }
 input[name='profile_image'] {
 	width: 150px;
@@ -229,7 +229,7 @@ label[for="profile_image"]:first-child {
 	border: 3px solid rgba(200, 200, 200, 0.7);
 	background-color: transparent;
 	color: rgba(222, 222, 222, 0.6);
-    	-webkit-transition: 0.5s;
+	-webkit-transition: 0.5s;
 	transition: 0.7s;
 	outline: none;
 }
