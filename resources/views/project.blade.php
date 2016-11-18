@@ -17,9 +17,11 @@
 
 @section('header')
 	<header class="container-fluid">
-		<a class="col-xs-offset-1" href="{{ route('home') }}" id="logo">
-			<img src="{{ asset('images/title.png') }}" alt="자라나라나무나무" width="150">
-		</a>
+		<div id="logo">
+			<a href="{{ route('home') }}" id="logo">
+				<img src="{{ asset('images/title.png') }}" alt="자라나라나무나무" width="150">
+			</a>
+		</div>
 	</header>
 @stop
 

@@ -89,26 +89,90 @@ function sendJoinRequest(projectId) {
         error: joinFailed
     });
 }
+/*
+function attemptImage(uid) {
+	$.get('storage/profile_imgs/' + uid, function(returnedData) {                 
+
+	}).fail(function(jqXHR, textStatus, errorThrown){
+		if(jqXHR.status == 404) {
+			console.log(404);
+                                 //flag = false;         
+		}
+	});
+}
+*/
+
+/*
+var accessImage = true;
+function hasImage(uid) {
+	return $.when(function () {
+		return $.get('storage/profile_imgs/' + uid, function(returnedData) {
+		
+		}).fail(function(jqXHR, textStatus, errorThrown){
+			if(jqXHR.status == 404) {
+				accessImage = false;
+				console.log(accessImage);
+			}
+		});
+	
+	}()).done(function () {
+		accessImage = true;	
+	});;
+}
+*/
+
+function getProfileImgUrl(uid) {
+	var status = $.ajax({
+		type: "GET",
+		url: "/storage/profile_imgs/" + uid,
+		async: false,
+	}).status;
+
+	if(status == 200) {
+		return "/storage/profile_imgs/" + uid;
+	}
+	else {
+		return "/storage/profile_imgs/default";
+	}
+}
 
 function onDataClicked(projectId, profileImagePath, userName, nickname, projectName) {
 	$.get('project_info/' + projectId, function(data, status) {
 		var $div = '';
-		$div += '<img src="' + profileImagePath + '"><br>';
-		$div += userName + '(';
-		$div += nickname + ') ';
-		$div += '프로젝트 이름 : ' + projectName;
-		$div += ' 프로젝트 내용 : ' + data['description'];
-		$div += '참가인원 : 3';
-		$div += '참자가 프로필 사진들';
+		var members = data['members'].split('n');
+	
+		$div += '<div class="col-sm-offset-1 col-sm-10">';
+			$div += '<h2 class="green">' + projectName + '</h2>';
+			$div += '<p>' + data['description'] + '</p>';
+			$div += '<hr>';
+
+			$div += '<span class="green">' + "관리자" + '</span><br>';
+			$div += '<img src="' + profileImagePath + '" alt="profile_img">';
+			$div += '<div>';
+				$div += '<span class="green">' + userName + '</span><br>';
+				$div += '<span>' + nickname + '</span>';
+			$div += '</div>';
+			$div += '<hr>';
+	
+			$div += '<span class="green">멤버(' + (members.length-1)  + ')</span><br>';
+			for(var i=0; i < members.length-1; i++) {
+				var url = getProfileImgUrl(members[i]);
+				$div += '<img class="members col-xs-1" src="' + url + '">';
+			}
+			$div += '<br>';
+		$div += '</div>';
+
+		$div += '<button type="button" class="btn btn-default col-xs-12" onclick="';
 		if(data['joined'] === true) {
-			$div += '이미 프로젝트의 멤버입니다.';
-		}
-		else if(!data['joined']) {
-			$div += '<button type="button" onclick="sendJoinRequest(' + projectId + ');">가입 요청</button>';
-		}
-		else {
-			$div += '승인 대기중입니다.';
-		}
+                        $div += "alert('이미 프로젝트의 멤버입니다.');";
+                }
+       	        else if(!data['joined']) {
+                        $div += "sendJoinRequest('" + projectId + "');";
+       	        }
+	        else {
+        	        $div += "alert('승인 대기중입니다.');";
+                }
+		$div += '">가입 요청</button>';
 	
 		$('#project_info .modal-body').html($div);
 		$('#project_info').modal('show');

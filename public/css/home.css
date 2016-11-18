@@ -4,6 +4,13 @@ html, body, #main {
 body {
 	background-color: #ededed;
 }
+hr {
+	border-color: #737473;
+	opacity: 0.2;
+}
+h1, h2, h3, h4, h5, h6 {
+	font-weight: bold;
+}
 
 #header {
 	width: 100%;
@@ -32,10 +39,8 @@ body {
 	padding: 10px;
 }
 #logo {
-	font-weight: 200;
-	font-size: 20px;
-	margin-top: 11px;
-	left: 5%;
+	margin-top: 13px;
+	left: 5.7%;
 	position: absolute;
 }
 #menuList > .dropdown {
@@ -58,10 +63,11 @@ body {
 	height: 30px;
 }
 #dataSearch {
-	width: 50%;
+	width: 40%;
 	height: 30px;
+	padding: 5px 15px;
 	position: fixed;
-	left: 25%;
+	left: 30%;
 	color: #333;
 	border: 1px solid #74b844;
 }
@@ -74,8 +80,8 @@ input[type="text"]::-webkit-input-placeholder {
 }
 #searchlist {
 	position: fixed;
-	width: 50%;
-	left: 25%;
+	width: 40%;
+	left: 30%;
 	top: 40px;
 	height: auto;
 	border: 1px solid #999;
@@ -164,15 +170,15 @@ input[type="text"]::-webkit-input-placeholder {
         border-radius: 0;
         border: none;
         box-shadow: none;
-        border-bottom: 1px solid #888888;
+        border-bottom: 1px solid rgba(128, 128, 128, 0.5);
         outline: none;
 }
 .modal-body textarea {
 	border-radius: 0;
         border: none;
         box-shadow: none;
-	border-top: 1px solid #888888;
-        border-bottom: 1px solid #888888;
+	border-top: 1px solid rgba(128, 128, 128, 0.5);
+        border-bottom: 1px solid rgba(128, 128, 128, 0.5);
         outline: none;
 	padding-left: 0;
 }
@@ -198,11 +204,14 @@ input[type="text"]::-webkit-input-placeholder {
 	color: #74b844;
 }
 #profile_info .modal-body {
-        padding-bottom: 2em;
+    padding-bottom: 2em;
+}
+#profile_info .modal-body > div span {
+	margin-top: 1em;
 }
 
 .modal-body div {
-	margin-bottom: 1.5em !important;
+	1margin-bottom: 1.5em !important;
 }
 .modal-body button {
 	margin-top: 2em;
@@ -210,7 +219,7 @@ input[type="text"]::-webkit-input-placeholder {
 }
 
 #profile_update input:disabled {
-	margin-bottom: 1em;
+	margin-bottom1: 1em;
 }
 .datalist > a {
 	display: inline-block;
@@ -268,4 +277,81 @@ input[type="file"] {
 	padding: 5px;
 	font-size: 20px;
 }
+#project_info h2 {
+	font-size: 22px;
+	font-weight: bold;
+	margin-bottom: 15px;
+}
+#project_info .modal-body {
+	margin-top: 0;
+	font-size: 16px;	
+}
+#project_info .modal-body > div > div {
+	display: inline-block;
+	height: 150px;
+	padding-top: 75px;
+	padding-left: 1em;
+}
+#project_info .modal-body > div > img:not(.members) {
+	width: 150px;
+	height: 150px;
+	margin-top: 10px;
+	border-radius: 75px;
+	vertical-align: top;
+}
+#project_info .modal-body > div > div .green {
+	font-size: 20px;
+	font-weight: bold;
+}
 
+#project_info .members {
+	width: 16.666666%;
+	height: 16.666666%;
+	padding: 5px;
+	border-radius: 100%;
+}
+#show_requests .modal-body {
+	margin-top: 0;
+	padding-bottom: 30px;
+}
+#show_requests hr {
+	padding-bottom: 30px;
+}
+#show_requests .modal-body img {
+	width: 100px;
+	height: 100px;
+	margin-bottom: 20px;
+	border-radius: 50px;
+	vertical-align: top;
+}
+#show_requests h2 { 
+        font-size: 22px;
+        font-weight: bold;
+        margin-bottom: 15px;
+}
+#show_requests .project_wrapper > div {
+	display: inline-block;
+}
+#show_requests .project_wrapper > div:nth-child(4n-2) {
+	font-size: 16px;
+	height: 100px;
+	padding-top: 40px;
+	padding-left: 15px;
+}
+#show_requests .project_wrapper > div:nth-child(4n-2) .green {
+	font-size: 20px;
+        font-weight: bold;
+}
+#show_requests .project_wrapper > div:nth-child(4n-1) {
+	height: 100px;
+	padding-top: 30px;
+	float: right;
+}
+#show_requests .project_wrapper > div:nth-child(4n-1) button {
+	padding: 5px 15px;	
+}
+#show_requests .project_wrapper > div:nth-child(4n-1):after {
+	content: "";
+	clear: both;
+	margin-bottom: 15px;
+}

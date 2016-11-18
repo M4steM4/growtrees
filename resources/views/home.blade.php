@@ -17,7 +17,11 @@
 
 @section('header')
 	<div id="header" class="container-fluid">
-		<div id="logo">자라나라 나무나무</div>
+		<div id="logo">
+			<a href="{{ route('home') }}">
+				<img src="{{ asset('images/title.png') }}" alt="자라나라나무나무" width="150">
+			</a>
+		</div>
 		<ul id="menuList">
 			<div id="search" class="dropdown">
 				<li class="menu" onclick="search();">
@@ -113,6 +117,25 @@
 					<div class="col-sm-offset-1 col-sm-3 col-xs-12">
 						<img id="profile_image" src="{{ file_exists(public_path('storage/profile_imgs/'.$user->id)) ? asset('storage/profile_imgs/'.$user->id) : asset('storage/profile_imgs/default') }}" alt="프로필 사진">
 					</div>
+					<div class="col-sm-8 col-xs-12">
+						<div>
+							<span class="green col-xs-3">이름</span> 
+							<span class="col-xs-9">{{ $user->name }}</span>
+						</div>
+						<div>
+							<span class="green col-xs-3">닉네임</span>
+                        	<span class="col-xs-9">{{ $user->nickname }}</span>
+                        </div>
+                        <div>
+                        	<span class="green col-xs-3">이메일</span> 
+							<span class="col-xs-9">{{ $user->email }}</span>
+                        </div>
+                        <div>
+                        	<span class="green col-xs-3">휴대전화</span> 
+							<span class="col-xs-9">{{ $user->phone }}</span>
+                        </div>
+					</div>
+					<!--
 					<div>
 						<span class="green col-sm-offset-1 col-sm-2">이름</span> 
 						<span class="col-sm-5">{{ $user->name }}</span>
@@ -129,6 +152,7 @@
 						<span class="green col-sm-offset-1 col-sm-2">휴대전화</span> 
 						<span class="col-sm-5">{{ $user->phone }}</span>
 					</div>
+					-->
 				</div>
 			</div>
 		</div>
@@ -251,7 +275,7 @@
                         <h4 class="modal-title">프로젝트 정보</h4>
                     </div>
 				</div>
-				<div class="modal-body">
+				<div class="modal-body row">
 					
 				</div>
 			</div>	
@@ -267,29 +291,45 @@
                         <h4 class="modal-title">요청 확인</h4>
                     </div>
                 </div>
-		        <div class="modal-body">
-					@foreach ($projects as $project)
-						@if (isset($project['requests']))
-							프로젝트명 {{ $project['name'] }} <br>
-							=== 요청 ========== <br>
-							@for ($i=0; $i<count($project['requests']); $i++)
-								<img src="{{ file_exists(public_path('storage/profile_imgs/'.$project['requests'][$i]['id'])) ? asset('storage/profile_imgs/'.$project['requests'][$i]['id']) : asset('storage/profile_imgs/default') }}"> <br>
-								{{ $project['requests'][$i]['name'] }} 
-								{{ $project['requests'][$i]['nickname'] }}
-								<br>
-								<button type="button" onclick="allowResponse('{{ $project['name'] }}', {{ $project['requests'][$i]['id'] }});">
+	        <div class="modal-body row">
+			<div class="col-sm-offset-1 col-sm-10">
+				@for ($i=0, $cnt=0; $i<count($projects); $i++)
+					@if (isset($projects[$i]['requests']))
+						<h2 class="green">{{ $projects[$i]->name }}</h2>
+						<div class="project_wrapper">
+						@for ($j=0, $cnt++; $j<count($projects[$i]['requests']); $j++)
+							<img src="{{ file_exists(public_path('storage/profile_imgs/'.$projects[$i]['requests'][$j]['id'])) ? asset('storage/profile_imgs/'.$projects[$i]['requests'][$j]['id']) : asset('storage/profile_imgs/default') }}">
+							<div>
+								<span class="green">{{ $projects[$i]['requests'][$j]['name'] }}</span><br>
+								{{ $projects[$i]['requests'][$j]['nickname'] }}
+							</div>
+							<div>
+								<button type="button" onclick="allowResponse('{{ $projects[$i]['name'] }}', {{ $projects[$i]['requests'][$j]['id'] }});">
 									승인
 								</button>
-								<button type="button" onclick="denyResponse('{{ $project['name'] }}', {{ $project['requests'][$i]['id'] }});">
+								<button type="button" onclick="denyResponse('{{ $projects[$i]['name'] }}', {{ $projects[$i]['requests'][$j]['id'] }});">
 									거절
 								</button>
-								<br>
-							@endfor
-							=================== <br>
+							</div>
+							<br>
+						@endfor
+						</div>
+						
+						@if ($cnt != 0 && $cnt != count($projects))
+							<hr>
 						@endif
-					@endforeach
-                </div>
-            </div>
+					@endif
+				@endfor
+
+				<script>
+					window.onload = function () {
+						var wrapper = document.getElementsByClassName('project_wrapper');
+						var len = wrapper.length;
+	
+						$(wrapper[len-1].nextSibling.nextSibling).remove();
+					};
+				</script>
+			</div>
+		</div>
         </div>
-	</div>
 @stop

@@ -14,11 +14,7 @@ use Validator;
 
 class HomeController extends Controller
 {
-    public function index () {
-		$user = Auth::user();
-		$projects = Project::select(['name', 'author', 'members', 'token'])
-						->where('members', 'like', '%'.$user->id.'n%')->get();
-		
+	private function getJoinRequests(User $user, & $projects) {
 		for ($i=0; $i<count($projects); $i++) {
 			if($user->id == $projects[$i]['author']) {
 				$result = Project::where([
@@ -34,12 +30,21 @@ class HomeController extends Controller
 				$request_id = explode('n', $request_id);
 				$requests = array();
 				for($j=0; $j<count($request_id)-1; $j++) {
-					$requests[$j] = User::select(['id', 'name', 'nickname'])->where('id', $request_id[$j])->first();
+					$requests[$j] = User::select(['id', 'name', 'nickname'])
+											->where('id', $request_id[$j])->first();
 				}
 
 				$projects[$i]['requests'] = $requests;
 			}
-		}
+		}	
+	}
+
+    public function index () {
+		$user = Auth::user();
+		$projects = Project::select(['name', 'author', 'members', 'token'])
+						->where('members', 'like', '%'.$user->id.'n%')->get();
+		
+		$this->getJoinRequests($user, $projects);
 		
 		return view('home', compact('user', 'projects'));
     }
@@ -64,6 +69,27 @@ class HomeController extends Controller
 	    	}
 		}
     }
+    private function getUpdateFields(Request $request) {
+    	$needUpdate = array(
+		    'nickname' => true,
+		    'phone' => true,
+		    'email' => true,
+		    'profile_image' => true,
+		);
+
+		if(strpos($request->input('nickname'), '기존 닉네임 : ') !== false) {
+		    $needUpdate['nickname'] = false;
+		}
+		if(strpos($request->input('phone'), '기존 연락처 : ') !== false) {
+		    $needUpdate['phone'] = false;
+		}
+		if(strpos($request->input('email'), '기존 이메일 : ') !== false ) {
+		    $needUpdate ['email'] = false;
+		}
+		$needUpdate['profile_image'] = $request->hasFile('profile_image');
+
+		return $needUpdate;
+    }
 
     private function updateNickname (Request $request, User $user) {
 		$oldNick = $user->nickname;
@@ -84,6 +110,16 @@ class HomeController extends Controller
     	ImageCropUtils::updateProfileImage($request, $user);
     }
 
+    private function updateFields(User $user, Request $request, array $needUpdate) 
+    {
+    	if($needUpdate['nickname']) { $this->updateNickname($request, $user); }
+		if($needUpdate['phone']) { $this->updatePhone($request, $user); }
+		if($needUpdate['email']) { $this->updateEmail($request, $user); }
+		if($needUpdate['profile_image']) { $this->updateProfileImage($request, $user); }
+
+		$user->save();
+    }
+
     public function updateUserInfo (Request $request) {
 		// password confirmation
 		$user = Auth::user();	
@@ -93,34 +129,10 @@ class HomeController extends Controller
 		    ], 422);
 		}
 
-		// filtering update list
-		$update = array(
-		    'nickname' => true,
-		    'phone' => true,
-		    'email' => true,
-		);
+		$needUpdate = $this->getUpdateFields($request);
 
-		if(strpos($request->input('nickname'), '기존 닉네임 : ') !== false) {
-		    $update['nickname'] = false;
-		}
-		if(strpos($request->input('phone'), '기존 연락처 : ') !== false) {
-		    $update['phone'] = false;
-		}
-		if(strpos($request->input('email'), '기존 이메일 : ') !== false ) {
-		    $update['email'] = false;
-		}
-		$update['profile_image'] = $request->hasFile('profile_image');
-
-		// validate input
-		$this->validateUpdateData($request, $update);
-
-		// update user info
-		if($update['nickname']) { $this->updateNickname($request, $user); }
-		if($update['phone']) { $this->updatePhone($request, $user); }
-		if($update['email']) { $this->updateEmail($request, $user); }
-		if($update['profile_image']) { $this->updateProfileImage($request, $user); }
-
-		$user->save();
+		$this->validateUpdateData($request, $needUpdate);
+		$this->updateFields($user, $request, $needUpdate);
 		
 		return response()->json([
 			'id' => $user->id,
