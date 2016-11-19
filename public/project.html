@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>자라나라나무나무</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"">
+	<link rel="stylesheet" href="assets/css/project.css">
+</head>
+<body>
+	<!-- Header -->
+	<header class="container-fluid">
+		<a class="col-xs-offset-1" href="#" id="header_logo"> <img src="assets/img/title.png" alt="자라나라나무나무"></a>
+	</header>
+	<!-- profile field -->
+	<div id="content-wrapper" class="row">
+		<div>
+			<nav id="navbar">
+				<div id="profile">
+					<img src="assets/img/피카.jpg" alt="profile_image">
+					<div>
+						<a class="green">USER</a><br>
+						SUNRINT
+					</div>
+				</div>
+				<div class="clearfix"></div>
+				<div id="menubar">
+					<ul class="nav navbar-nav">
+						<li><a href="javascript:void(0);" onclick="showflex('calender');">캘린더</a></li>
+						<li><a href="javascript:void(0)" onclick="rollon();">역할분담표</a></li>
+						<li><a href="javascript:void(0)" onclick="todoliston();">To do list</a></li>
+						<li><a href="javascript:void(0);" onclick="show('office');">연락처</a></li>
+					</ul>
+				</div>
+
+				<div id="user-menubar">
+					<ul class="nav navbar-nav text-green">
+						<li><a href="#">도움말</a></li>
+						<li><a href="#">설정</a></li>
+						<li><a href="#">로그아웃</a></li>
+					</ul>
+				</div>
+			</nav>
+		</div>
+		<!-- calender -->
+		<div id="calender" class="side-window">
+			<div id="calender-side" class="green-box">
+				<div id="calender-day" class="bold-50">03</div>
+				<div class="thin-15 ">목요일</div>
+				<div id="calender-deadline" class="normal-30">마감 24시간 전</div>
+				<div class="normal-15">쳌 쳌</div>
+				<div id="chat-mini">
+					<div class="chatting-mini">
+						<img src="assets/img/sun.png" alt="">
+						<div><strong>user01</strong>text text text text</div>
+					</div>
+					<div class="chatting-mini">
+						<img src="assets/img/sun.png" alt="">
+						<div><strong>user01</strong>text text text text</div>
+					</div>
+					<div class="chatting-mini">
+						<img src="assets/img/sun.png" alt="">
+						<div><strong>user01</strong>text text text text</div>
+					</div>
+					<div class="chatting-mini">
+						<img src="assets/img/sun.png" alt="">
+						<div><strong>user01</strong>text text text text</div>
+					</div>
+					<div class="chatting-mini">
+						<img src="assets/img/sun.png" alt="">
+						<div><strong>user01</strong>text text text text</div>
+					</div>
+					<div class="chatting-mini">
+						<img src="assets/img/sun.png" alt="">
+						<div><strong>user01</strong>text text text text</div>
+					</div>
+				</div>
+				<div class="white-input">
+					<input type="text" placeholder="댓글 입력" />
+					<button>작성</button>
+				</div>
+			</div>
+			<div id="calender-month" class="white-box">
+				<div class="monthlist">
+					<div class="month">10월</div>
+					<div class="month month-active">11월</div>
+					<div class="month">12월</div>
+					<a href="javascript:void(0);" id="y" onclick="closeflex();">x</a>
+				</div>
+				<div class="day">
+					
+				</div>
+			</div>
+		</div>
+		<!--roll divide -->
+		<div id="roll" class="side-window">
+			<div id="division-table" class="green-box">
+				<div class="division-title">역할 분담표</div>
+				<div class="division-info">
+					<img src="assets/img/sun.png" alt="">
+					<p><strong>USER</strong><br />text text text</p>
+				</div>
+				<div id="roll-divider">
+					<ul>
+						<li class="rolldata">text 1 </li>
+						<li class="rolldata">text 2 </li>
+						<li class="rolldata">text 3 </li>
+					</ul>
+				</div>
+				<div class="white-input">
+					<input type="text" placeholder="추가할 사항을 입력해 주세요" />
+					<button>등록</button>
+				</div>
+			</div>
+			<div id="user-roll" class="white-box">
+				<a href="javascript:void(0);" class="x-button" onclick="rollout();">x</a>
+				<div class="user-section">
+					<div class="roll-name">
+						<img src="assets/img/sun.png" alt="">
+						<p><strong>test</strong><br />text text text</p>
+					</div>
+					<div class="roll-profile">
+						<ul>
+							<li>text 1</li>
+							<li>text 2</li>
+							<li>text 3</li>
+						</ul>
+					</div>
+				</div>
+				<div class="user-section">
+					<div class="roll-name">
+						<img src="assets/img/sun.png" alt="">
+						<p><strong>test</strong><br />text text text</p>
+					</div>
+					<div class="roll-profile">
+						<ul>
+							<li>text 1</li>
+							<li>text 2</li>
+							<li>text 3</li>
+						</ul>
+					</div>
+				</div>
+				<div class="user-section">
+					<div class="roll-name">
+						<img src="assets/img/sun.png" alt="">
+						<p><strong>test</strong><br />text text text</p>
+					</div>
+					<div class="roll-profile">
+						<ul>
+							<li>text 1</li>
+							<li>text 2</li>
+							<li>text 3</li>
+						</ul>
+					</div>
+				</div>
+				<div class="user-section">
+					<div class="roll-name">
+						<img src="assets/img/sun.png" alt="">
+						<p><strong>test</strong><br />text text text</p>
+					</div>
+					<div class="roll-profile">
+						<ul>
+							<li>text 1</li>
+							<li>text 2</li>
+							<li>text 3</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- to do list -->
+		<div id="todolist" class="side-window">
+			<div class="todolist-section green-box">
+				<div class="todolist-title x-margin">To do list</div>
+				<div class="todolist-subtitle">완료 목록</div>
+				<div class="todolist-checklist">
+					<div class="todolist-data">
+						<img src="assets/img/check.png" alt="" onclick="">
+						<p><strong>메인페이지 구현 및 기능</strong><br />2016 11 03</p>
+					</div>
+					<div class="todolist-data">
+						<img src="assets/img/check.png" alt="">
+						<p><strong>test</strong><br />text text text</p>
+					</div>
+					<div class="todolist-data">
+						<img src="assets/img/check.png" alt="">
+						<p><strong>test</strong><br />text text text</p>
+					</div>
+					<div class="todolist-data">
+						<img src="assets/img/check.png" alt="">
+						<p><strong>test</strong><br />text text text</p>
+					</div>
+				</div>
+			</div>
+			<div class="todolist-section white-box">
+				<a href="javascript:void(0);" id="i" onclick="todolistout();">x</a>
+				<div class="todolist-title">To do list</div>
+				<div class="todolist-subtitle">완료 목록</div>
+				<div class="todolist-checklist">
+					<div class="todolist-data">
+						<img src="assets/img/check.png" alt="" onclick="">
+						<p><strong>메인페이지 구현 및 기능</strong><br />2016 11 03</p>
+					</div>
+					<div class="todolist-data">
+						<img src="assets/img/check.png" alt="">
+						<p><strong>test</strong><br />text text text</p>
+					</div>
+					<div class="todolist-data">
+						<img src="assets/img/check.png" alt="">
+						<p><strong>test</strong><br />text text text</p>
+					</div>
+					<div class="todolist-data">
+						<img src="assets/img/check.png" alt="">
+						<p><strong>test</strong><br />text text text</p>
+					</div>
+					<div class="todolist-data">
+						<img src="assets/img/check.png" alt="">
+						<p><strong>test</strong><br />text text text</p>
+					</div>
+					<div class="todolist-data">
+						<img src="assets/img/check.png" alt="">
+						<p><strong>test</strong><br />text text text</p>
+					</div>
+					<div class="todolist-data">
+						<img src="assets/img/check.png" alt="">
+						<p><strong>test</strong><br />text text text</p>
+					</div>
+				</div>
+				<div id="todolist-input" class="white-input">
+					<input type="text" placeholder="추가할 사항을 입력해 주세요" />
+					<button>등록</button>
+				</div>
+			</div>
+		</div>		
+		<!-- office -->
+		<div id="office" class="white-box">
+			<div id="office-header">연락처<a href="javascript:void(0);" id="x" onclick="closetel();">x</a></div>
+			<div class="office-list">내 연락처</div>
+			<div class="office-profile">
+				<div class="office-profile-info">
+					<img src="assets/img/background.png" alt="">
+					<p><strong>User</strong>text</p>
+				</div>
+				<div class="office-profile-text">
+					<strong>asdasd</strong>
+					<p>texttetansdgndklgndsadslk</p>
+				</div>
+				<div class="office-profile-text">
+					<strong>asdasd</strong>
+					<p>texttetansdgndklgndsadslk</p>
+				</div>
+			</div>
+			<div id="divider"></div>
+			<div class="office-list">그룹원 연락처</div>
+			<div class="office-profile">
+				<div class="office-profile-info">
+					<img src="assets/img/background.png" alt="">
+					<p><strong>User</strong>text</p>
+				</div>
+				<div class="office-profile-text">
+					<strong>asdasd</strong>
+					<p>texttetansdgndklgndsadslk</p>
+				</div>
+				<div class="office-profile-text">
+					<strong>asdasd</strong>
+					<p>texttetansdgndklgndsadslk</p>
+				</div>
+			</div>
+			<div class="office-profile">
+				<div class="office-profile-info">
+					<img src="assets/img/background.png" alt="">
+					<p><strong>User</strong>text</p>
+				</div>
+				<div class="office-profile-text">
+					<strong>asdasd</strong>
+					<p>texttetansdgndklgndsadslk</p>
+				</div>
+				<div class="office-profile-text">
+					<strong>asdasd</strong>
+					<p>texttetansdgndklgndsadslk</p>
+				</div>
+			</div>
+		</div>
+		
+
+
+		<div id="tree">
+			<img src="assets/img/tree.png" alt="나무" width="100" height="100">
+		</div>
+		<div id="sun">
+			<div id="rays">
+				<div class="set-one">
+					<div class="triangle top"></div>
+					<div class="triangle bottom"></div>
+				</div>
+				<div class="set-two">
+					<div class="triangle top"></div>
+					<div class="triangle bottom"></div>
+				</div>
+				<div class="set-three">
+					<div class="triangle top"></div>
+					<div class="triangle bottom"></div>
+				</div>
+				<div class="set-four">
+					<div class="triangle top"></div>
+					<div class="triangle bottom"></div>
+				</div>
+			</div>
+			<div class="center"></div>
+		</div>
+
+		<a href="javascript:void(0);">
+			<div id="waterspread">
+				<img src="assets/img/waterspread.png" data-toggle="tooltip" title="Click Me!" onclick="chattingdown();">
+			</div>
+		</a>
+		<div id="chat">
+			<div id="chattitle">
+				채팅
+			</div>
+			<div id="chattinbox">
+				<div class="message_wrapper">
+					<div class="name green">
+						김준영
+					</div>
+					<div class="message">
+						안녕하세요
+					</div>
+				</div>
+				<div class="message_wrapper">
+					<div class="name green">
+						서준혁
+					</div>
+					<div class="message">
+						준영아 꺼져
+					</div>
+				</div>
+				<div class="message_wrapper">
+					<div class="name green">
+						서준혁
+					</div>
+					<div class="message">
+						준영이 개못생
+					</div>
+				</div>
+			</div>
+			<form>
+				<input type="text" class="form-control">
+				<button type="button">
+					 <span class="glyphicon glyphicon-send"></span>
+				</button> 
+			</form>
+		</div>
+	</div>
+	<!-- script -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="assets/js/project.js"></script>
+</body>
+</html>

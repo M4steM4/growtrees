@@ -1,0 +1,154 @@
+#header {
+	width: 100%;
+	height: 50px;
+	background-color: #74b844;
+	color: white;
+	position: fixed;
+	z-index: 10;
+}
+.margin {
+	margin-top: 50px;
+}
+#search {
+	margin-right: 120px;
+}
+#profile {
+	margin-right: 60px;
+}
+.dropdown-menu {
+	z-index: 10;
+	margin-top: 10px;
+	background-color: rgba(255, 255, 255, 0.9);
+}
+.dropdown-menu > li > a {
+	color: #74b844;
+	padding: 10px;
+}
+#logo {
+	font-weight: 200;
+	font-size: 20px;
+	margin-top: 11px;
+	left: 5%;
+	position: absolute;
+}
+#menuList > .dropdown {
+	text-align: right;
+	margin-top: 10px;
+	right: 30px;
+	list-style:none;
+	position: absolute;
+}
+#menuList > div > li {
+	margin: 0 10px 0 10px;
+	display: inline-block;
+}
+#menuList > div > li > a {
+	margin: 0;
+	text-decoration: none;
+}
+#menuList > div > li > a > img {
+	width: 30px;
+	height: 30px;
+}
+#dataSearch {
+	width: 50%;
+	height: 30px;
+	position: fixed;
+	left: 25%;
+	color: #333;
+	border: 1px solid #74b844;
+}
+input[type="text"]::-webkit-input-placeholder {
+	color: #74b844;
+}
+.participant {
+	background-color: #74b844;
+	margin-left: 10px;
+	animation: liveColor 0.5s infinite
+}
+#searchlist {
+	position: fixed;
+	width: 50%;
+	left: 25%;
+	top: 40px;
+	height: auto;
+	border: 1px solid #999;
+	max-height: 200px;
+	overflow: scroll;
+	display: none;
+}
+#searchlist > * {
+	text-decoration: none;
+	color: orange;
+}
+.dataimg {
+	width: 50px;
+	height: 50px;
+	margin: 5px;
+	border: 5px double orange;
+	border-radius: 50%;
+}
+.datalist {
+	width: 100%;
+	height: 60px;
+	background-color: white;
+	overflow: hidden;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+.datalist:hover {
+	background-color: orange;
+	color: white;
+	border-color: white;
+}
+.datalist:hover > * {
+	border-color: white;
+}
+
+/* main */
+.row {
+	text-align: center;
+}
+#main {
+	background-color: #ededed
+}
+.section {
+	margin-top: 5%;
+	margin-bottom: 5%;
+	margin-left: 8.3333333%;
+}
+.pot {
+	height: 170px;
+	z-index: 5;
+}
+#main > .row > .section > .flowerpot {
+	display: inline-block;
+}
+.flowerpot > a {
+	text-decoration:none
+}
+
+.flowerpot:hover {
+	transform: scale(1.07);
+}
+.flowerpot {
+	transition: transform 0.5s ease;
+}
+.potname {
+	width: 90%;
+	margin-left: 5%;
+	color: #ff9933;
+	border: 1px solid white;
+	border-right: 1px solid transparent;
+	border-left: 1px solid transparent;
+	background-color: white;
+	font-size: 16px;
+	font-weight: 200;
+	padding: 4px 0 4px 10px;
+	box-shadow: 0 6px 15px 1px #999;
+}
+@keyframes liveColor {
+	0% { background-color: #74b844; }
+	50% { background-color: #add68f; }
+	100% { background-color: #74b844; }
+}
