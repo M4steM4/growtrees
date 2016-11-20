@@ -11,37 +11,81 @@
 <body>
 	<!-- Header -->
 	<header class="container-fluid">
-		<a class="col-xs-offset-1" href="#" id="header_logo"> <img src="assets/img/title.png" alt="자라나라나무나무"></a>
+		<a class="col-xs-offset-1" href="#" id="header-logo">
+			<img src="assets/img/title.png" alt="자라나라나무나무">
+		</a>
 	</header>
 	<!-- profile field -->
 	<div id="content-wrapper" class="row">
 		<div>
 			<nav id="navbar">
 				<div id="profile">
-					<img src="assets/img/피카.jpg" alt="profile_image">
+					<img src="assets/img/profile_img.png" alt="profile_image">
 					<div>
 						<a class="green">USER</a><br>
 						SUNRINT
 					</div>
 				</div>
 				<div class="clearfix"></div>
+				<!-- menu -->
 				<div id="menubar">
 					<ul class="nav navbar-nav">
-						<li><a href="javascript:void(0);" onclick="showflex('calender');">캘린더</a></li>
-						<li><a href="javascript:void(0)" onclick="rollon();">역할분담표</a></li>
-						<li><a href="javascript:void(0)" onclick="todoliston();">To do list</a></li>
-						<li><a href="javascript:void(0);" onclick="show('office');">연락처</a></li>
+						<li><a href="javascript:void(0);" onclick="showBox('calender', 'flex');">캘린더</a></li>
+						<li><a href="javascript:void(0)" onclick="showBox('roll', 'flex');">역할분담표</a></li>
+						<li><a href="javascript:void(0)" onclick="showBox('todolist', 'flex');">To do list</a></li>
+						<li><a href="javascript:void(0);" onclick="showBox('office', 'block');">연락처</a></li>
 					</ul>
 				</div>
-
+				<!-- setting -->
 				<div id="user-menubar">
 					<ul class="nav navbar-nav text-green">
-						<li><a href="#">도움말</a></li>
+						<li><a href="#" data-toggle="modal" data-target="#myModal">도움말</a></li>
 						<li><a href="#">설정</a></li>
 						<li><a href="#">로그아웃</a></li>
 					</ul>
 				</div>
 			</nav>
+		</div>
+		<!-- setting modal -->
+		<div class="modal fade" id="myModal" role="dialog">
+			<div class="modal-dialog">
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header modal-header-style">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">도움말</h4>
+					</div>
+					<div class="modal-body modal-body-style">
+						<h4>자라나라 나무나무는 프로젝트 관리 사이트입니다.</h4>
+						<img src="assets/img/help_img.png" alt="" class="modal-image">
+						<div class="modal-divider"></div>
+						<h3>프로젝트 메뉴</h3>
+						<h4>프로젝트 메뉴는 자신의 프로필 및 프로젝트 관리를 할 수 있는<br />4가지 기능을 가진 메뉴바 입니다.</h4>
+						<div class="modal-divider"></div>
+						<h3>자라나는 나무</h3>
+						<h4>프로젝트가 진행상황에 따라 6가지 단계로 나무가 자라나<br />프로젝트의 진행상황을 한눈에 볼 수 있습니다.</h4>
+						<div class="modal-divider"></div>
+						<h3>메인기능</h3>
+						<div class="modal-divider"></div>
+						<h3>캘린더</h3>
+						<img src="assets/img/help_cal.png" alt="" class="modal-image-sm">
+						<h4>캘린더 기능으로 현재 남은 기간과, 일정 마감시간 등<br />프로젝트 마감시간을 체크할 수 있습니다.</h4>
+						<div class="modal-divider"></div>
+						<h3>역할분담표</h3>
+						<img src="assets/img/help_roll.png" alt="" class="modal-image-sm">
+						<h4>역할분담표 기능으로 자신의 분야와 일정을 수정하고<br />팀원들의 역할과 해야할 일을 볼 수 있습니다.</h4>
+						<div class="modal-divider"></div>
+						<h3>To Do List</h3>
+						<img src="assets/img/help_todolist.png" alt="" class="modal-image-sm">
+						<h4>To do list 기능으로 지금까지 완료된 프로젝트 스케줄을<br />확인하고 완료해야될 목록을 추가합니다.</h4>
+						<div class="modal-divider"></div>
+						<h3>연락처</h3>
+						<img src="assets/img/help_tel.png" alt="" class="modal-image-sm">
+						<h4>연락처로 팀원들의 이메일과 전화번호, 깃허브(파일관리페이지)<br />정보를 공유하여 보다 수월한 프로젝트 진행을 도웁니다.</h4>
+						<div class="modal-divider"></div>
+					</div>
+				</div>
+			</div>
 		</div>
 		<!-- calender -->
 		<div id="calender" class="side-window">
@@ -49,30 +93,33 @@
 				<div id="calender-day" class="bold-50">03</div>
 				<div class="thin-15 ">목요일</div>
 				<div id="calender-deadline" class="normal-30">마감 24시간 전</div>
-				<div class="normal-15">쳌 쳌</div>
+				<div class="normal-15">
+					<img src="assets/img/check.png" alt="">
+					<img src="assets/img/check.png" alt="">
+				</div>
 				<div id="chat-mini">
 					<div class="chatting-mini">
-						<img src="assets/img/sun.png" alt="">
+						<img src="assets/img/profile_img.png" alt="">
 						<div><strong>user01</strong>text text text text</div>
 					</div>
 					<div class="chatting-mini">
-						<img src="assets/img/sun.png" alt="">
+						<img src="assets/img/profile_img.png" alt="">
 						<div><strong>user01</strong>text text text text</div>
 					</div>
 					<div class="chatting-mini">
-						<img src="assets/img/sun.png" alt="">
+						<img src="assets/img/profile_img.png" alt="">
 						<div><strong>user01</strong>text text text text</div>
 					</div>
 					<div class="chatting-mini">
-						<img src="assets/img/sun.png" alt="">
+						<img src="assets/img/profile_img.png" alt="">
 						<div><strong>user01</strong>text text text text</div>
 					</div>
 					<div class="chatting-mini">
-						<img src="assets/img/sun.png" alt="">
+						<img src="assets/img/profile_img.png" alt="">
 						<div><strong>user01</strong>text text text text</div>
 					</div>
 					<div class="chatting-mini">
-						<img src="assets/img/sun.png" alt="">
+						<img src="assets/img/profile_img.png" alt="">
 						<div><strong>user01</strong>text text text text</div>
 					</div>
 				</div>
@@ -82,11 +129,11 @@
 				</div>
 			</div>
 			<div id="calender-month" class="white-box">
+				<a href="javascript:void(0);" class="x-button" onclick="downBox('calender');">x</a>
 				<div class="monthlist">
 					<div class="month">10월</div>
 					<div class="month month-active">11월</div>
 					<div class="month">12월</div>
-					<a href="javascript:void(0);" id="y" onclick="closeflex();">x</a>
 				</div>
 				<div class="day">
 					
@@ -98,7 +145,7 @@
 			<div id="division-table" class="green-box">
 				<div class="division-title">역할 분담표</div>
 				<div class="division-info">
-					<img src="assets/img/sun.png" alt="">
+					<img src="assets/img/profile_img.png" alt="">
 					<p><strong>USER</strong><br />text text text</p>
 				</div>
 				<div id="roll-divider">
@@ -114,11 +161,11 @@
 				</div>
 			</div>
 			<div id="user-roll" class="white-box">
-				<a href="javascript:void(0);" class="x-button" onclick="rollout();">x</a>
+				<a href="javascript:void(0);" class="x-button" onclick="downBox('roll');">x</a>
 				<div class="user-section">
 					<div class="roll-name">
-						<img src="assets/img/sun.png" alt="">
-						<p><strong>test</strong><br />text text text</p>
+						<img src="assets/img/profile_img.png" alt="">
+						<p><strong>User01</strong><br />text text text</p>
 					</div>
 					<div class="roll-profile">
 						<ul>
@@ -130,8 +177,8 @@
 				</div>
 				<div class="user-section">
 					<div class="roll-name">
-						<img src="assets/img/sun.png" alt="">
-						<p><strong>test</strong><br />text text text</p>
+						<img src="assets/img/profile_img.png" alt="">
+						<p><strong>User02</strong><br />text text text</p>
 					</div>
 					<div class="roll-profile">
 						<ul>
@@ -143,8 +190,8 @@
 				</div>
 				<div class="user-section">
 					<div class="roll-name">
-						<img src="assets/img/sun.png" alt="">
-						<p><strong>test</strong><br />text text text</p>
+						<img src="assets/img/profile_img.png" alt="">
+						<p><strong>User03</strong><br />text text text</p>
 					</div>
 					<div class="roll-profile">
 						<ul>
@@ -156,8 +203,8 @@
 				</div>
 				<div class="user-section">
 					<div class="roll-name">
-						<img src="assets/img/sun.png" alt="">
-						<p><strong>test</strong><br />text text text</p>
+						<img src="assets/img/profile_img.png" alt="">
+						<p><strong>User04</strong><br />text text text</p>
 					</div>
 					<div class="roll-profile">
 						<ul>
@@ -194,36 +241,36 @@
 				</div>
 			</div>
 			<div class="todolist-section white-box">
-				<a href="javascript:void(0);" id="i" onclick="todolistout();">x</a>
+				<a href="javascript:void(0);" class="x-button" onclick="downBox('todolist');;">x</a>
 				<div class="todolist-title">To do list</div>
 				<div class="todolist-subtitle">완료 목록</div>
 				<div class="todolist-checklist">
 					<div class="todolist-data">
-						<img src="assets/img/check.png" alt="" onclick="">
+						<img src="assets/img/check_u.png" alt="" onclick="">
 						<p><strong>메인페이지 구현 및 기능</strong><br />2016 11 03</p>
 					</div>
 					<div class="todolist-data">
-						<img src="assets/img/check.png" alt="">
+						<img src="assets/img/check_u.png" alt="">
 						<p><strong>test</strong><br />text text text</p>
 					</div>
 					<div class="todolist-data">
-						<img src="assets/img/check.png" alt="">
+						<img src="assets/img/check_u.png" alt="">
 						<p><strong>test</strong><br />text text text</p>
 					</div>
 					<div class="todolist-data">
-						<img src="assets/img/check.png" alt="">
+						<img src="assets/img/check_u.png" alt="">
 						<p><strong>test</strong><br />text text text</p>
 					</div>
 					<div class="todolist-data">
-						<img src="assets/img/check.png" alt="">
+						<img src="assets/img/check_u.png" alt="">
 						<p><strong>test</strong><br />text text text</p>
 					</div>
 					<div class="todolist-data">
-						<img src="assets/img/check.png" alt="">
+						<img src="assets/img/check_u.png" alt="">
 						<p><strong>test</strong><br />text text text</p>
 					</div>
 					<div class="todolist-data">
-						<img src="assets/img/check.png" alt="">
+						<img src="assets/img/check_u.png" alt="">
 						<p><strong>test</strong><br />text text text</p>
 					</div>
 				</div>
@@ -235,7 +282,7 @@
 		</div>		
 		<!-- office -->
 		<div id="office" class="white-box">
-			<div id="office-header">연락처<a href="javascript:void(0);" id="x" onclick="closetel();">x</a></div>
+			<div id="office-header">연락처<a href="javascript:void(0);" class="x-button xx-button" onclick="downBox('office');">x</a></div>
 			<div class="office-list">내 연락처</div>
 			<div class="office-profile">
 				<div class="office-profile-info">
@@ -243,12 +290,12 @@
 					<p><strong>User</strong>text</p>
 				</div>
 				<div class="office-profile-text">
-					<strong>asdasd</strong>
-					<p>texttetansdgndklgndsadslk</p>
+					<strong>이메일</strong>
+					<p>Useremail@email.com</p>
 				</div>
 				<div class="office-profile-text">
-					<strong>asdasd</strong>
-					<p>texttetansdgndklgndsadslk</p>
+					<strong>전화번호</strong>
+					<p>010-1234-5678</p>
 				</div>
 			</div>
 			<div id="divider"></div>
@@ -256,15 +303,15 @@
 			<div class="office-profile">
 				<div class="office-profile-info">
 					<img src="assets/img/background.png" alt="">
-					<p><strong>User</strong>text</p>
+					<p><strong>User1</strong>text</p>
 				</div>
 				<div class="office-profile-text">
-					<strong>asdasd</strong>
-					<p>texttetansdgndklgndsadslk</p>
+					<strong>이메일</strong>
+					<p>User1email@email.com</p>
 				</div>
 				<div class="office-profile-text">
-					<strong>asdasd</strong>
-					<p>texttetansdgndklgndsadslk</p>
+					<strong>전화번호</strong>
+					<p>010-1234-5678</p>
 				</div>
 			</div>
 			<div class="office-profile">
@@ -273,12 +320,12 @@
 					<p><strong>User</strong>text</p>
 				</div>
 				<div class="office-profile-text">
-					<strong>asdasd</strong>
-					<p>texttetansdgndklgndsadslk</p>
+					<strong>이메일</strong>
+					<p>User2email@email.com</p>
 				</div>
 				<div class="office-profile-text">
-					<strong>asdasd</strong>
-					<p>texttetansdgndklgndsadslk</p>
+					<strong>전화번호</strong>
+					<p>010-1234-5678</p>
 				</div>
 			</div>
 		</div>
@@ -286,9 +333,9 @@
 
 
 		<div id="tree">
-			<img src="assets/img/tree.png" alt="나무" width="100" height="100">
+			<img src="assets/img/tree.png" alt="나무" >
 		</div>
-		<div id="sun">
+		<a href="javascript:void(0);" data-toggle="tooltip" title="Click Me!" id="sun">
 			<div id="rays">
 				<div class="set-one">
 					<div class="triangle top"></div>
@@ -308,7 +355,7 @@
 				</div>
 			</div>
 			<div class="center"></div>
-		</div>
+		</a>
 
 		<a href="javascript:void(0);">
 			<div id="waterspread">
@@ -317,12 +364,12 @@
 		</a>
 		<div id="chat">
 			<div id="chattitle">
-				채팅
+				채팅창
 			</div>
 			<div id="chattinbox">
 				<div class="message_wrapper">
 					<div class="name green">
-						김준영
+						User
 					</div>
 					<div class="message">
 						안녕하세요
@@ -330,18 +377,18 @@
 				</div>
 				<div class="message_wrapper">
 					<div class="name green">
-						서준혁
+						User2
 					</div>
 					<div class="message">
-						준영아 꺼져
+						반갑습니다
 					</div>
 				</div>
 				<div class="message_wrapper">
 					<div class="name green">
-						서준혁
+						User1
 					</div>
 					<div class="message">
-						준영이 개못생
+						환영합니다
 					</div>
 				</div>
 			</div>

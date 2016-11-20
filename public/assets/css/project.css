@@ -15,10 +15,98 @@ a:hover {
 li {
 	list-style: none;
 }
+.modal-header-style,
+.modal-body-style {
+	background-color: #74b844;
+	color: white;
+	border-radius: 5px;
+	text-align: center;
+}
+.modal-header-style {
+	padding: 30px;
+}
+.modal-body-style {
+	margin-top: -7px;
+	padding: 50px;
+	color: rgba(255, 255, 255, 0.9);
+}
+.modal-body-style > * {
+	font-weight: 100;
+}
+.modal-body-style > h3 {
+	font-weight: 200;
+}
+.modal-body-style > h4 {
+	line-height: 1.5;
+	font-size: 15px;
+}
+.modal-title {
+	font-weight: 200;
+	font-size: 30px;
+}
+.modal-divider {
+	width: 90%;
+	height: 1px;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+	margin: 50px 0 50px 5%;
+}
+.modal-image {
+	width: 100%;
+}
+.modal-image-sm {
+	width: 70%;
+	border: 1px solid rgba(255, 255, 255, 0.7);
+}
+.modal {
+	left: calc(50% - 600px);
+	top: 10%;
+}
 .green {
 	color: #74b844;
 }
-/* */
+.tooltip-inner {
+	background-color: #74b844;
+}
+.tooltip.top .tooltip-arrow {
+	border-top-color: #74b844;
+}
+.bold-15 {
+	font-size: 15px;
+	font-weight: 500;
+}
+.bold-30 {
+	font-size: 30px;
+	font-weight: 500;
+}
+.bold-50 {
+	font-size: 60px;
+	font-weight: 600;
+}
+.normal-15 {
+	font-size: 15px;
+	font-weight: 400;
+}
+.normal-30 {
+	font-size: 30px;
+	font-weight: 400;
+}
+.normal-50 {
+	font-size: 50px
+	font-weight: 400;
+}
+.thin-15 {
+	font-size: 15px;
+	font-weight: 100;
+}
+.thin-30 {
+	font-size: 30px;
+	font-weight: 100;
+}
+.thin-50 {
+	font-size: 50px;
+	font-weight: :100;
+}
+/* box */
 .green-box {
 	height: 100%;
 	background-color: #74b844;
@@ -29,6 +117,29 @@ li {
 	background-color: white;
 	color: #74b844;
 }
+/* input */
+.white-input {
+	width: 80%;
+	margin: 0 10%;
+	display: flex;
+}
+.white-input > input {
+	width: 80%;
+	background-color: #74b844;
+	border: none;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.7);
+}
+.white-input > input[type="text"]::-webkit-input-placeholder {
+	color: rgba(255, 255, 255, 0.7);
+}
+.white-input > button {
+	width: 20%;
+	background-color: #74b844;
+	color: white;
+	border: 1px solid white;
+	border-radius: 4px;
+	padding: -4px;
+}
 /* header */
 header {
 	position: relative;
@@ -37,13 +148,13 @@ header {
 	padding: 0;
 	z-index: 10000;
 }
-#header_logo {
+#header-logo {
 	width: 150px;
 	height: 100%;
 	display: flex;
 	align-items: center;
 }
-#header_logo > img {
+#header-logo > img {
 	width: 100%;
 }
 /* profile field */
@@ -71,7 +182,6 @@ header {
 	width: 100%;
 	display: block;
 }
-/**/
 #navbar {
 	position: fixed;
 }
@@ -133,48 +243,15 @@ header {
 #calender-month {
 	width: 450px;
 }
-.bold-15 {
-	font-size: 15px;
-	font-weight: 500;
-}
-.bold-30 {
-	font-size: 30px;
-	font-weight: 500;
-}
-.bold-50 {
-	font-size: 60px;
-	font-weight: 600;
-}
-.normal-15 {
-	font-size: 15px;
-	font-weight: 400;
-}
-.normal-30 {
-	font-size: 30px;
-	font-weight: 400;
-}
-.normal-50 {
-	font-size: 50px
-	font-weight: 400;
-}
-.thin-15 {
-	font-size: 15px;
-	font-weight: 100;
-}
-.thin-30 {
-	font-size: 30px;
-	font-weight: 100;
-}
-.thin-50 {
-	font-size: 50px;
-	font-weight: :100;
-}
 #calender-day {
 	margin: 10% 0 -7.5% 0;
 }
 #calender-deadline {
 	margin: 22% 0 -1% 0;
 	font-size: 20px;
+}
+.normal-15 > img {
+	width :25px;
 }
 /* mini chat */
 #chat-mini {
@@ -203,28 +280,6 @@ header {
 .chatting-mini > div > strong {
 	margin-left: 3%;
 }
-.white-input {
-	width: 80%;
-	margin: 0 10%;
-	display: flex;
-}
-.white-input > input {
-	width: 80%;
-	background-color: #74b844;
-	border: none;
-	border-bottom: 1px solid rgba(255, 255, 255, 0.7);
-}
-.white-input > input[type="text"]::-webkit-input-placeholder {
-	color: rgba(255, 255, 255, 0.7);
-}
-.white-input > button {
-	width: 20%;
-	background-color: #74b844;
-	color: white;
-	border: 1px solid white;
-	border-radius: 4px;
-	padding: -4px;
-}
 .monthlist {
 	color: #bbbbbb;
 	width: 100%;
@@ -247,7 +302,11 @@ header {
 .x-button {
 	text-decoration: none;
 	font-size: 20px;
-
+	margin: -5% 0% -3% 95%;
+}
+.xx-button {
+	margin: 0 0 0 70%;
+	color: white;
 }
 /* roll */
 #division-table {
@@ -296,10 +355,7 @@ header {
 #user-roll {
 	width: 60%;
 	background-color: #efefef;
-	padding: 4%;
-}
-#user-roll > a {
-	margin: 0 0 0 100%;
+	padding: 2% 4% 5% 4%;
 }
 .user-section {
 	width: 100%
@@ -358,7 +414,7 @@ header {
 	font-weight: 100;
 }
 .x-margin {
-	margin: 7% 0 0 0;
+	margin: 10% 0 0 0;
 }
 .todolist-checklist {
 	height: 70%;
@@ -477,7 +533,10 @@ header {
 	bottom: 0;
 	z-index: 0;
 }
-
+#tree > img {
+	width: 500px;
+	height: 500px;
+}
 #waterspread {
 	position: absolute;
 	bottom: 380px;

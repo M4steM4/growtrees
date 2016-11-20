@@ -1,27 +1,11 @@
-function show(x) {
-	$('#' + x).css("display", "block");
+
+function showBox(id, display) {
+	$('#'+id).css("display", display);
 }
-function closeflex() {
-	$('#calender').css("display", "none");
+function downBox(id) {
+	$('#'+id).css("display", "none");
 }
-function closetel() {
-	$('#office').css("display", "none");
-}
-function showflex(x) {
-	$('#' + x).css("display", "flex");
-}
-function rollon() {
-	$('#roll').css("display", "flex");
-}
-function rollout() {
-	$('#roll').css("display", "none");
-}
-function todoliston() {
-	$('#todolist').css("display", "flex");
-}
-function todolistout() {
-	$('#todolist').css("display", "none");
-}
+
 function chattingdown() {
 	$('#chat').css("display", "none");
 	$('#waterspread').css("bottom", "0");
