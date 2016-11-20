@@ -3,8 +3,11 @@ html, body {
 	height: 100%;
 	overflow-x: hidden;
 }
-a {
+a, .form-control {
 	color: #737473;
+}
+input, textarea {
+	transition: 0.7s;
 }
 .green {
 	color: #74b844;
@@ -20,6 +23,14 @@ header {
 #logo {
         left: 5%;
         position: absolute;
+}
+
+#menubar > ul > li > a {
+	margin-right: 10px;
+}
+#menubar > ul > li > a:hover {
+	transition: 0.7s;
+	background-color: #e0e0e0;
 }
 
 .navbar {
@@ -170,6 +181,7 @@ header {
 	display: none;
 }
 #divisiontable {
+	position: relative;
 	width: 40%;
 	color: white;
 	background-color: #74b844;
@@ -210,25 +222,32 @@ header {
 	background-color: rgba(255, 255, 255, 0.2);
 }
 #userroll {
+	background-color: #fff;
+	padding: 10px 10px 10px 20px;
 	width: 60%;
 }
 .rolldata {
-	margin: 5% 0 5% 0;
+	margin: 5% 40px 5% 0;
 	color: rgba(255, 255, 255, 0.9);
 	list-style: none;
+}
+.rolldata:hover {
+	-webkit-transition: 0.7s;
+	transition: 0.7s;
 }
 .rolldata:before {
 	content: '- ';
 }
 .divisioninputform {
-	width: 90%;
-	margin-left: 5%;
-	margin-top: 40%;
+	position: absolute;	
+	padding: 20px;
+	bottom: 0;
+	width: 100%;
 	display: flex;
 }
 .divisioninputform > input {
-	width: 74%;
-	margin: 0% 3% 0 3%;
+	width: 75%;
+	margin-right: 3%;
 	background-color: #74b844;
 	border: none;
 	border-bottom: 1px solid white;
@@ -243,10 +262,6 @@ header {
 	border: 1px solid white;
 	border-radius: 4px;
 	padding: -4px;
-}
-#userroll {
-	background-color: #fff;
-	padding: 4%;
 }
 #userroll > a {
 	margin: -2% 0 0 95%;
@@ -387,19 +402,19 @@ header {
 
 
 /*office*/
+/*office*/
 #office {
-	position: absolute;
+	position: relative;
 	display: none;
+	margin-top: 50px;
 	margin-left: calc(50% - 150px);
-	margin-top: 30px;
 	width: 300px;
 	max-height: 500px;
 	background-color: #efefef;
-	overflow: scroll;
-	border-radius: 2px;
-	z-index: 100;
+	overflow: hidden;
+	z-index: 50000;
 }
-#officeheader {
+#office-header {
 	width: 100%;
 	height: 50px;
 	background-color: #74b844;
@@ -408,54 +423,64 @@ header {
 	font-size: 20px;
 	box-sizing: border-box;
 }
-.officelist {
+#office-body {
+	height: 450px;
+	overflow-y: scroll;
+}
+.office-list {
+	color: #999;
+	margin-top: 10px;
 	padding: 15px 0 0 20px;
 }
-.profile {
+.office-profile {
+	margin: 10px 0 20px 0;
+}
+.office-profile-info {
+	height: 85px;
+	margin-bottom: -2%;
 	display: flex;
 }
-.profile > p {
+.office-profile-info > img {
+	width: 50px;
+	height: 50px;
+	margin: 10px 20px;
+	border-radius: 50%;
+	box-sizing: border-box;
+}
+.office-profile-info > p {
+	box-sizing: border-box;
 	width: 210px;
 	height: 70px;
-	padding-top: 15px;
+	padding-top: 25px;
 	font-weight: 200;
 	color: #b57d4e;
 }
-.profile > p > strong {
+.office-profile-info > p > strong {
 	font-size: 20px;
 	color: #74b844;
 	font-weight: 400;
-	margin-left: -5px;
-	margin-right: 10px
+	margin: 0 10px 0 -5px;
 }
-.profiletext {
-	display: block;
-	width: 300px;
-	height: 50px;
-	font-size: 14px;
-	box-sizing: border-box;
+.office-profile-text {
+	
+	display: flex;
 }
-.profiletext > strong {
-	margin-left: 10px;
-	color: #74b844;
+.office-profile-text > strong {
+	margin-left: 5px;
 	font-weight: 200;
-}
-.profiletext > p {
-	margin-right: -10px
-}
-.profileimg {
-	width: 50px;
-	height: 50px;
-	margin: 10px 20px 10px 20px;
+	font-size: 14px;
+	border-radius: 50%;
 	box-sizing: border-box;
+}
+.office-profile-text > p {
+	font-weight: 200;
+	color: #999;
 }
 #divider {
-	height: 1px;
-	padding: 0;
-	margin: 20px 0 20px 0 ;
-	background-color: #bbbbbb;
+	border: 1px solid #737473;
+	opacity: 0.2;
+	margin: 20px;
 }
-
 
 #logo {
 	width: 150px;
@@ -485,11 +510,11 @@ header {
 	z-index: 10000;
 }
 #profile {
-	margin-top: 40%;
+	margin-top: 20%;
 	margin-left: 1em;	
 }
 #profile + .clearfix {
-	margin-bottom: 40%;
+	margin-bottom: 20%;
 }
 #profile img {
 	float: left;
@@ -498,7 +523,7 @@ header {
 #profile div {	
 	float: left;
 	margin-left: 5px;
-	margin-top: 1.7em;
+	margin-top: 1em;
 }
 #profile div .green {
 	font-size: 1.3em;
@@ -514,7 +539,7 @@ header {
 }
 
 #user_menubar ul {
-	margin-top: 3em;
+	margin-top: 4em;
 }
 
 #content_wrapper nav ul > li {
@@ -522,7 +547,11 @@ header {
 	display: block;
 }
 #user_menubar ul > li > a {
-	padding-bottom: 0;
+	padding: 15px;
+}
+#user_menubar ul > li > a:hover {
+	transition: 0.7s;
+	background-color: #e0e0e0;
 }
 #tree {	
 	position: absolute;
@@ -531,11 +560,7 @@ header {
 	bottom: 0;
 	z-index: 0;
 }
-#sun {
-	position: absolute;
-	top: 80px;
-	right: 50px;
-}
+
 #waterspread {
 	position: absolute;
 	bottom: 380px;
@@ -639,4 +664,132 @@ header {
 .modal {
 	left: calc(50% - 600px);
 	top: 10%;
+}
+
+/* sun */
+#sun {
+	position: absolute;
+	top: 20%;
+	right: 10%;
+	transform: translate(-50%, -50%);
+	animation: roll 6s infinite linear;
+}
+.center {
+	background: orange;
+	width: 100px;
+	height: 100px;
+	border-radius: 50%;
+	z-index: 1;
+	box-shadow: 0px 0px 30px 30px rgba(255,255,204, 0.8),
+				0px 0px 30px 60px rgba(255,230,200, 0.8),
+				0px 0px 30px 90px rgba(255,230,220, 0.4);
+}
+.triangle {
+	width: 0; 
+	height: 0; 
+	border-left: 10px solid transparent;
+	border-right: 10px solid transparent;
+	border-bottom: 60px solid orange;
+	position: absolute;
+	z-index: 2;
+}
+.top {
+	left: 40px;
+	top: -70px;
+}
+.bottom {
+	left: 40px;
+	top: 110px;
+	transform: rotate(180deg);
+}
+.set-two{
+	transform: rotate(45deg);
+	position: relative;
+	left: 30px;
+	top: 10px;
+}
+.set-three{
+	transform: rotate(90deg);
+	position: relative;
+	left: 50px;
+	top: 45px;
+}
+.set-four{
+	transform: rotate(135deg);
+	position: relative;
+	left: 40px;
+	top: 80px;
+}
+@keyframes roll {
+  0% { transform: rotate(0); }
+  100% { transform: rotate(360deg); }
+}
+
+/* tooltop */
+.tooltip-inner {
+	background-color: #74b844;
+}
+.tooltip.top .tooltip-arrow {
+	border-top-color: #74b844;
+}
+
+.navbar h4 {
+	margin-left: 1em;
+	margin-top: 2em;
+	font-weight: 500;
+}
+/* setting modal */
+#setting {
+	z-index: 50000;
+}
+#setting h4 {
+	font-size: 18px;
+	font-weight: bold;
+}
+.modal-setting-style {
+	background-color: #74b844;
+	color: white;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+}
+.modal-body > .form-group > * {
+	margin-top: 5px;
+	font-weight: 200;
+	font-size: 16px;
+}
+.modal-body label {
+	color: #74b844;
+}
+.modal-body > .form-group > input, .modal-body > .form-group > textarea {
+	margin-bottom: 20px;
+}
+.setting-admin {
+	display: flex;
+	width: 100%;
+	margin-bottom: 20px;
+}
+.setting-admin > * {
+	box-sizing: border-box;
+}
+.setting-admin > input {
+	width: 80%;
+	margin-right: 10%;
+}
+.setting-admin > input:hover,
+.setting-admin > input:focus {
+	border: 1px solid #a8e519;
+}
+.setting-admin > button {
+	width: 15%;
+	background-color: inherit;
+	border: 2px solid #74b844;
+	border-radius: 4px;
+}
+.modal-footer {
+	padding: 0;
+}
+.modal-footer > button {
+	padding: 1em;
+	width: 100%;
+	height: 100%
 }

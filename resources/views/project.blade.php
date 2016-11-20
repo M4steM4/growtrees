@@ -30,7 +30,7 @@
 		<div>
 			<nav class="navbar">
 				<div>
-					<span class="green">{{ $project->name }}</span>
+					<h4 class="green">{{ $project->name }}</h4>
 				</div>
 				<div id="profile">
 					<img src="{{ file_exists(public_path('storage/profile_imgs/'.$user->id)) ? asset('storage/profile_imgs/'.$user->id) : asset('storage/profile_imgs/default') }}" alt="profile_image" width="60" height="60">
@@ -43,17 +43,17 @@
 
 				<div id="menubar">
 					<ul class="nav navbar-nav">
-						<li><a href="javascript:void(0);" onclick="showflex('calender');">캘린더</a></li>
-						<li><a href="javascript:void(0)" onclick="rollon();">역할분담표</a></li>
-						<li><a href="javascript:void(0)" onclick="todoliston();">To do list</a></li>
-						<li><a href="javascript:void(0);" onclick="show('office');">연락처</a></li>
+						<li><a href="javascript:void(0);" onclick="hideSideMenu(); showflex('calender');">캘린더</a></li>
+						<li><a href="javascript:void(0)" onclick="hideSideMenu(); rollon();">역할분담표</a></li>
+						<li><a href="javascript:void(0)" onclick="hideSideMenu(); todoliston();">To do list</a></li>
+						<li><a href="javascript:void(0);" onclick="hideSideMenu(); show('office');">연락처</a></li>
 					</ul>
 				</div>
 
 				<div id="user_menubar">
 					<ul class="nav navbar-nav">
 						<li><a href="#" class="green" data-toggle="modal" data-target="#help">도움말</a></li>
-						<li><a href="#" class="green">설정</a></li>
+						<li><a href="#" class="green" data-toggle="modal" data-target="#setting">설정</a></li>
 						<li><a href="{{ route('session.destroy') }}" class="green">로그아웃</a></li>
 					</ul>
 				</div>
@@ -61,7 +61,7 @@
 		</div>
 
 		<!-- calender -->
-		<div id="calender">
+		<div id="calender" class="sidemenu">
 			<div id="scadule">
 				<div class="daytitle">03</div>
 				<div class="daysub">목요일</div>
@@ -103,7 +103,7 @@
 			</div>
 		</div>
 		<!--roll divide -->
-		<div id="roll">
+		<div id="roll" class="sidemenu">
 			<div id="divisiontable">
 				<div class="divisiontitle">역할 분담표</div>
 				<div class="divisionuser">
@@ -142,7 +142,7 @@
 			</div>
 		</div>
 		<!-- to do list -->
-		<div id="todolist">
+		<div id="todolist" class="sidemenu">
 			<div id="green" class="todolistsection">
 				<div class="todolisttitle todolistmargin">To do list</div>
 				<div class="todolisttitle greentitle">완료 목록</div>
@@ -194,39 +194,57 @@
 			</div>
 		</div>
 		<!-- office -->
-		<div id="office">
-			<div id="officeheader">연락처<a href="javascript:void(0);" id="x" onclick="closetel();">x</a></div>
-			<div class="officelist">내 연락처</div>
-			<div class="profile">
-				<img src="{{ file_exists(public_path('storage/profile_imgs/'.$user->id)) ? asset('storage/profile_imgs/'.$user->id) : asset('storage/profile_imgs/default') }}" alt="프로필사진" class="profileimg">
+		<div id="office" class="sidemenu">
+			<div id="office-header">
+				연락처
+				<a href="javascript:void(0);" id="x" onclick="closetel();">x</a>
 			</div>
-			<div class="profiletext">
-				<strong class="col-md-4">이메일</strong><p class="col-md-8">{{ $user->email }}</p>
-				<strong class="col-md-4">휴대전화</strong><p class="col-md-8">{{ $user->phone }}</p>
+			<div id="office-body">
+				<div class="office-list">내 연락처</div>
+				<div class="offile-profile">
+					<div class="office-profile-info">
+						<img src="{{ file_exists(public_path('storage/profile_imgs/'.$user->id)) ? asset('storage/profile_imgs/'.$user->id) : asset('storage/profile_imgs/default') }}" alt="프로필사진" class="profileimg">
+					</div>
+					<div class="office-profile-text">
+						<strong class="col-md-4 green">이메일</strong>
+						<p class="col-md-8">{{ $user->email }}</p>
+					</div>
+					<div class="office-profile-text">
+						<strong class="col-md-4 green">휴대전화</strong>
+						<p class="col-md-8">{{ $user->phone }}</p>
+					</div>
+				</div>
+				<div id="divider"></div>
+
+				@for ($i=0, $cnt=0; $i<count($members); $i++)
+				{{--
+					@if ($members[$i]->id == $user->id)
+						@continue;
+					@endif
+				--}}
+					<?php $cnt++; ?>
+	
+					@if ($cnt == 1)
+						<div class="office-list">그룹원 연락처</div>
+					@endif
+					
+					<div class="office-profile">
+						<div class="office-profile-info">
+							<img src="{{ file_exists(public_path('storage/profile_imgs/'.$members[$i]->id)) ? asset('storage/profile_imgs/'.$members[$i]->id) : asset('storage/profile_imgs/default') }}" alt="프로필사진" class="profileimg">
+							<p><strong>{{ $members[$i]->name }}</strong>
+							{{ $members[$i]->nickname }}</p>
+						</div>
+						<div class="office-profile-text">
+							<strong class="col-md-4 green">이메일</strong>
+							<p class="col-md-8">{{ $members[$i]->email }}</p>
+						</div>
+						<div class="office-profile-text">
+							<strong class="col-md-4 green">휴대전화</strong>
+							<p class="col-md-8">{{ $members[$i]->phone }}</p>
+						</div>	
+					</div>
+				@endfor
 			</div>
-			<div id="divider"></div>
-
-			@for ($i=0, $cnt=0; $i<count($members); $i++)
-				@if ($members[$i]->id == $user->id)
-					@continue;
-				@endif
-
-				<?php $cnt++; ?>
-
-				<div class="officelist">
-				@if ($cnt == 1)
-					그룹원 연락처
-				@endif
-				</div>
-				<div class="profile">
-					<img src="{{ file_exists(public_path('storage/profile_imgs/'.$members[$i]->id)) ? asset('storage/profile_imgs/'.$members[$i]->id) : asset('storage/profile_imgs/default') }}" alt="프로필사진" class="profileimg">
-					<p><strong>{{ $members[$i]->name }}</strong>{{ $members[$i]->nickname }}</p>
-				</div>
-				<div class="profiletext">
-					<strong class="col-md-4">이메일</strong><p class="col-md-8">{{ $members[$i]->email }}</p>
-					<strong class="col-md-4">휴대전화</strong><p class="col-md-8">{{ $members[$i]->phone }}</p>
-				</div>
-			@endfor
 <!--
 			<div class="officelist">그룹원 연락처</div>
 			<div class="profile">
@@ -262,13 +280,31 @@
 			<img src="{{ asset('images/tree.png') }}" alt="나무" width="500" height="500">
 		</div>
 
-		<div id="sun">
-			<img src="{{ asset('images/sun.png') }}" alt="D-Day" width="100" height="100">
-		</div>
+		<a href="javascript:void(0);" data-toggle="tooltip" title="Click Me!" id="sun">
+			<div id="rays">
+				<div class="set-one">
+					<div class="triangle top"></div>
+					<div class="triangle bottom"></div>
+				</div>
+				<div class="set-two">
+					<div class="triangle top"></div>
+					<div class="triangle bottom"></div>
+				</div>
+				<div class="set-three">
+					<div class="triangle top"></div>
+					<div class="triangle bottom"></div>
+				</div>
+				<div class="set-four">
+					<div class="triangle top"></div>
+					<div class="triangle bottom"></div>
+				</div>
+			</div>
+			<div class="center"></div>
+		</a>
 
 		<a href="javascript:void(0);">
 			<div id="waterspread">
-				<img src="{{ asset('images/waterspread.png') }}" width="100" height="60" onclick="chattingdown();">
+				<img src="{{ asset('images/waterspread.png') }}" data-toggle="tooltip" title="Click Me!" width="100" height="60" onclick="chattingdown();">
 			</div>
 		</a>
 
@@ -328,4 +364,39 @@
 			</div>
 		</div>
 	</div>
+	<div id="setting" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header modal-setting-style">
+						<div class="col-sm-offset-1">
+							<button type="button" class="close" data-dismiss="modal">&times;</button>
+							<h4 class="modal-title">설정</h4>
+						</div>
+					</div>
+					<div class="modal-body row">
+						<div class="form-group col-sm-offset-1 col-sm-10">
+							<label for="usr">프로젝트 이름</label>
+							<input type="text" class="form-control" id="usr">
+							<label for="pwd">마감 날짜</label>
+							<input type="date" class="form-control" id="pwd">
+							<label for="comment">프로젝트 소개</label>
+							<textarea class="form-control" rows="4" id="comment"></textarea>
+							<label for="usr">관리자 변경</label>
+							<div class="setting-admin">
+								<input type="text" class="form-control" id="usr">
+								<button>변경</button>
+							</div>
+							<label for="usr">프로젝트 삭제</label>
+							<div class="setting-admin">
+								<input type="text" class="form-control" id="usr">
+								<button>삭제</button>
+							</div>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default">저장</button>
+					</div>
+				</div>
+			</div>
+		</div>
 @stop

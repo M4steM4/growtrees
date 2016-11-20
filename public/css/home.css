@@ -161,6 +161,10 @@ input[type="text"]::-webkit-input-placeholder {
 .modal .row {
 	text-align: left !important;
 }
+.modal-header {
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+}
 .modal-content, .modal-body input, .modal-body textarea {
 	background-color: #eceeef;
 }
@@ -402,4 +406,12 @@ input[type="file"] {
 #help .modal {
 	left: calc(50% - 600px);
 	top: 10%;
+}
+
+.project_wrapper > div > button {
+        width: auto;
+        background-color: inherit;
+        border: 2px solid #74b844;
+        border-radius: 4px;
+	margin-left: 10px;
 }

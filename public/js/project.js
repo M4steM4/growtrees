@@ -26,12 +26,14 @@ function todolistout() {
 function chattingdown() {
 	$('#chat').css("display", "none");
 	$('#waterspread').css("bottom", "0");
-	document.getElementById('waterspread').innerHTML = '<img src="/images/waterspread.png" width="100" height="60"  onclick="chattingup();">';
+	document.getElementById('waterspread').innerHTML = '<img src="/images/waterspread.png" data-toggle="tooltip" title="Click Me!" width="100" height="60"  onclick="chattingup();">';
+	$('[data-toggle="tooltip"]').tooltip();
 }
 function chattingup() {
 	$('#chat').css("display", "block");
 	$('#waterspread').css("bottom", "380px");
-	document.getElementById('waterspread').innerHTML = '<img src="/images/waterspread.png" width="100" height="60"  onclick="chattingdown();">';
+	document.getElementById('waterspread').innerHTML = '<img src="/images/waterspread.png" width="100" height="60" data-toggle="tooltip" title="Click Me!" onclick="chattingdown();">';
+	$('[data-toggle="tooltip"]').tooltip();
 }
 
 /* JunYoung */
@@ -95,6 +97,11 @@ function getNewList () {
 	});
 }
 
+function hideSideMenu() {
+	$('.sidemenu').hide();
+}
+
 $(document).ready(function () {
 	setInterval(getNewList, 300);
+	$('[data-toggle="tooltip"]').tooltip();
 });

@@ -5,6 +5,15 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 	<meta http-equiv="Cache-control" content="no-cache">
+
+	<!-- kakao link preview -->
+	<meta property="og:url" content="http://growtrees.nefus.kr/">
+	<meta property="og:title" content="자라나라나무나무">  
+	<meta property="og:type" content="website">
+	<meta property="og:image" content="./images/pot.png">
+	<meta property="og:description" content="프로젝트와 함께 자라나는 나무">
+	<meta name="description" content="프로젝트와 함께 자라나는 나무">
+
 	@hasSection('meta')
 		@yield('meta')
 	@endif
