@@ -39,17 +39,16 @@
 				<!-- setting -->
 				<div id="user-menubar">
 					<ul class="nav navbar-nav text-green">
-						<li><a href="#" data-toggle="modal" data-target="#myModal">도움말</a></li>
-						<li><a href="#">설정</a></li>
+						<li><a href="#" data-toggle="modal" data-target="#help">도움말</a></li>
+						<li><a href="#"  data-toggle="modal" data-target="#setting">설정</a></li>
 						<li><a href="#">로그아웃</a></li>
 					</ul>
 				</div>
 			</nav>
 		</div>
-		<!-- setting modal -->
-		<div class="modal fade" id="myModal" role="dialog">
+		<!-- help modal -->
+		<div class="modal fade" id="help" role="dialog">
 			<div class="modal-dialog">
-				<!-- Modal content-->
 				<div class="modal-content">
 					<div class="modal-header modal-header-style">
 						<button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -85,6 +84,41 @@
 						<div class="modal-divider"></div>
 					</div>
 				</div>
+			</div>
+		</div>
+		<!-- setting modal -->
+		<div id="setting" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header modal-setting-style">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">설정</h4>
+					</div>
+					<div class="modal-body modal-setting-padding">
+						<div class="form-group">
+							<label for="usr">프로젝트 이름</label>
+							<input type="text" class="form-control" id="usr">
+							<label for="pwd">마감 날짜</label>
+							<input type="date" class="form-control" id="pwd">
+							<label for="comment">프로젝트 소개</label>
+							<textarea class="form-control" rows="4" id="comment"></textarea>
+							<label for="usr">관리자 변경</label>
+							<div class="setting-admin">
+								<input type="text" class="form-control" id="usr">
+								<button>변경</button>
+							</div>
+							<label for="usr">프로젝트 삭제</label>
+							<div class="setting-admin">
+								<input type="text" class="form-control" id="usr">
+								<button>삭제</button>
+							</div>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">저장</button>
+					</div>
+				</div>
+
 			</div>
 		</div>
 		<!-- calender -->
@@ -329,12 +363,11 @@
 				</div>
 			</div>
 		</div>
-		
-
-
+		<!-- main tree --> 
 		<div id="tree">
 			<img src="assets/img/tree.png" alt="나무" >
 		</div>
+		<!-- sun -->
 		<a href="javascript:void(0);" data-toggle="tooltip" title="Click Me!" id="sun">
 			<div id="rays">
 				<div class="set-one">
@@ -356,12 +389,14 @@
 			</div>
 			<div class="center"></div>
 		</a>
-
+		<a><div id="sunday" data-toggle="tooltip" title="Click Me!" class="center"><br />123</div></a>
+		<!-- waterspread -->
 		<a href="javascript:void(0);">
 			<div id="waterspread">
 				<img src="assets/img/waterspread.png" data-toggle="tooltip" title="Click Me!" onclick="chattingdown();">
 			</div>
 		</a>
+		<!-- chatting -->
 		<div id="chat">
 			<div id="chattitle">
 				채팅창

@@ -1,3 +1,4 @@
+/* reset */
 html, body {
 	color: #737473;
 	height: 100%;
@@ -15,6 +16,7 @@ a:hover {
 li {
 	list-style: none;
 }
+/* help modal */
 .modal-header-style,
 .modal-body-style {
 	background-color: #74b844;
@@ -61,6 +63,55 @@ li {
 	left: calc(50% - 600px);
 	top: 10%;
 }
+/* setting modal */
+.modal-setting-style {
+	background-color: #a8e519;
+	color: white;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	padding-left: 30px;
+}
+.modal-setting-padding {
+	padding: 5% 10%;
+}
+.modal-body > .form-group > * {
+	color: #a8e519;
+	margin-top: 5px;
+	font-weight: 200;
+	font-size: 16px;
+}
+.modal-body > .form-group > input {
+	margin-bottom: 10px;
+}
+.setting-admin {
+	display: flex;
+	width: 100%;
+}
+.setting-admin > * {
+	box-sizing: border-box;
+}
+.setting-admin > input {
+	width: 80%;
+	margin-right: 10%;
+}
+.setting-admin > input:hover,
+.setting-admin > input:focus {
+	border: 1px solid #a8e519;
+}
+.setting-admin > button {
+	width: 10%;
+	background-color: inherit;
+	border: 2px solid #a8e519;
+	border-radius: 4px;
+}
+.modal-footer {
+	padding: 0;
+}
+.modal-footer > button {
+	width: 100%;
+	height: 100%
+}
+/* basic class */
 .green {
 	color: #74b844;
 }
@@ -280,6 +331,7 @@ header {
 .chatting-mini > div > strong {
 	margin-left: 3%;
 }
+/* main calender */
 .monthlist {
 	color: #bbbbbb;
 	width: 100%;
@@ -526,6 +578,7 @@ header {
 	margin: 20px 0 20px 0 ;
 	background-color: #bbbbbb;
 }
+/* background element class */
 #tree {	
 	position: absolute;
 	width: 100%;
@@ -552,6 +605,7 @@ header {
 .tooltip.top .tooltip-arrow {
 	border-top-color: #74b844;
 }
+/* sun */
 #sun {
 	position: absolute;
 	top: 20%;
@@ -559,8 +613,19 @@ header {
 	transform: translate(-50%, -50%);
 	animation: roll 6s infinite linear;
 }
-.center {
+#sunday {
+	position: absolute;
+	top: 20%;
+	left: 80%;
+	box-shadow: none;
 	background: orange;
+	text-align: center;
+	color: white;
+	font-size: 30px;
+	line-height: 1.1;
+}
+.center {
+	background: transparent;
 	width: 100px;
 	height: 100px;
 	border-radius: 50%;
@@ -605,7 +670,7 @@ header {
 	left: 40px;
 	top: 80px;
 }
-
+/* chatting */
 #chat {
 	position: absolute;
 	bottom: 0;
@@ -652,6 +717,7 @@ header {
 	width: 40px;
 	height: 35px;
 }
+/* animation */
 @keyframes roll {
   0% { transform: rotate(0); }
   100% { transform: rotate(360deg); }
