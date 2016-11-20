@@ -1,3 +1,21 @@
+function uncheckedHover(element) {
+    element.setAttribute('src', '/images/check_c.png');
+}
+function uncheckedUnhover(element) {
+    element.setAttribute('src', '/images/check_u.png');
+}
+function xHover(element) {
+    element.setAttribute('src', '/images/x_l.png');
+}
+function xUnhover(element) {
+    element.setAttribute('src', '/images/x_f.png');
+}
+function checkedHover(element) {
+    element.setAttribute('src', '/images/v_l.png');
+}
+function checkedUnhover(element) {
+    element.setAttribute('src', '/images/v_f.png');
+}
 /* youben code */
 function show(x) {
 	$('#' + x).css("display", "block");
@@ -55,11 +73,28 @@ function escapeHtml(string) {
 	});
 }
 
+function autoLink(id) {
+        var regURL = new RegExp('(^|[^"])(http|https|ftp|telnet|news|irc)://([-/.a-zA-Z0-9_~#%$?&=:200-377()]+)', 'gi');
+        var regURL2 = /(^|[^\/])(www\.[\S]+(\b|$))/gim;
+
+        $(id).html(
+                $(id).html().replace(regURL, ' <a class="autoLink" href="://" target="_blank">$2://$3</a>')
+                        .replace(regURL2, ' <a class="autoLink" href="http://" target="_blank">$2</a>')
+        );
+
+	
+	return id;
+}
+
 function getNew (response) {
 	for(var i=msgCnt; i<response.length; i++) {
-		$('#message_wrapper').append('<div><div class="name green">' 
-				+ escapeHtml(response[i].name) + '</div> <div class="message">' 
-				+ escapeHtml(response[i].message) + '</div></div>');
+		var msg = '<div>' +
+				'<div class="name green">' + escapeHtml(response[i].name) + '</div>' + 
+				'<div class="message">' + escapeHtml(response[i].message) + '</div>' +
+			  '</div>';
+
+		$('#message_wrapper').append(msg);
+		autoLink($('#message_wrapper > div:last-child .message'));
 	}
 
 	if(msgCnt < response.length) {
@@ -72,7 +107,6 @@ function getNew (response) {
 }
 
 function noNew (response) {
-	console.log(response);
 }
 
 function getNewList () {
@@ -104,4 +138,23 @@ function hideSideMenu() {
 $(document).ready(function () {
 	setInterval(getNewList, 300);
 	$('[data-toggle="tooltip"]').tooltip();
+	
+	$(document).on('mouseenter', '#todolist .green-box img, .normal-15 img:first-child', function () {
+		checkedHover(this);
+	});
+	$(document).on('mouseleave', '#todolist .green-box img, .normal-15 img:first-child', function () {
+		checkedUnhover(this);	
+	});
+	$(document).on('mouseenter', '#todolist .white-box img', function () {
+		uncheckedHover(this);
+	});
+	$(document).on('mouseleave', '#todolist .white-box img', function () {
+		uncheckedUnhover(this);
+	});
+	$(document).on('mouseenter', '.normal-15 img:last-child', function () {
+                xHover(this);
+        });
+        $(document).on('mouseleave', '.normal-15 img:last-child', function () {
+                xUnhover(this);
+        });
 });

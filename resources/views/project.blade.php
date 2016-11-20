@@ -61,47 +61,59 @@
 		</div>
 
 		<!-- calender -->
-		<div id="calender" class="sidemenu">
-			<div id="scadule">
-				<div class="daytitle">03</div>
-				<div class="daysub">목요일</div>
-				<div class="deadlinetime">마감 24시간 전</div>
-				<div class="daycheck">쳌 쳌</div>
-				<div id="minichattingform">
-					<div class="minichat">
-						<img src="assets/img/sun.png" alt="">
+		<div id="calender" class="side-window sidemenu">
+			<div id="calender-side" class="green-box">
+				<div id="calender-day" class="bold-50">03</div>
+				<div class="thin-15 ">목요일</div>
+				<div id="calender-deadline" class="normal-30">마감 24시간 전</div>
+				<div class="normal-15">
+					<img src="{{ asset('images/v_l.png') }}" alt="">
+					<img src="{{ asset('images/x_l.png') }}" alt="">
+				</div>
+				<div id="chat-mini">
+					<div class="chatting-mini">
+						<img src="{{ asset('storage/profile_imgs/default') }}" alt="">
 						<div><strong>user01</strong>text text text text</div>
 					</div>
-					<div class="minichat">
-						<img src="assets/img/sun.png" alt="">
+					<div class="chatting-mini">
+						<img src="{{ asset('storage/profile_imgs/default') }}" alt="">
 						<div><strong>user01</strong>text text text text</div>
 					</div>
-					<div class="minichat">
-						<img src="assets/img/sun.png" alt="">
+					<div class="chatting-mini">
+						<img src="{{ asset('storage/profile_imgs/default') }}" alt="">
 						<div><strong>user01</strong>text text text text</div>
 					</div>
-					<div class="minichat">
-						<img src="assets/img/sun.png" alt="">
+					<div class="chatting-mini">
+						<img src="{{ asset('storage/profile_imgs/default') }}" alt="">
+						<div><strong>user01</strong>text text text text</div>
+					</div>
+					<div class="chatting-mini">
+						<img src="{{ asset('storage/profile_imgs/default') }}" alt="">
+						<div><strong>user01</strong>text text text text</div>
+					</div>
+					<div class="chatting-mini">
+						<img src="{{ asset('storage/profile_imgs/default') }}" alt="">
 						<div><strong>user01</strong>text text text text</div>
 					</div>
 				</div>
-				<div class="miniform">
-					<input type="text" class="miniinput" placeholder="댓글 입력" />
+				<div class="white-input">
+					<input type="text" placeholder="댓글 입력" />
 					<button>작성</button>
 				</div>
 			</div>
-			<div class="calendermonth">
+			<div id="calender-month" class="white-box">
+				<a href="javascript:void(0);" class="x-button" onclick="closeflex();">x</a>
 				<div class="monthlist">
 					<div class="month">10월</div>
 					<div class="month month-active">11월</div>
 					<div class="month">12월</div>
-					<a href="javascript:void(0);" id="y" onclick="closeflex();">x</a>
 				</div>
 				<div class="day">
 					
 				</div>
 			</div>
 		</div>
+
 		<!--roll divide -->
 		<div id="roll" class="sidemenu">
 			<div id="divisiontable">
@@ -141,58 +153,72 @@
 				@endforeach
 			</div>
 		</div>
+
 		<!-- to do list -->
-		<div id="todolist" class="sidemenu">
-			<div id="green" class="todolistsection">
-				<div class="todolisttitle todolistmargin">To do list</div>
-				<div class="todolisttitle greentitle">완료 목록</div>
-				<div class="todolistcheck">
-					<div class="todolistdata">
-						<img src="assets/img/check.png" alt="">
+		<div id="todolist" class="side-window sidemenu">
+			<div class="todolist-section green-box">
+				<div class="todolist-title x-margin">To do list</div>
+				<div class="todolist-subtitle">완료 목록</div>
+				<div class="todolist-checklist">
+					<div class="todolist-data">
+						<img src="{{ asset('images/v_f.png') }}" alt="">
 						<p><strong>메인페이지 구현 및 기능</strong><br />2016 11 03</p>
 					</div>
-					<div class="todolistdata">
-						<img src="assets/img/check.png" alt="">
+					<div class="todolist-data">
+						<img src="{{ asset('images/v_f.png') }}" alt="">
 						<p><strong>test</strong><br />text text text</p>
 					</div>
-					<div class="todolistdata">
-						<img src="assets/img/check.png" alt="">
+					<div class="todolist-data">
+						<img src="{{ asset('images/v_f.png') }}" alt="">
 						<p><strong>test</strong><br />text text text</p>
 					</div>
-					<div class="todolistdata">
-						<img src="assets/img/check.png" alt="">
+					<div class="todolist-data">
+						<img src="{{ asset('images/v_f.png') }}" alt="">
 						<p><strong>test</strong><br />text text text</p>
 					</div>
 				</div>
 			</div>
-			<div id="white" class="todolistsection">
-				<a href="javascript:void(0);" id="i" onclick="todolistout();">x</a>
-				<div class="todolisttitle">To do list</div>
-				<div class="todolisttitle whitetitle">완료 목록</div>
-				<div class="todolistcheck">
-					<div class="todolistdata">
-						<img src="" alt="">
-						<p><strong>test</strong><br />text text text text text text text</p>
+			<div class="todolist-section white-box">
+				<a href="javascript:void(0);" class="x-button" onclick="todolistout();">x</a>
+				<div class="todolist-title">To do list</div>
+				<div class="todolist-subtitle">완료 목록</div>
+				<div class="todolist-checklist">
+					<div class="todolist-data">
+						<img src="{{ asset('images/check_u.png') }}" alt="" onclick="">
+						<p><strong>메인페이지 구현 및 기능</strong><br />2016 11 03</p>
 					</div>
-					<div class="todolistdata">
-						<img src="" alt="">
-						<p><strong>test</strong><br />text text text text text text text</p>
+					<div class="todolist-data">
+						<img src="{{ asset('images/check_u.png') }}" alt="">
+						<p><strong>test</strong><br />text text text</p>
 					</div>
-					<div class="todolistdata">
-						<img src="" alt="">
-						<p><strong>test</strong><br />text text text text text text text</p>
+					<div class="todolist-data">
+						<img src="{{ asset('images/check_u.png') }}" alt="">
+						<p><strong>test</strong><br />text text text</p>
 					</div>
-					<div class="todolistdata">
-						<img src="" alt="">
+					<div class="todolist-data">
+						<img src="{{ asset('images/check_u.png') }}" alt="">
+						<p><strong>test</strong><br />text text text</p>
+					</div>
+					<div class="todolist-data">
+						<img src="{{ asset('images/check_u.png') }}" alt="">
+						<p><strong>test</strong><br />text text text</p>
+					</div>
+					<div class="todolist-data">
+						<img src="{{ asset('images/check_u.png') }}" alt="">
+						<p><strong>test</strong><br />text text text</p>
+					</div>
+					<div class="todolist-data">
+						<img src="{{ asset('images/check_u.png') }}" alt="">
 						<p><strong>test</strong><br />text text text</p>
 					</div>
 				</div>
-				<div class="todolistinput">
-					<input type="text" class="" placeholder="댓글 입력" />
-					<button>작성</button>
+				<div id="todolist-input" class="white-input">
+					<input type="text" placeholder="추가할 사항을 입력해 주세요" />
+					<button>등록</button>
 				</div>
 			</div>
-		</div>
+		</div>		
+
 		<!-- office -->
 		<div id="office" class="sidemenu">
 			<div id="office-header">
