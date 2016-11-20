@@ -46,6 +46,7 @@
 				</li>
 				<ul class="dropdown-menu dropdown-menu-right">
 					<li><a href="#" data-toggle="modal" data-target="#show_requests">요청 확인</a></li>
+					<li><a href="#" data-toggle="modal" data-target="#help">도움말</a></li>
 					<li><a href="{{ route('session.destroy') }}">로그아웃</a></li>
 				<!--
 					<li><a href="#">ㅁㄴㅁㄴㅇㅁㄴ</a></li>
@@ -332,4 +333,73 @@
 			</div>
 		</div>
         </div>
+	</div>
+	</div>
+
+	<div class="modal fade" id="help" role="dialog">
+		<div class="modal-dialog">
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header modal-header-style">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">도움말</h4>
+				</div>
+				<div class="modal-body modal-body-style">
+					<h4>자라나라 나무나무는 프로젝트 관리 사이트입니다.</h4>
+					<img src="{{ asset('images/help_img.png') }}" alt="사이트 설명" class="modal-image">
+					
+					<div class="modal-divider"></div>
+					
+					<h3>프로젝트 메뉴</h3>
+					<h4>프로젝트 메뉴는 자신의 프로필 및 프로젝트 관리를 할 수 있는<br />4가지 기능을 가진 메뉴바 입니다.</h4>
+					<div class="modal-divider"></div>
+					
+					<h3>자라나는 나무</h3>
+					<h4>프로젝트가 진행상황에 따라 6가지 단계로 나무가 자라나<br />프로젝트의 진행상황을 한눈에 볼 수 있습니다.</h4>
+			
+					<div class="modal-divider"></div>
+		
+					<h3>현재 페이지 설명</h3>
+	
+					<div class="modal-divider"></div>
+
+					<h3>프로필 정보</h3>
+					<img src="{{ asset('images/help_profile_info.PNG') }}" alt="프로필 정보" class="modal-image-sm">
+					<h4>회원가입할 때에 업로드한 정보를 확인할 수 있습니다.</h4>
+
+					<div class="modal-divider"></div>
+	
+					<h3>프로필 수정</h3>
+					<img src="{{ asset('images/help_profile_update.PNG') }}" alt="프로필 수정" class="modal-image-sm">
+					<h4>닉네임, 이메일, 휴대전화 번호를 수정할 수 있습니다.<br> 비밀번호를 입력해야만 프로필 수정이 가능합니다.</h4>
+
+					<div class="modal-divider"></div>
+
+					<h3>프로젝트 생성</h3>
+					<img src="{{ asset('images/help_create_project.PNG') }}" alt="프로젝트 생성" class="modal-image-sm">
+					<h4>위의 영역을 클릭하면 새로운 프로젝트를 생성할 수 있습니다.</h4>
+
+					<div class="modal-divider"></div>
+
+					<h3>요청 확인</h3>
+					<img src="{{ asset('images/help_confirm_req.PNG') }}" alt="요청 확인" class="modal-image-sm">
+					<h4>다른 사용자들의 가입 요청을 확인할 수 있습니다. 프로젝트에 기여<br>할 수 있는 새로운 사용자를 추가하거나 요청을 거절할 수 있습니다.</h4>
+
+					<div class="modal-divider"></div>
+
+					<h3>프로젝트 검색</h3>
+					<img src="{{ asset('images/help_search.PNG') }}" alt="프로젝트 검색" class="modal-image-sm">
+					<h4>프로젝트 이름을 이용해서 다른 사람이 만든 프로젝트들을<br>확인할 수 있습니다. 리스트에서 하나를 선택하면 해당 프로젝트에대한<br>정보를 확인할 수 있습니다.</h4>
+
+					<div class="modal-divider"></div>
+				
+					<h3>가입 요청</h3>
+					<img src="{{ asset('images/help_req.PNG') }}" alt="가입 요청" class="modal-image-sm">	
+					<h4>프로젝트 검색창에서 리스트를 선택하면 나오는 화면입니다.<br>맨 밑의 버튼을 클릭하면 가입을 요청할 수 있습니다.</h4>
+					
+					<div class="modal-divider"></div>
+				</div>
+			</div>
+		</div>
+	</div>
 @stop

@@ -355,3 +355,51 @@ input[type="file"] {
 	clear: both;
 	margin-bottom: 15px;
 }
+
+/* #help */
+#help .modal-header-style,
+#help .modal-body-style {
+	background-color: #74b844;
+	color: white;
+	border-radius: 5px;
+	text-align: center;
+}
+#help .modal-header-style {
+	padding: 30px;
+}
+#help .modal-body-style {
+	margin-top: -7px;
+	padding: 50px;
+	color: rgba(255, 255, 255, 0.9);
+}
+#help .modal-body-style > * {
+	font-weight: 100;
+}
+#help .modal-body-style > h3 {
+	font-weight: 200;
+}
+#help .modal-body-style > h4 {
+	line-height: 1.5;
+	font-size: 15px;
+}
+#help .modal-title {
+	font-weight: 200;
+	font-size: 30px;
+}
+#help .modal-divider {
+	width: 90%;
+	height: 1px;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+	margin: 50px 0 50px 5%;
+}
+#help .modal-image {
+	width: 100%;
+}
+#help .modal-image-sm {
+	width: 70%;
+	border: 1px solid rgba(255, 255, 255, 0.7);
+}
+#help .modal {
+	left: calc(50% - 600px);
+	top: 10%;
+}

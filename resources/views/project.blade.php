@@ -52,7 +52,7 @@
 
 				<div id="user_menubar">
 					<ul class="nav navbar-nav">
-						<li><a href="#" class="green">도움말</a></li>
+						<li><a href="#" class="green" data-toggle="modal" data-target="#help">도움말</a></li>
 						<li><a href="#" class="green">설정</a></li>
 						<li><a href="{{ route('session.destroy') }}" class="green">로그아웃</a></li>
 					</ul>
@@ -285,6 +285,47 @@
 					 <span class="glyphicon glyphicon-send"></span>
 				</button> 
 			</form>
+		</div>
+	</div>
+
+	<div class="modal fade" id="help" role="dialog">
+		<div class="modal-dialog">
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header modal-header-style">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">도움말</h4>
+				</div>
+				<div class="modal-body modal-body-style">
+					<h4>자라나라 나무나무는 프로젝트 관리 사이트입니다.</h4>
+					<img src="{{ asset('images/help_img.png') }}" alt="메인 사진" class="modal-image">
+					<div class="modal-divider"></div>
+					<h3>프로젝트 메뉴</h3>
+					<h4>프로젝트 메뉴는 자신의 프로필 및 프로젝트 관리를 할 수 있는<br />4가지 기능을 가진 메뉴바 입니다.</h4>
+					<div class="modal-divider"></div>
+					<h3>자라나는 나무</h3>
+					<h4>프로젝트가 진행상황에 따라 6가지 단계로 나무가 자라나<br />프로젝트의 진행상황을 한눈에 볼 수 있습니다.</h4>
+					<div class="modal-divider"></div>
+					<h3>메인기능</h3>
+					<div class="modal-divider"></div>
+					<h3>캘린더</h3>
+					<img src="{{ asset('images/help_cal.png') }}" alt="캘린더" class="modal-image-sm">
+					<h4>캘린더 기능으로 현재 남은 기간과, 일정 마감시간 등<br />프로젝트 마감시간을 체크할 수 있습니다.</h4>
+					<div class="modal-divider"></div>
+					<h3>역할분담표</h3>
+					<img src="{{ asset('images/help_roll.png') }}" alt="역할분담표" class="modal-image-sm">
+					<h4>역할분담표 기능으로 자신의 분야와 일정을 수정하고<br />팀원들의 역할과 해야할 일을 볼 수 있습니다.</h4>
+					<div class="modal-divider"></div>
+					<h3>To Do List</h3>
+					<img src="{{ asset('images/help_todolist.png') }}" alt="투두리스트" class="modal-image-sm">
+					<h4>To do list 기능으로 지금까지 완료된 프로젝트 스케줄을<br />확인하고 완료해야될 목록을 추가합니다.</h4>
+					<div class="modal-divider"></div>
+					<h3>연락처</h3>
+					<img src="{{ asset('images/help_tel.png') }}" alt="연락처" class="modal-image-sm">
+					<h4>연락처로 팀원들의 이메일과 전화번호, 깃허브(파일관리페이지)<br />정보를 공유하여 보다 수월한 프로젝트 진행을 도웁니다.</h4>
+					<div class="modal-divider"></div>
+				</div>
+			</div>
 		</div>
 	</div>
 @stop
