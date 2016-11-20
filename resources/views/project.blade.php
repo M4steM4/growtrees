@@ -53,7 +53,7 @@
 				<div id="user_menubar">
 					<ul class="nav navbar-nav">
 						<li><a href="#" class="green" data-toggle="modal" data-target="#help">도움말</a></li>
-						<li><a href="#" class="green" data-toggle="modal" data-target="#setting">설정</a></li>
+						<li><a href="#" class="green" data-toggle="modal" data-target="#setting" onclick="authorize({{ $user->id == $project->author ? true:0 }})">설정</a></li>
 						<li><a href="{{ route('session.destroy') }}" class="green">로그아웃</a></li>
 					</ul>
 				</div>
@@ -364,39 +364,48 @@
 			</div>
 		</div>
 	</div>
+	@if ($user->id == $project->author)
 	<div id="setting" class="modal fade" role="dialog">
-			<div class="modal-dialog">
-				<div class="modal-content">
-					<div class="modal-header modal-setting-style">
-						<div class="col-sm-offset-1">
-							<button type="button" class="close" data-dismiss="modal">&times;</button>
-							<h4 class="modal-title">설정</h4>
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header modal-setting-style">
+					<div class="col-sm-offset-1">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">설정</h4>
+					</div>
+				</div>
+				<div class="modal-body row">
+					<div class="form-group col-sm-offset-1 col-sm-10">
+						<label for="project_name">프로젝트 이름 <span class="error"></span></label>
+						<input type="text" class="form-control" id="usr" name="project_name">
+
+						<label for="due_date">마감 날짜 <span class="error"></span></label>
+						<input type="date" class="form-control" id="pwd" name="due_date">
+
+						<label for="description">프로젝트 소개 <span class="error"></span></label>
+						<textarea class="form-control" rows="4" id="comment" name="description"></textarea>
+
+						<label for="nickname">관리자 변경 <span class="error"></span></label>
+						<div class="setting-admin">
+							<input type="text" class="form-control" id="nickname" name="nickname" placeholder="닉네임 입력">
+							<button onclick="alterAdmin();">변경</button>
 						</div>
-					</div>
-					<div class="modal-body row">
-						<div class="form-group col-sm-offset-1 col-sm-10">
-							<label for="usr">프로젝트 이름</label>
-							<input type="text" class="form-control" id="usr">
-							<label for="pwd">마감 날짜</label>
-							<input type="date" class="form-control" id="pwd">
-							<label for="comment">프로젝트 소개</label>
-							<textarea class="form-control" rows="4" id="comment"></textarea>
-							<label for="usr">관리자 변경</label>
-							<div class="setting-admin">
-								<input type="text" class="form-control" id="usr">
-								<button>변경</button>
-							</div>
-							<label for="usr">프로젝트 삭제</label>
-							<div class="setting-admin">
-								<input type="text" class="form-control" id="usr">
-								<button>삭제</button>
-							</div>
+
+						<label for="name">프로젝트 삭제 <span class="error"></span></label>
+						<div class="setting-admin">
+							<input type="text" class="form-control" id="name" name="name" placeholder="프로젝트명 입력">
+							<button onclick="deleteProject();">삭제</button>
 						</div>
+
+						<label for="password">비밀번호 <span class="error"></span></label>
+						<input type="password" class="form-control" name="password">
 					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-default">저장</button>
-					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" onclick="updateProjectInfo();" class="btn btn-default">저장</button>
 				</div>
 			</div>
 		</div>
+	</div>
+	@endif
 @stop

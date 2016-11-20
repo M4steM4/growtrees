@@ -312,9 +312,74 @@ class ProjectController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+	$user = Auth::user();
+
+	if(!Hash::check($request->input('password'), $user->password)) {
+		return response()->json([
+			'password' => '비밀번호가 틀렸습니다'
+		], 422);	
+	}
+
+	$project = Project::find(decrypt($request->input('key_p')));
+	$name = trim($request->input('project_name'));
+	$due_date = trim($request->input('due_date'));
+	$description = trim($request->input('description'));
+
+	if($name == '') { $request->merge(['project_name' => $project->name]); }
+	if($due_date == '') { $request->merge(['due_date' => substr($project->due_date, 0, 10)]); }
+	if($description == '') { $request->merge(['description' => $project->description]); }
+	
+	$this->validateStore($request, $user);
+
+	$project->name = $request->project_name;
+	$project->due_date = $request->due_date;
+	$project->description = $request->description;
+	$project->save();
+        
+	return 'success';
+    }
+
+    private function hasNickname($project, $nickname) 
+    {
+        $members = $project->members;
+        $members = explode('n', $members);
+        array_pop($members);
+
+        foreach($members as $member) {
+                if($nickname == User::find($member)->nickname) {
+                        return true;
+                }
+        }
+
+	return false;
+    }
+
+    public function alterAdmin(Request $request) 
+    {
+	$user = Auth::user();
+        if(!Hash::check($request->password, $user->password)) {
+                return response()->json([
+                        'password' => '비밀번호가 틀렸습니다'
+                ], 422);
+        }
+
+        $pid = decrypt($request->key_p);
+	$project = Project::find($pid);
+	$nickname = $request->nickname;
+
+	if(!$this->hasNickname($project, $nickname)) {
+		return response()->json([
+			'nickname' => '프로젝트의 멤버가 아닙니다'
+		], 422);	
+	}
+	
+	$newAdmin = User::where('nickname', $nickname)->first();
+	$project->author = $newAdmin->id;
+	$project->save();
+	
+	return 'success';
     }
 
     /**
@@ -323,8 +388,27 @@ class ProjectController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        //
+    	$user = Auth::user();
+        if(!Hash::check($request->password, $user->password)) {
+                return response()->json([
+                        'password' => '비밀번호가 틀렸습니다'
+                ], 422);
+        }
+
+	$pid = decrypt($request->key_p);
+	$project = Project::find($pid);
+	if(strcmp($project->name, $request->name)) {
+		return response()->json([
+			'name' => '일치하지 않습니다'
+		], 422);
+	}
+
+        Project::where([
+		['id', '=', $pid]
+	])->delete();
+	
+	return 'success';
     }
 }

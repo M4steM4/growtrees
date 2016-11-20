@@ -82,6 +82,15 @@ Route::group(['middleware' => ['auth']], function () {
 	Route::post('projects', [
 		'uses' => 'ProjectController@store'
 	]);
+	Route::post('update_project', [
+		'uses' => 'ProjectController@update'
+	]);
+	Route::post('alter_admin', [
+		'uses' => 'ProjectController@alterAdmin'
+	]);
+	Route::post('delete_project', [
+		'uses' => 'ProjectController@destroy'
+	]);
 
 	Route::post('chattings', [
 		'uses' => 'ChattingController@store'
