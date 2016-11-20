@@ -717,6 +717,12 @@ header {
 	width: 40px;
 	height: 35px;
 }
+.autoLink {
+	color: #74b844;
+}
+.autoLink:hover {
+	color: #a8e519;
+}
 /* animation */
 @keyframes roll {
   0% { transform: rotate(0); }
