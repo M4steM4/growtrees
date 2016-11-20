@@ -29,6 +29,9 @@
 	<div id="content_wrapper" class="row">
 		<div>
 			<nav class="navbar">
+				<div>
+					<span class="green">{{ $project->name }}</span>
+				</div>
 				<div id="profile">
 					<img src="{{ file_exists(public_path('storage/profile_imgs/'.$user->id)) ? asset('storage/profile_imgs/'.$user->id) : asset('storage/profile_imgs/default') }}" alt="profile_image" width="60" height="60">
 					<div>
@@ -104,61 +107,38 @@
 			<div id="divisiontable">
 				<div class="divisiontitle">역할 분담표</div>
 				<div class="divisionuser">
-					<img src="assets/img/sun.png" alt="" class="userimg">
-					<p><strong>USER</strong><br />text text text</p>
+					<img src="{{ file_exists(public_path('storage/profile_imgs/'.$user->id)) ? asset('storage/profile_imgs/'.$user->id) : asset('storage/profile_imgs/default') }}" alt="프로필사진" class="userimg">
+					<p><strong>{{ $user->name }}</strong><br />{{ $user->nickname }}</p>
 				</div>
 				<div id="rolldivider"></div>
 				<ul>
-					<li class="rolldata">text 1 </li>
-					<li class="rolldata">text 2 </li>
-					<li class="rolldata">text 3 </li>
+					@for ($i=0; $i<count($user['roll']); $i++)
+						<li class="rolldata" data-idx="{{ $i }}">{{ $user['roll'][$i] }}</li>
+					@endfor
 				</ul>
 				<div class="divisioninputform">
-					<input type="text" class="divisioninput" placeholder="추가할 사항을 입력하세요.">
-					<button class="divisionbutton">추가</button>
+					<input type="text" name="roll" class="divisioninput" placeholder="추가할 사항을 입력하세요.">
+					<button class="divisionbutton" onclick="addRoll();">추가</button>
 				</div>
 			</div>
 			<div id="userroll">
 				<a href="javascript:void(0);" id="z" onclick="rollout();">x</a>
-				<div class="usersection">
-					<div class="rollname">
-						<img src="assets/img/sun.png" alt="">
-						<p><strong>test</strong><br />text text text</p>
+				
+				@foreach ($members as $member)
+					<div class="usersection">
+						<div class="rollname">
+							<img src="{{ file_exists(public_path('storage/profile_imgs/'.$member->id)) ? asset('storage/profile_imgs/'.$member->id) : asset('storage/profile_imgs/default') }}" alt="프로필 사진">
+							<p><strong>{{ $member->name }}</strong><br />{{ $member->nickname }}</p>
+						</div>
+						<div class="rollprofile">
+							<ul class="padding" @if ($member->id == $user->id) id="user_roll" @endif>
+								@foreach ($member['roll'] as $roll)
+									<li class="rollprofilelist">{{ $roll }}</li>
+								@endforeach
+							</ul>
+						</div>
 					</div>
-					<div class="rollprofile">
-						<ul class="padding">
-							<li class="rollprofilelist">text 1 </li>
-							<li class="rollprofilelist">text 2 </li>
-							<li class="rollprofilelist">text 3 </li>
-						</ul>
-					</div>
-				</div>
-				<div class="usersection">
-					<div class="rollname">
-						<img src="assets/img/sun.png" alt="">
-						<p><strong>test</strong><br />text text text</p>
-					</div>
-					<div class="rollprofile">
-						<ul class="padding">
-							<li class="rollprofilelist">text 1 </li>
-							<li class="rollprofilelist">text 2 </li>
-							<li class="rollprofilelist">text 3 </li>
-						</ul>
-					</div>
-				</div>
-				<div class="usersection">
-					<div class="rollname">
-						<img src="assets/img/sun.png" alt="">
-						<p><strong>test</strong><br />text text text</p>
-					</div>
-					<div class="rollprofile">
-						<ul class="padding">
-							<li class="rollprofilelist">text 1 </li>
-							<li class="rollprofilelist">text 2 </li>
-							<li class="rollprofilelist">text 3 </li>
-						</ul>
-					</div>
-				</div>
+				@endforeach
 			</div>
 		</div>
 		<!-- to do list -->
@@ -218,15 +198,37 @@
 			<div id="officeheader">연락처<a href="javascript:void(0);" id="x" onclick="closetel();">x</a></div>
 			<div class="officelist">내 연락처</div>
 			<div class="profile">
-				<img src="assets/img/sun.png" alt="" class="profileimg">
-				<p><strong>User</strong>text</p>
+				<img src="{{ file_exists(public_path('storage/profile_imgs/'.$user->id)) ? asset('storage/profile_imgs/'.$user->id) : asset('storage/profile_imgs/default') }}" alt="프로필사진" class="profileimg">
 			</div>
 			<div class="profiletext">
-				<strong class="col-md-2">title</strong><p class="col-md-10">alnksnlsdlknasnklslknas</p>
-				<strong class="col-md-2">title</strong><p class="col-md-10">alnksnlsdlknasnklslknas</p>
+				<strong class="col-md-4">이메일</strong><p class="col-md-8">{{ $user->email }}</p>
+				<strong class="col-md-4">휴대전화</strong><p class="col-md-8">{{ $user->phone }}</p>
 			</div>
 			<div id="divider"></div>
-			<div class="officelist">내 연락처</div>
+
+			@for ($i=0, $cnt=0; $i<count($members); $i++)
+				@if ($members[$i]->id == $user->id)
+					@continue;
+				@endif
+
+				<?php $cnt++; ?>
+
+				<div class="officelist">
+				@if ($cnt == 1)
+					그룹원 연락처
+				@endif
+				</div>
+				<div class="profile">
+					<img src="{{ file_exists(public_path('storage/profile_imgs/'.$members[$i]->id)) ? asset('storage/profile_imgs/'.$members[$i]->id) : asset('storage/profile_imgs/default') }}" alt="프로필사진" class="profileimg">
+					<p><strong>{{ $members[$i]->name }}</strong>{{ $members[$i]->nickname }}</p>
+				</div>
+				<div class="profiletext">
+					<strong class="col-md-4">이메일</strong><p class="col-md-8">{{ $members[$i]->email }}</p>
+					<strong class="col-md-4">휴대전화</strong><p class="col-md-8">{{ $members[$i]->phone }}</p>
+				</div>
+			@endfor
+<!--
+			<div class="officelist">그룹원 연락처</div>
 			<div class="profile">
 				<img src="assets/img/sun.png" alt="" class="profileimg">
 				<p><strong>User</strong>text</p>
@@ -253,6 +255,7 @@
 				<strong class="col-md-2">title</strong><p class="col-md-10">alnksnlsdlknasnklslknas</p>
 				<strong class="col-md-2">title</strong><p class="col-md-10">alnksnlsdlknasnklslknas</p>
 			</div>
+-->
 		</div>
 
 		<div id="tree">

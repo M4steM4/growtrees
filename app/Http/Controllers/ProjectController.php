@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Hash;
 use App\Project;
 use App\User;
 use App\Chatting;
+use App\Roll;
 use App\Http\Requests;
 
 class ProjectController extends Controller
@@ -104,6 +105,17 @@ class ProjectController extends Controller
 	    }
     }
 
+    private function createRoll(int $project_id, int $user_id, string $roll = '')
+    {
+	$newRoll = new Roll;
+	
+	$newRoll->project_id = $project_id;
+	$newRoll->user_id = $user_id;
+	$newRoll->roll = $roll;
+	
+	$newRoll->save();
+    }
+
     private function createProject(Request $request, User $user)
     {
 	    $project = new Project;
@@ -116,6 +128,8 @@ class ProjectController extends Controller
         $project->due_date = date('Y-m-d H:i:s', strToTime($request->input('due_date')) + 60 * 60 * 24 - 1);
 
         $project->save();
+
+	$this->createRoll($project->id, $user->id);
     }
 
     public function store(Request $request)
@@ -207,6 +221,8 @@ class ProjectController extends Controller
     	$project['requests'] = $requests;
     	$project['members'] .= $requestUid . 'n';
     	$project->save();
+	
+	$this->createRoll($project->id, $requestUid);
     	
     	return 'success';
     }
@@ -240,8 +256,31 @@ class ProjectController extends Controller
      */
     public function show(Project $project)
     {
-	    $this->authorize('access', $project);
-	    $user = Auth::user();
+	$this->authorize('access', $project);
+	$user = Auth::user();
+	
+	$members = $project->members;
+	$members = explode('n', $members);
+	array_pop($members);
+
+	for($i=0; $i<count($members); $i++) {
+		$members[$i] = User::find($members[$i]);
+		$roll = Roll::where([
+			['user_id', '=', $members[$i]->id],
+			['project_id', '=', $project->id],
+		])->first();
+	
+		$roll = $roll->roll;
+		$roll = explode('/*/', $roll);
+		array_pop($roll);
+
+		if($members[$i]->id == $user->id) {
+			$user['roll'] = $roll;
+		}
+
+		$members[$i]['roll'] = $roll;
+	}
+
     	/*
     	$chatting = Chatting::select(['user_id', 'message'])->where('project_id', '=', $project->id)->get();
     	for($i=0; $i<count($chatting); $i++) {
@@ -252,7 +291,7 @@ class ProjectController extends Controller
     	}
     	*/
 
-    	return view('project', compact('user', 'project'));
+    	return view('project', compact('user', 'project', 'members'));
     }
 
     /**

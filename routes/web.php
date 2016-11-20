@@ -89,4 +89,12 @@ Route::group(['middleware' => ['auth']], function () {
 	Route::post('chat_list', [
 		'uses' => 'ChattingController@getNewList'
 	]);
+
+	Route::post('rolls', [
+		'uses' => 'RollController@store'
+	]);
+	
+	Route::post('update_roll', [
+		'uses' => 'RollController@updateRoll'
+	]);
 });
