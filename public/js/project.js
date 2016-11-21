@@ -135,7 +135,125 @@ function hideSideMenu() {
 	$('.sidemenu').hide();
 }
 
+function setCurMonth(month) {
+	$('.month-active').html(month + '월');
+}
+
+function prevClicked (month) {
+	var year = $('meta[name="year"]').attr('content');
+
+	if(month == 12) {
+		year--;
+		$('meta[name="year"]').attr('content', year);
+	}
+
+	displayMonth(year, month);
+}
+function nextClicked (month) {
+	var year = $('meta[name="year"]').attr('content');
+
+        if(month == 1) {
+                year++;
+                $('meta[name="year"]').attr('content', year);
+        }
+
+        displayMonth(year, month);
+}
+function setPrevMonth(month) {
+	if(month == 0) { 
+		month = 12; 
+	}
+
+	$('.month:first-child').html('<span onclick="prevClicked(' + month + ');">' + month + '월<span>');
+}
+function setNextMonth(month) {
+	if(month == 13) { 
+		month = 1; 
+	}
+
+	$('.month:last-child').html('<span onclick="nextClicked(' + month + ');">' + month + '월<span>');
+}
+
+function displayMonth(year, month) {
+	$('#year').html($('meta[name="year"]').attr('content'));	
+
+	setCurMonth(month);
+	setPrevMonth(month-1);
+	setNextMonth(month+1);
+
+	var curMonth = new Date(year, month-1);
+	var nextMonth = new Date(year, month);
+	
+	var offset = curMonth.getDay();
+
+	$('#days').html('');
+	var ul = '<ul><li>일</li><li>월</li><li>화</li><li>수</li><li>목</li><li>금</li><li>토</li></ul>';
+	$('#days').html(ul);
+
+	nextMonth.setDate(nextMonth.getDate() - 1);
+	ul = "<ul class='offset-" + offset + "'>";
+		for(var i=1; i <= 7-offset; i++) {
+			ul += '<li>' + i + '</li>';
+		}
+	
+	var cnt = nextMonth.getDate();
+	for(var i = 8-offset; i<=cnt; i++) {
+		var flag = false;
+
+		switch(offset)
+		{
+		case 0 :
+			if(i%7 == 1) { flag = true; }
+			break;
+		case 1 :
+			if(i%7 == 0) { flag = true; }
+			break;
+		case 2 :
+			if(i%7 == 6) { flag = true; }
+			break;
+		case 3 :
+			if(i%7 == 5) { flag = true; }
+			break;
+		case 4 :
+			if(i%7 == 4) { flag = true; }
+			break;
+		case 5 :
+			if(i%7 == 3) { flag = true; }
+			break;
+		case 6 :
+			if(i%7 == 2) { flag = true; }
+			break;
+		}
+	
+		if(flag) {
+			ul += "</ul>";
+			$('#days').append(ul);
+	
+			ul = "<ul>";
+		}
+
+		ul += "<li>" + i + "</li>";
+	}
+
+	ul += "</ul>";
+	$('#days').append(ul);
+}
+
+function displayDate(year, month, date) {
+
+}
+
 $(document).ready(function () {
+	var today = new Date();
+	var curYear = today.getFullYear();
+	var curMonth = today.getMonth() + 1;
+	var curDate = today.getDate();
+	
+	displayMonth(curYear, curMonth);
+	displayDate(curYear, curMonth, curDate);
+
+	$('head').append('<meta name="year" content="' + curYear + '">');
+
 	setInterval(getNewList, 300);
 	$('[data-toggle="tooltip"]').tooltip();
 	

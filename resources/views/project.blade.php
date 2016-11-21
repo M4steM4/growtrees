@@ -73,27 +73,27 @@
 				<div id="chat-mini">
 					<div class="chatting-mini">
 						<img src="{{ asset('storage/profile_imgs/default') }}" alt="">
-						<div><strong>user01</strong>text text text text</div>
+						<strong>user01</strong>text text text text
 					</div>
 					<div class="chatting-mini">
 						<img src="{{ asset('storage/profile_imgs/default') }}" alt="">
-						<div><strong>user01</strong>text text text text</div>
+						<strong>user01</strong>text text text text
 					</div>
 					<div class="chatting-mini">
 						<img src="{{ asset('storage/profile_imgs/default') }}" alt="">
-						<div><strong>user01</strong>text text text text</div>
+						<strong>user01</strong>text text text text
 					</div>
 					<div class="chatting-mini">
 						<img src="{{ asset('storage/profile_imgs/default') }}" alt="">
-						<div><strong>user01</strong>text text text text</div>
+						<strong>user01</strong>text text text text
 					</div>
 					<div class="chatting-mini">
 						<img src="{{ asset('storage/profile_imgs/default') }}" alt="">
-						<div><strong>user01</strong>text text text text</div>
+						<strong>user01</strong>text text text text
 					</div>
 					<div class="chatting-mini">
 						<img src="{{ asset('storage/profile_imgs/default') }}" alt="">
-						<div><strong>user01</strong>text text text text</div>
+						<strong>user01</strong>text text text text
 					</div>
 				</div>
 				<div class="white-input">
@@ -103,13 +103,66 @@
 			</div>
 			<div id="calender-month" class="white-box">
 				<a href="javascript:void(0);" class="x-button" onclick="closeflex();">x</a>
-				<div class="monthlist">
-					<div class="month">10월</div>
-					<div class="month month-active">11월</div>
-					<div class="month">12월</div>
+				<div id="year" class="bold-30">
+					2016
 				</div>
-				<div class="day">
-					
+				<div class="monthlist">
+					<div class="month"></div>
+					<div class="month month-active"></div>
+					<div class="month"></div>
+				</div>
+				<div id="days">
+					<ul>
+						<li>일</li>
+						<li>월</li>
+						<li>화</li>
+						<li>수</li>
+						<li>목</li>
+						<li>금</li>
+						<li>토</li>
+					</ul>
+				<!--
+					<ul class="offset-2">
+						<li class="day">1</li>
+						<li class="block">2</li>
+						<li>3</li>
+						<li>4</li>
+						<li>5</li>
+					</ul>
+					<ul>              
+						<li>6</li>
+                                                <li>7</li>      
+                                                <li>8</li>
+                                                <li>9</li>
+                                                <li>10</li>
+                                                <li>11</li>
+                                                <li>12</li>
+                                        </ul>
+					<ul>                    
+						<li>13</li>
+                                                <li>14</li>
+                                                <li>15</li>
+                                                <li>16</li>
+                                                <li>17</li>
+                                                <li>18</li>
+                                                <li>19</li>
+                                        </ul>
+					<ul>    
+						<li>20</li>
+                                                <li>21</li>                
+                                                <li>22</li>
+                                                <li>23</li>
+                                                <li>24</li>
+                                                <li>25</li>
+                                                <li>26</li>
+                                        </ul>
+					<ul> 
+						<li>27</li>
+						<li>28</li>           
+                                                <li>29</li>
+                                                <li>30</li>
+                                        </ul>	
+				-->
 				</div>
 			</div>
 		</div>
