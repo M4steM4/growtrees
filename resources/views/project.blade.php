@@ -380,6 +380,17 @@
 			</div>
 			<div class="center"></div>
 		</a>
+		<a><div id="sunday" data-toggle="tooltip" title="Click Me!" class="center"><br/>
+			D-<?php 
+				$end_date = substr($project->due_date, 0, 10);
+				$d_day = floor(( strtotime(substr($end_date,0,10)) - strtotime(date('Y-m-d')) )/86400);
+			
+				if($d_day < 0) {
+					$d_day = 'Day'; //D-Day 가 -로 넘어 갔을때 00으로 맞춤
+				}
+				echo $d_day;
+			?>
+		</div></a>
 
 		<a href="javascript:void(0);">
 			<div id="waterspread">

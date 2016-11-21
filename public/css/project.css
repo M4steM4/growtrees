@@ -944,3 +944,27 @@ header {
 #year {
 	text-align: center;
 }
+
+#sunday {
+	position: absolute;
+	top: 20%;
+	right: 10%;
+	box-shadow: none;
+	1background: orange;
+	text-align: center;
+	color: white;
+	font-size: 30px;
+	line-height: 1.1;
+}
+/*
+.center {
+	background: transparent;
+	width: 100px;
+	height: 100px;
+	border-radius: 50%;
+	z-index: 1;
+	box-shadow: 0px 0px 30px 30px rgba(255,255,204, 0.8),
+				0px 0px 30px 60px rgba(255,230,200, 0.8),
+				0px 0px 30px 90px rgba(255,230,220, 0.4);
+}
+*/
