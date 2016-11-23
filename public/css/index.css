@@ -1,0 +1,266 @@
+h1, h2, h3, h4, h5, h6 {
+	font-weight: bold;
+}
+a {
+	color: rgba(222, 222, 222, 0.6);
+}
+a:hover {
+	-webkit-transition: 0.5s;
+	transition: 0.7s;
+	color: white;
+	text-decoration: none;
+}
+#login_form label {
+	color: white;
+	margin-bottom: -1em;
+}
+.modal-body .glyph {
+	opacity: 0.5;
+}
+.notice {
+	margin-bottom: 0;
+	font-size: 0.8em;
+}
+.modal-header {
+	color: white;
+	background-color: #74b844;
+	margin-bottom: 2em;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+}
+.modal-body p {
+	padding: 1em 0;
+}
+.modal-content {
+	background-color: #eceeef;
+}
+.modal-body, .modal-body button, .modal-body input {
+	background-color: #eceeef;
+	color: #888888;
+}
+.modal-body input {
+	padding-left: 0;
+	height: 3em;
+	border-radius: 0;
+	border: none;
+	box-shadow: none;
+	border-bottom: 1px solid rgba(128, 128, 128, 0.5);
+	outline: none;
+}
+.modal-body input:focus {
+	-webkit-transition: 0.5s;
+    transition: 0.7s;
+	border-radius: 0.3em;
+	-webkit-appearance: none;
+}
+input[name='profile_image'] {
+	width: 150px;
+	max-width: 150px;
+	height: 150px;
+	max-width: 150px;
+	z-index: 100;
+	opacity: 0;
+}
+
+#profile_wrapper {
+	margin-top: 0.5em;
+	margin-left: 1em;
+	width: 150px;
+	height: 150px;
+	overflow: hidden;
+}
+label[for="profile_image"]:first-child {
+	float: right;
+}
+
+@media screen and (min-width: 768px) {
+	#profile_wrapper {
+		margin-left: 4.6em;
+	}
+}
+
+#profile_wrapper, #selected_image {
+	border: 1px solid #cccccc;
+}
+
+#profile_wrapper {
+	border-radius: 75px;
+}
+#selected_image {
+	border-radius: 125px;
+}
+
+#preview {
+	position: absolute;
+	background-color: #cccccc;
+	left: 0;
+	top: 0;
+	z-index: 0;
+}
+.form-group:last-child {
+	margin-bottom: 0;
+}
+.modal-body {
+	padding-bottom: 0;
+}
+.modal-body button {
+	margin-top: 2em;
+	padding: 1em 0;
+}
+
+.div {
+	border-top: 1px solid #eeeeee;
+	margin-bottom: 3%
+}
+.items {
+	margin-top: 3%;
+	padding: 0 5% 0 5%;
+}
+.items > h4 {
+	font-size: 20px;
+	border-top: 3px solid #009933;
+	text-align: center;
+}
+.items > h5 {
+	font-size: 18px;
+	margin: 2% 0 2% 0;
+}
+.well {
+	text-align: center;
+	vertical-align: middle;
+	margin: 3% 10% 7% 3%;
+}
+.point {
+	margin: 0 1% 0 1%;
+	color: #006600;
+}
+.point-li {
+	margin: 0 1% 0 2%;
+}
+.bold {
+	font-weight: bold;
+}
+.container-fluid {
+	margin-left: -15px;
+}
+.col-md-4 > img {
+	margin: 5% 0 5% 0;
+}
+.col-md-5 > img {
+	margin: 10% 0 5% 0;
+}
+.reward{
+	width: 80%;
+	margin: 0 10% 1% 10%;
+}
+.footer {
+	margin: 0 0 -7% 0;
+	padding: 3% 0 3% 0;
+	background: #bbbbbb;
+}
+.footer-text {
+	text-align: center;
+	font-size: 15px;
+	color: white;
+}
+.section {
+	margin-right: -20px;
+}
+.section > li {
+	box-sizing: border-box;
+	background-color: #888888;
+	float: left;
+}
+.section > li > a {
+	font-size: 15px;
+	font-weight: normal;
+	color: white;
+	text-align: center;
+}
+.rowspan {
+	margin-top: 12%;
+}
+.table {
+	text-align: center;
+	vertical-align: middle;
+}
+.table-bordered th, .table-bordered td {
+    border: 1px solid #999 !important;
+  }
+.block {
+	background-color: #cccccc;
+}
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:focus, .nav-tabs > li.active > a:hover {
+	background-color: #009933;
+	color: white;
+	font-weight: bold;
+	border: 2px solid white;
+	border-radius: 0;
+}
+.nav-tabs > li:hover > a {
+	background-color: #cccccc;
+	border-radius: 0;
+	color: #444444;
+}
+* {
+
+}
+/* 위에껀 김준영이 한거*/
+
+#main {
+	background: url('../images/background.png') no-repeat center center fixed; 
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	background-position: center center;
+	text-align: center;
+	overflow-x: hidden;
+}
+#main > img {
+	width: 15%;
+	min-width: 150px;
+	margin: 6% 0% 4% 0%;
+}
+.maininput {
+	min-height: 40px;
+	box-sizing: border-box;
+	margin-top: 20px;
+	padding: 0.75%;
+	padding-left: 1%;
+	border: 3px solid rgba(200, 200, 200, 0.7);
+	background-color: transparent;
+	color: rgba(222, 222, 222, 0.6);
+	-webkit-transition: 0.5s;
+	transition: 0.7s;
+	outline: none;
+}
+.inputform > input[type=text]:focus, .inputform > input[type=password]:focus {
+    border :3px solid rgba(255, 255, 255, 1);
+    color: rgba(255, 255, 255, 0.9);
+}
+.btn-right {
+	margin-left: -8%;
+	margin-right: 3%;
+}
+.btn-left {
+	margin-left: 3%;
+	margin-right: -8%;
+}
+.mainbutton {
+	min-height: 40px;
+	box-sizing: border-box;
+	margin-top: 1%;
+	padding: 1%;
+	border: 2px solid rgba(255, 255, 255, 0.8);
+	background-color: transparent;
+	color: rgba(255, 255, 255, 0.8);
+	font-weight: normal;
+	transition: 0.5s;
+	width: 49%;
+}
+.mainbutton:hover {
+	background-color: rgba(255, 255, 255, 0.8);
+	color: rgba(55, 55, 55, 1);
+	font-weight: bold;
+}
