@@ -169,28 +169,28 @@ input[type="text"]::-webkit-input-placeholder {
 	background-color: #eceeef;
 }
 .modal-body input {
-        padding-left: 0;
-        height: 3em;
-        border-radius: 0;
-        border: none;
-        box-shadow: none;
-        border-bottom: 1px solid rgba(128, 128, 128, 0.5);
-        outline: none;
+	padding-left: 0;
+	height: 3em;
+	border-radius: 0;
+	border: none;
+	box-shadow: none;
+	border-bottom: 1px solid rgba(128, 128, 128, 0.5);
+	outline: none;
 }
 .modal-body textarea {
 	border-radius: 0;
-        border: none;
-        box-shadow: none;
+	border: none;
+	box-shadow: none;
 	border-top: 1px solid rgba(128, 128, 128, 0.5);
-        border-bottom: 1px solid rgba(128, 128, 128, 0.5);
-        outline: none;
+	border-bottom: 1px solid rgba(128, 128, 128, 0.5);
+	outline: none;
 	padding-left: 0;
 }
 .modal-body input:focus, .modal-body textarea {
-        -webkit-transition: 0.5s;
-        transition: 0.7s;
-        border-radius: 0.3em;
-        -webkit-appearance: none;
+	-webkit-transition: 0.5s;
+	transition: 0.7s;
+	border-radius: 0.3em;
+	-webkit-appearance: none;
 }
 
 .modal-header {
@@ -208,7 +208,7 @@ input[type="text"]::-webkit-input-placeholder {
 	color: #74b844;
 }
 #profile_info .modal-body {
-    padding-bottom: 2em;
+	padding-bottom: 2em;
 }
 #profile_info .modal-body > div span {
 	margin-top: 1em;
@@ -329,9 +329,9 @@ input[type="file"] {
 	vertical-align: top;
 }
 #show_requests h2 { 
-        font-size: 22px;
-        font-weight: bold;
-        margin-bottom: 15px;
+	font-size: 22px;
+	font-weight: bold;
+	margin-bottom: 15px;
 }
 #show_requests .project_wrapper > div {
 	display: inline-block;
@@ -344,7 +344,7 @@ input[type="file"] {
 }
 #show_requests .project_wrapper > div:nth-child(4n-2) .green {
 	font-size: 20px;
-        font-weight: bold;
+	font-weight: bold;
 }
 #show_requests .project_wrapper > div:nth-child(4n-1) {
 	height: 100px;
@@ -409,9 +409,9 @@ input[type="file"] {
 }
 
 .project_wrapper > div > button {
-        width: auto;
-        background-color: inherit;
-        border: 2px solid #74b844;
-        border-radius: 4px;
+	width: auto;
+	background-color: inherit;
+	border: 2px solid #74b844;
+	border-radius: 4px;
 	margin-left: 10px;
 }

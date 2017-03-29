@@ -202,11 +202,6 @@ label[for="profile_image"]:first-child {
 	border-radius: 0;
 	color: #444444;
 }
-* {
-
-}
-/* 위에껀 김준영이 한거*/
-
 #main {
 	background: url('../images/background.png') no-repeat center center fixed; 
 	-webkit-background-size: cover;

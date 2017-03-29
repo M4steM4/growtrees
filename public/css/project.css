@@ -3,7 +3,6 @@ html, body {
 	height: 100%;
 	overflow-x: hidden;
 }
-
 .autoLink {
 	color: #337ab7;
 }
@@ -25,17 +24,17 @@ input, textarea {
 	color: #74b844;
 }
 header {
-        width: 100%; 
-        height: 50px;
-        background-color: #74b844;
-        color: white;
-        position: relative;
-        z-index: 10000;
+	width: 100%; 
+	height: 50px;
+	background-color: #74b844;
+	color: white;
+	position: relative;
+	z-index: 10000;
 }
 #logo {
 	top: 0;
-        left: 5%;
-        position: absolute;
+	left: 5%;
+	position: absolute;
 }
 
 #menubar > ul > li > a {
@@ -203,16 +202,13 @@ header {
 	font-size: 50px;
 	font-weight: :100;
 }
-
 #chat-mini {
 	overflow-x: hidden;
 	overflow-y: auto;
 }
-
 /* roll */
 #roll {
 	position: absolute;
-
 	width: 700px;
 	height: 450px;
 	margin-left: calc(50% - 350px);
@@ -468,7 +464,6 @@ header {
 	border: 1px solid #74b844;
 }
 
-/*office*/
 /*office*/
 #office {
 	position: relative;
@@ -749,8 +744,8 @@ header {
 	border-radius: 50%;
 	z-index: 1;
 	box-shadow: 0px 0px 30px 30px rgba(255,255,204, 0.8),
-				0px 0px 30px 60px rgba(255,230,200, 0.8),
-				0px 0px 30px 90px rgba(255,230,220, 0.4);
+	0px 0px 30px 60px rgba(255,230,200, 0.8),
+	0px 0px 30px 90px rgba(255,230,220, 0.4);
 }
 .triangle {
 	width: 0; 
@@ -789,8 +784,8 @@ header {
 	top: 80px;
 }
 @keyframes roll {
-  0% { transform: rotate(0); }
-  100% { transform: rotate(360deg); }
+	0% { transform: rotate(0); }
+	100% { transform: rotate(360deg); }
 }
 
 /* tooltop */
@@ -885,19 +880,16 @@ header {
 .monthlist {
 	box-sizing: border-box;
 }
-
 .offset-1 { margin-left: 59px; }
 .offset-2 { margin-left: 118px; }
 .offset-3 { margin-left: 177px; }
 .offset-4 { margin-left: 236px; }
 .offset-5 { margin-left: 295px; }
 .offset-6 { margin-left: 354px; }
-
 #days {
 	margin-top: 20px;
 	height: 70%;
 }
-
 #days > ul {
 	position: relative;
 	-webkit-padding-start: 10px;
@@ -916,20 +908,17 @@ header {
 	font-size: 20px;
 	color: #737473;
 	font-weight: thin;
-	1border: 1px solid #74b844;
+	border: 1px solid #74b844;
 	border-radius: 22.5px;
 }
-
 #calender {
-	1height: 550px;
+	height: 550px;
 }
-
 #days > ul:first-child li {
-	1margin: 5px;
+	margin: 5px;
 	font-size: 20px;
 	border: none;
 }
-
 .day {
 	background-color: #74b844;
 	color: white !important;
@@ -937,34 +926,20 @@ header {
 .block {
 	opacity: 0.5;
 }
-
 .sidemenu {
 	z-index: 500000 !important;
 }
 #year {
 	text-align: center;
 }
-
 #sunday {
 	position: absolute;
 	top: 20%;
 	right: 10%;
 	box-shadow: none;
-	1background: orange;
+	background: orange;
 	text-align: center;
 	color: white;
 	font-size: 30px;
 	line-height: 1.1;
 }
-/*
-.center {
-	background: transparent;
-	width: 100px;
-	height: 100px;
-	border-radius: 50%;
-	z-index: 1;
-	box-shadow: 0px 0px 30px 30px rgba(255,255,204, 0.8),
-				0px 0px 30px 60px rgba(255,230,200, 0.8),
-				0px 0px 30px 90px rgba(255,230,220, 0.4);
-}
-*/
